@@ -76,3 +76,22 @@ Nothing in the HTML has been changed yet. Approve by ID (for example "approve al
 * Type: Fredoka and Raleway become Source Serif 4 (headings) and Century Gothic (everything else, with URW Gothic and Questrial as web stand-ins).
 * Logo: horizontal lockup in the header, emblem badge on a white disc where the ground is dark, and a new favicon and Apple touch icon (files are in `assets/Logos`). The old Cloudinary `HCSF_Logo_2` links get replaced in every page, including JSON-LD and social-preview tags.
 * Open items from the brand book: written permission to show the Federal coat of arms on a personal website; whether she wants a second mark without the office title and "2024-2026".
+
+## F. Decisions received and applied
+
+| ID | Decision |
+|---|---|
+| D1 | Start date: 14 August 2024 (newer documents win). |
+| D2 | End date shown as "August 2026". |
+| D3 | Years of service: "34 years of public service" everywhere. |
+| D4 | Books *I Planted* and *Beyond the Mandate* kept. |
+| D5 | Contact details and office address taken from the consulting site (Beautiful Gate Villa, Plot 812 Paul Unongo Crescent, Jabi, Abuja; +234 909 511 9999). Email set to didi@didiwalsonjack.com. |
+| D6 | Pull-quote and taglines replaced with documented quotes. |
+| D7 | Mohammed Bin Rashid School of Government added to the education timeline (qualification and year to be confirmed). |
+| A23 | The HIDE values (Hardwork, Integrity, Diligence, Empathy) are her personal core values and stay. EPIC stays alongside. |
+
+Other changes made while applying the above:
+
+* The contact form only showed a "sent" message and delivered nothing. It now opens the visitor's email application with the message addressed to didi@didiwalsonjack.com. Replace with a form service if one is wanted.
+* Photo captions on the home page described events (for example "federal executive council summit", "UN and World Bank partners") that no source document confirms. They are now neutral.
+* All "Buy on Amazon" links use https://www.amazon.com/dp/B0DNY67X1C, the link already used on the home page. The old Books-page link contained "Dame" in its address.
