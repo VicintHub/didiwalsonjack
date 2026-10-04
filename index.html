@@ -7,62 +7,60 @@
   <title>Mrs. Didi Walson-Jack, OON, mni | 20th Head of the Civil Service of the Federation</title>
 
   <!-- FAVICON & WEB CLIP -->
-  <link rel="icon" type="image/png"
-    href="https://res.cloudinary.com/pwkdspnn/image/upload/f_auto,q_auto:good,w_1000/f_webp/HCSF_Logo_2_gwgbbq.png" />
-  <link rel="apple-touch-icon"
-    href="https://res.cloudinary.com/pwkdspnn/image/upload/f_auto,q_auto:good,w_1000/f_webp/HCSF_Logo_2_gwgbbq.png" />
+  <link rel="icon" href="/assets/Logos/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/Logos/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/Logos/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/Logos/favicon-180.png" />
   <meta name="description"
     content="Official website of Mrs. Didi Esther Walson-Jack, OON, mni — 20th Head of the Civil Service of the Federation of Nigeria. Executive Advisory, Public Sector Transformation, Governance, Policy & Author." />
   <meta name="keywords"
     content="Didi Walson-Jack, HCSF, Head of Service Nigeria, Federal Civil Service, FCSSIP25, ServiceWise GPT, ECMS, Roses in the Thorns, Public Sector Transformation, Governance Advisory" />
 
-  <!-- Google Fonts (Fredoka for Headings, Raleway for Body) -->
+  <!-- Google Fonts: Source Serif 4 (headings) and Questrial (free stand-in for Century Gothic) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
        DESIGN SYSTEM & CSS VARIABLES (Brand Style Guide Compliant)
        ========================================================================== */
     :root {
-      /* Rich Emerald Green Primary Theme (#2b653f) */
-      --navy-primary: #2b653f;
-      --navy-deep: #1c442a;
-      --navy-light: #397e51;
+      /* Rich Emerald Green Primary Theme (#3B1F4A) */
+      --navy-primary: #3B1F4A;
+      --navy-deep: #2A1636;
+      --navy-light: #7A4BA8;
 
       /* Gold Accent Palette (Preserved) */
-      --gold-primary: #C4954A;
-      --gold-light: #DFB775;
-      --gold-dark: #9E7432;
-      --parchment: #F5F0E8;
-      --parchment-light: #FAF7F2;
+      --gold-primary: #7A4BA8;
+      --gold-light: #C9B6E4;
+      --gold-dark: #5E3585;
+      --parchment: #FBF8F4;
+      --parchment-light: #FBF8F4;
 
       /* Secondary Palette */
-      --forest-reform: #2b653f;
-      --deep-rose: #7B3052;
-      --niger-blue: #1E4A6B;
-      --warm-earth: #6B4226;
-      --stone: #8A8580;
-      --soft-sand: #E8E0D0;
+      --forest-reform: #3B1F4A;
+      --deep-rose: #B03A63;
+      --niger-blue: #7A4BA8;
+      --warm-earth: #5E3585;
+      --stone: #5E5566;
+      --soft-sand: #E9DFF5;
 
       /* Text Colors */
-      --text-dark: #1E293B;
-      --text-muted: #64748B;
-      --text-light: #F8FAFC;
-      --text-gold: #C4954A;
+      --text-dark: #231F26;
+      --text-muted: #5E5566;
+      --text-light: #FBF8F4;
+      --text-gold: #7A4BA8;
 
-      /* Typography: Fredoka for Headings */
-      --font-heading: 'Fredoka', sans-serif;
-      --font-body: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+      /* Typography: Source Serif 4 for headings, Century Gothic for body */
+      --font-heading: 'Source Serif 4', Georgia, serif;
+      --font-body: 'Century Gothic', 'URW Gothic', 'Questrial', 'Avant Garde', sans-serif;
 
       /* Transitions & Shadows */
       --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --shadow-card: 0 10px 30px -5px rgba(43, 101, 63, 0.08), 0 4px 12px -2px rgba(43, 101, 63, 0.04);
-      --shadow-hover: 0 20px 40px -10px rgba(43, 101, 63, 0.16), 0 8px 20px -4px rgba(196, 149, 74, 0.2);
-      --shadow-gold: 0 10px 25px -5px rgba(196, 149, 74, 0.25);
+      --shadow-card: 0 10px 30px -5px rgba(59,31,74, 0.08), 0 4px 12px -2px rgba(59,31,74, 0.04);
+      --shadow-hover: 0 20px 40px -10px rgba(59,31,74, 0.16), 0 8px 20px -4px rgba(122,75,168, 0.2);
+      --shadow-gold: 0 10px 25px -5px rgba(122,75,168, 0.25);
     }
 
     /* Reset & Base Styles */
@@ -212,7 +210,7 @@
     .btn-gold:hover {
       background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
       transform: translateY(-3px);
-      box-shadow: 0 15px 30px -5px rgba(196, 149, 74, 0.35);
+      box-shadow: 0 15px 30px -5px rgba(122,75,168, 0.35);
     }
 
     .btn-navy {
@@ -264,13 +262,13 @@
       width: 92%;
       max-width: 1200px;
       z-index: 1000;
-      background: rgba(28, 68, 42, 0.94);
+      background: rgba(42,22,54, 0.94);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1.5px solid rgba(196, 149, 74, 0.4);
+      border: 1.5px solid rgba(122,75,168, 0.4);
       border-radius: 50px;
       padding: 0.6rem 1.75rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(196, 149, 74, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(122,75,168, 0.2);
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, background 0.3s ease;
     }
 
@@ -331,7 +329,7 @@
     .nav-link {
       font-size: 1.02rem;
       font-weight: 600;
-      color: rgba(245, 240, 232, 0.85);
+      color: rgba(251,248,244, 0.85);
       position: relative;
       padding: 0.3rem 0;
       transition: var(--transition-smooth);
@@ -352,7 +350,7 @@
       color: #FFFFFF;
       font-size: 0.95rem;
       font-weight: 700;
-      box-shadow: 0 4px 15px rgba(196, 149, 74, 0.3);
+      box-shadow: 0 4px 15px rgba(122,75,168, 0.3);
       transition: var(--transition-smooth);
       border: none;
     }
@@ -360,7 +358,7 @@
     .nav-cta-btn:hover {
       background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(196, 149, 74, 0.45);
+      box-shadow: 0 8px 20px rgba(122,75,168, 0.45);
     }
 
     .nav-cta-icon {
@@ -476,7 +474,7 @@
       gap: 0.5rem;
       padding: 0.4rem 1.2rem;
       border-radius: 50px;
-      background: rgba(196, 149, 74, 0.2);
+      background: rgba(122,75,168, 0.2);
       border: 1px solid var(--gold-primary);
       color: var(--gold-light);
       font-size: 0.8rem;
@@ -491,7 +489,7 @@
       font-family: var(--font-heading);
       font-size: 3.8rem;
       font-weight: 700;
-      color: #1c442a;
+      color: #2A1636;
       line-height: 1.1;
       margin-bottom: 1rem;
       text-transform: uppercase;
@@ -503,7 +501,7 @@
       font-family: var(--font-heading);
       font-size: 3.5rem;
       font-weight: 700;
-      color: #1c442a;
+      color: #2A1636;
       line-height: 1.1;
       margin-bottom: 1rem;
       text-transform: uppercase;
@@ -526,7 +524,7 @@
 
     .hero-slide-desc {
       font-size: 1.15rem;
-      color: #1E293B;
+      color: #231F26;
       font-weight: 600;
       margin-bottom: 2rem;
       line-height: 1.7;
@@ -579,7 +577,7 @@
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background: rgba(43, 101, 63, 0.25);
+      background: rgba(59,31,74, 0.25);
       border: 1.5px solid var(--navy-primary);
       cursor: pointer;
       transition: var(--transition-smooth);
@@ -597,7 +595,7 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(43, 101, 63, 0.95);
+      background: rgba(59,31,74, 0.95);
       border: 1.5px solid var(--gold-primary);
       color: #FFFFFF;
       display: flex;
@@ -638,7 +636,7 @@
 
     .hero-bio {
       font-size: 1.05rem;
-      color: rgba(245, 240, 232, 0.85);
+      color: rgba(251,248,244, 0.85);
       margin-bottom: 2.2rem;
       max-width: 640px;
     }
@@ -691,7 +689,7 @@
       position: absolute;
       bottom: -25px;
       left: -25px;
-      background: rgba(26, 26, 46, 0.96);
+      background: rgba(42,22,54, 0.96);
       backdrop-filter: blur(12px);
       border: 1.5px solid var(--gold-primary);
       padding: 1.1rem 1.6rem;
@@ -733,7 +731,7 @@
     .hero-metrics {
       margin-top: 5rem;
       padding-top: 3rem;
-      border-top: 1px solid rgba(196, 149, 74, 0.2);
+      border-top: 1px solid rgba(122,75,168, 0.2);
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
@@ -765,7 +763,7 @@
     .metric-label {
       font-size: 0.85rem;
       font-weight: 600;
-      color: rgba(245, 240, 232, 0.75);
+      color: rgba(251,248,244, 0.75);
       text-transform: uppercase;
       letter-spacing: 1px;
     }
@@ -829,7 +827,7 @@
 
     .intro-paragraph {
       font-size: 1.05rem;
-      color: #334155;
+      color: #3C3542;
       margin-bottom: 1.25rem;
       line-height: 1.85;
     }
@@ -885,7 +883,7 @@
       border-radius: 22px;
       overflow: hidden;
       position: relative;
-      border: 2px solid rgba(196, 149, 74, 0.35);
+      border: 2px solid rgba(122,75,168, 0.35);
       background: var(--navy-primary);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
       transition: var(--transition-smooth);
@@ -894,7 +892,7 @@
     .marquee-card:hover {
       transform: translateY(-8px) scale(1.02);
       border-color: var(--gold-primary);
-      box-shadow: 0 20px 40px rgba(196, 149, 74, 0.25);
+      box-shadow: 0 20px 40px rgba(122,75,168, 0.25);
     }
 
     .marquee-img {
@@ -939,7 +937,7 @@
 
     .letter-card {
       background: #FFFFFF;
-      border: 1.5px solid rgba(43, 101, 63, 0.18);
+      border: 1.5px solid rgba(59,31,74, 0.18);
       border-radius: 16px;
       padding: 2rem 1.5rem;
       text-align: center;
@@ -950,7 +948,7 @@
     .letter-card:hover {
       background: #FFFFFF;
       border-color: var(--gold-primary);
-      box-shadow: 0 15px 35px rgba(43, 101, 63, 0.15);
+      box-shadow: 0 15px 35px rgba(59,31,74, 0.15);
       transform: translateY(-5px);
     }
 
@@ -972,13 +970,13 @@
 
     .letter-desc {
       font-size: 0.88rem;
-      color: #475569;
+      color: #5E5566;
       line-height: 1.6;
     }
 
     /* Portrait Quote Banner - OPTIMIZED FRAMING */
     .quote-banner-card {
-      background: linear-gradient(135deg, var(--navy-deep) 0%, #1A1A38 100%);
+      background: linear-gradient(135deg, var(--navy-deep) 0%, #2A1636 100%);
       border-radius: 24px;
       overflow: hidden;
       border: 2px solid var(--gold-primary);
@@ -1047,7 +1045,7 @@
       border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow-card);
-      border: 1px solid rgba(196, 149, 74, 0.2);
+      border: 1px solid rgba(122,75,168, 0.2);
       display: flex;
       flex-direction: column;
       transition: var(--transition-smooth);
@@ -1097,12 +1095,12 @@
     }
 
     .tag-green {
-      background: rgba(44, 95, 58, 0.12);
+      background: rgba(59,31,74, 0.12);
       color: var(--forest-reform);
     }
 
     .tag-blue {
-      background: rgba(30, 74, 107, 0.12);
+      background: rgba(122,75,168, 0.12);
       color: var(--niger-blue);
     }
 
@@ -1112,7 +1110,7 @@
     }
 
     .tag-gold {
-      background: rgba(196, 149, 74, 0.15);
+      background: rgba(122,75,168, 0.15);
       color: var(--gold-dark);
     }
 
@@ -1137,7 +1135,7 @@
       border-radius: 24px;
       overflow: hidden;
       box-shadow: var(--shadow-card);
-      border: 1.5px solid rgba(196, 149, 74, 0.3);
+      border: 1.5px solid rgba(122,75,168, 0.3);
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
       gap: 3.5rem;
@@ -1160,7 +1158,7 @@
     }
 
     .featured-book-img-box {
-      background: radial-gradient(circle, #252542, var(--navy-primary));
+      background: radial-gradient(circle, #3B1F4A, var(--navy-primary));
       padding: 3rem 2rem;
       border-radius: 20px;
       display: flex;
@@ -1182,13 +1180,13 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      box-shadow: 0 4px 12px rgba(196, 149, 74, 0.4);
+      box-shadow: 0 4px 12px rgba(122,75,168, 0.4);
     }
 
     .featured-book-img {
       max-height: 320px;
       border-radius: 8px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(196, 149, 74, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(122,75,168, 0.2);
       transition: var(--transition-smooth);
     }
 
@@ -1204,7 +1202,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      background: rgba(196, 149, 74, 0.15);
+      background: rgba(122,75,168, 0.15);
       color: var(--gold-dark);
       margin-bottom: 1rem;
     }
@@ -1226,7 +1224,7 @@
 
     .featured-book-desc {
       font-size: 1.02rem;
-      color: #475569;
+      color: #5E5566;
       line-height: 1.8;
       margin-bottom: 2rem;
     }
@@ -1281,17 +1279,17 @@
     }
 
     .card-bg-emerald {
-      background-color: #1c442a;
+      background-color: #2A1636;
       color: #FFFFFF;
     }
 
     .card-bg-parchment {
-      background-color: #F5F0E8;
-      color: #1c442a;
+      background-color: #FBF8F4;
+      color: #2A1636;
     }
 
     .card-bg-gold {
-      background-color: #C4954A;
+      background-color: #7A4BA8;
       color: #FFFFFF;
     }
 
@@ -1344,16 +1342,16 @@
 
     .btn-pill-light {
       background: #FFFFFF;
-      color: #1c442a;
+      color: #2A1636;
     }
 
     .btn-pill-light .pill-arrow {
-      background: #1c442a;
+      background: #2A1636;
       color: #FFFFFF;
     }
 
     .btn-pill-dark {
-      background: #1c442a;
+      background: #2A1636;
       color: #FFFFFF;
     }
 
@@ -1456,7 +1454,7 @@
       font-family: var(--font-heading);
       font-size: 2.75rem;
       font-weight: 700;
-      color: #1c442a;
+      color: #2A1636;
       margin-bottom: 1.25rem;
     }
 
@@ -1468,14 +1466,14 @@
 
     .cta-text {
       font-size: 1.15rem;
-      color: #334155;
+      color: #3C3542;
       max-width: 720px;
       margin: 0 auto 2.5rem;
       line-height: 1.6;
     }
 
     .cta-btn-primary {
-      background: #1c442a;
+      background: #2A1636;
       color: #FFFFFF;
       padding: 0.85rem 2.2rem;
       border-radius: 50px;
@@ -1483,7 +1481,7 @@
       font-weight: 700;
       font-size: 1rem;
       text-decoration: none;
-      box-shadow: 0 10px 25px rgba(28, 68, 42, 0.25);
+      box-shadow: 0 10px 25px rgba(42,22,54, 0.25);
       transition: var(--transition-smooth);
       display: inline-flex;
       align-items: center;
@@ -1491,16 +1489,16 @@
     }
 
     .cta-btn-primary:hover {
-      background: #153420;
+      background: #2A1636;
       transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(28, 68, 42, 0.35);
+      box-shadow: 0 15px 30px rgba(42,22,54, 0.35);
       color: #FFFFFF;
     }
 
     .cta-btn-secondary {
       background: transparent;
-      color: #1c442a;
-      border: 2px solid #1c442a;
+      color: #2A1636;
+      border: 2px solid #2A1636;
       padding: 0.85rem 2.2rem;
       border-radius: 50px;
       font-family: var(--font-heading);
@@ -1514,7 +1512,7 @@
     }
 
     .cta-btn-secondary:hover {
-      background: #1c442a;
+      background: #2A1636;
       color: #FFFFFF;
       transform: translateY(-3px);
     }
@@ -1523,12 +1521,12 @@
        FOOTER
        ========================================================================== */
     .footer {
-      background: #0e2617;
-      color: rgba(245, 240, 232, 0.7);
+      background: #2A1636;
+      color: rgba(251,248,244, 0.7);
       padding-top: 5rem;
       padding-bottom: 2rem;
       font-size: 0.9rem;
-      border-top: 1px solid rgba(196, 149, 74, 0.3);
+      border-top: 1px solid rgba(122,75,168, 0.3);
     }
 
     .footer-grid {
@@ -1560,7 +1558,7 @@
 
     .footer-brand-desc {
       font-size: 0.88rem;
-      color: rgba(245, 240, 232, 0.65);
+      color: rgba(251,248,244, 0.65);
       line-height: 1.7;
       margin-bottom: 1.5rem;
     }
@@ -1582,7 +1580,7 @@
     }
 
     .footer-link {
-      color: rgba(245, 240, 232, 0.75);
+      color: rgba(251,248,244, 0.75);
       transition: var(--transition-smooth);
     }
 
@@ -1769,8 +1767,8 @@
       background: #FFFFFF !important;
       border-radius: 20px !important;
       padding: 2.5rem 1.5rem !important;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(28, 68, 42, 0.04) !important;
-      border: 1.5px solid rgba(196, 149, 74, 0.3) !important;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(42,22,54, 0.04) !important;
+      border: 1.5px solid rgba(122,75,168, 0.3) !important;
       transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease !important;
       text-align: center !important;
     }
@@ -1778,14 +1776,14 @@
     .counter-white-card:hover {
       transform: translateY(-8px) !important;
       box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15) !important;
-      border-color: #C4954A !important;
+      border-color: #7A4BA8 !important;
     }
 
     .counter-num-val {
-      font-family: var(--font-heading), 'Fredoka', sans-serif !important;
+      font-family: var(--font-heading) !important;
       font-size: 3.4rem !important;
       font-weight: 700 !important;
-      color: #1c442a !important;
+      color: #2A1636 !important;
       line-height: 1 !important;
       margin-bottom: 0.65rem !important;
       letter-spacing: -0.5px !important;
@@ -1794,11 +1792,36 @@
     .counter-lbl-text {
       font-size: 0.88rem !important;
       font-weight: 700 !important;
-      color: #64748B !important;
+      color: #5E5566 !important;
       text-transform: uppercase !important;
       letter-spacing: 1.2px !important;
       line-height: 1.4 !important;
     }
+  </style>
+  <style id="brand-overrides">
+    /* ==========================================================================
+       BRAND OVERRIDES (docs/BRAND.md): aubergine / amethyst palette, no gold.
+       Dark sections re-point the accent tokens to lilac so text stays readable.
+       ========================================================================== */
+    :root { --aubergine:#3B1F4A; --night:#2A1636; --amethyst:#7A4BA8; --lilac:#C9B6E4; --mist:#E9DFF5; --blush:#F8E4EC; --rose:#B03A63; --ivory:#FBF8F4; --ink:#231F26; --ink-muted:#5E5566; }
+    .hero, .page-banner, .footer, .cta-banner, .marquee-section, .portrait-card, .profile-img-card, .quote-banner-card,
+    .hcsf-flagship-card, .card-bg-emerald, .bg-navy, .featured-book-img-box, .featured-cover-box, .product-cover-frame,
+    .mobile-drawer, .stats-band, .stat-band { --gold-primary:#C9B6E4; --gold-light:#E9DFF5; --gold-dark:#C9B6E4; }
+    /* Header: light pill so the lockup sits on ivory, as the brand book requires */
+    .header { background: rgba(251,248,244,0.96); border: 1.5px solid rgba(122,75,168,0.28); box-shadow: 0 12px 30px rgba(59,31,74,0.16); padding: 0.45rem 1.5rem; }
+    .nav-container { height: auto; min-height: 64px; }
+    .brand-logo-img { width: 200px; max-width: 200px; max-height: none; height: auto; }
+    .nav-link { color: var(--aubergine); }
+    .nav-link:hover, .nav-link.active { color: var(--amethyst); }
+    .mobile-toggle { background: #FFFFFF; border: 1px solid var(--amethyst); color: var(--aubergine); }
+    .mobile-drawer { background: var(--ivory); border: 1.5px solid var(--amethyst); }
+    .mobile-drawer .nav-link { color: var(--aubergine); }
+    .hero, .page-banner { padding-top: 175px; }
+    .btn-gold, .nav-cta-btn, .btn-pill-gold, .contact-submit-btn { background: #7A4BA8; color: #FFFFFF; box-shadow: 0 6px 18px rgba(122,75,168,0.28); }
+    .btn-gold:hover, .nav-cta-btn:hover { background: #5E3585; color: #FFFFFF; }
+    .footer-logo-disc { display: inline-flex; align-items: center; justify-content: center; width: 112px; height: 112px; border-radius: 50%; background: #FFFFFF; margin-bottom: 1.25rem; }
+    .footer-logo-disc img { width: 96px; height: 96px; object-fit: contain; }
+    :focus-visible { outline: 2px solid var(--amethyst); outline-offset: 2px; }
   </style>
 </head>
 
@@ -1808,9 +1831,7 @@
   <header class="header" id="navbar">
     <div class="container nav-container">
       <a href="/" class="brand-logo">
-        <img decoding="async"
-          src="https://res.cloudinary.com/pwkdspnn/image/upload/f_auto,q_auto:good,w_1000/v1787820954/HCSF_Logo_1_1_wwhomr.png"
-          alt="OHCSF Official Logo" class="brand-logo-img" />
+        <img decoding="async" src="/assets/Logos/walson-jack-lockup-horizontal.png" alt="Mrs. Didi Esther Walson-Jack, OON, mni — 20th Head of the Civil Service of the Federation (2024-2026)" class="brand-logo-img" width="200" height="83" />
       </a>
 
       <!-- Desktop Navigation Links -->
@@ -2033,7 +2054,7 @@
             <div>
               <div class="card-hero-header" style="font-size: 1.85rem; color: var(--navy-primary);">SPEAKING &
                 ENGAGEMENTS</div>
-              <p class="card-hero-desc" style="color: #334155;">
+              <p class="card-hero-desc" style="color: #3C3542;">
                 Thought leadership, keynote speaking, and expert engagements on governance, leadership, policy, and
                 institutional development.
               </p>
@@ -2123,7 +2144,7 @@
         <span class="section-subtitle" style="color: var(--gold-light);">Gallery</span>
         <h2 class="section-title" style="color: #FFFFFF;">Leadership Moments & Gallery</h2>
         <div class="divider-gold"></div>
-        <p style="color: rgba(245, 240, 232, 0.85); font-size: 1.05rem; max-width: 680px; margin: 0 auto;">
+        <p style="color: rgba(251,248,244, 0.85); font-size: 1.05rem; max-width: 680px; margin: 0 auto;">
           A collection of photos from 34+ years of public service, national events, and leadership.
         </p>
       </div>
@@ -2278,13 +2299,13 @@
     <!-- ==========================================================================
        LEADERSHIP PHILOSOPHY (HIDE, EPIC) & PORTRAIT QUOTE BANNER (VERY LIGHT ACCENT GREEN)
        ========================================================================== -->
-    <section class="section" style="background-color: #f2f7f4;">
+    <section class="section" style="background-color: #F3EEF8;">
       <div class="container">
         <div class="text-center">
           <span class="section-subtitle" style="color: var(--gold-primary);">Leadership Values</span>
           <h2 class="section-title" style="color: var(--navy-primary);">Principles That Guide Her Work</h2>
           <div class="divider-gold"></div>
-          <p class="section-desc" style="color: #334155;">
+          <p class="section-desc" style="color: #3C3542;">
             Core values articulated by Mrs. Walson-Jack to promote integrity, hard work, and excellence in public
             service.
           </p>
@@ -2411,11 +2432,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="/" style="display: inline-block; margin-bottom: 1.25rem;">
-            <img decoding="async"
-              src="https://res.cloudinary.com/pwkdspnn/image/upload/f_auto,q_auto:good,w_1000/v1787820954/HCSF_Logo_1_1_wwhomr.png"
-              alt="OHCSF Official Logo" style="width: 185px; height: auto; object-fit: contain;" />
-          </a>
+          <a href="/" class="footer-logo-disc"><img decoding="async" src="/assets/Logos/walson-jack-emblem-badge.png" alt="Mrs. Didi Esther Walson-Jack, OON, mni" width="96" height="96" /></a>
           <p class="footer-brand-desc">
             20th Head of the Civil Service of the Federation of Nigeria (OON, mni). Lawyer, public administrator,
             reformer, and author committed to institutional excellence and compassionate governance.
@@ -2449,15 +2466,15 @@
 
         <div>
           <div class="footer-heading">Official Contact</div>
-          <p style="font-size: 0.88rem; margin-bottom: 0.5rem; color: rgba(245,240,232,0.8);">
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem; color: rgba(251,248,244,0.8);">
             <strong>Email:</strong> <a href="mailto:Hello@didiwalsonjack.com"
               style="color: var(--gold-light); text-decoration: underline;">Hello@didiwalsonjack.com</a>
           </p>
-          <p style="font-size: 0.88rem; margin-bottom: 0.5rem; color: rgba(245,240,232,0.8);">
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem; color: rgba(251,248,244,0.8);">
             <strong>Phone:</strong> <a href="tel:+2349073549586"
               style="color: var(--gold-light); text-decoration: underline;">+234 907 354 9586</a>
           </p>
-          <p style="font-size: 0.88rem; margin-bottom: 1.25rem; color: rgba(245,240,232,0.8);">
+          <p style="font-size: 0.88rem; margin-bottom: 1.25rem; color: rgba(251,248,244,0.8);">
             <strong>Location:</strong> <a href="https://maps.google.com/?q=Abuja,+Nigeria" target="_blank"
               rel="noopener" style="color: var(--gold-light); text-decoration: underline;">Abuja, FCT, Nigeria</a>
           </p>
@@ -2466,36 +2483,36 @@
           <div style="display: flex; gap: 0.8rem; align-items: center;">
             <a href="https://www.linkedin.com/in/didi-esther-walson-jack-mcipm-oon-mni-7285a22a6/" target="_blank"
               rel="noopener" aria-label="LinkedIn"
-              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(196,149,74,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(122,75,168,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
               onmouseover="this.style.background='var(--gold-primary)'; this.style.color='#fff';"
-              onmouseout="this.style.background='rgba(196,149,74,0.15)'; this.style.color='var(--gold-light)';">
+              onmouseout="this.style.background='rgba(122,75,168,0.15)'; this.style.color='var(--gold-light)';">
               <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
                 <path
                   d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
               </svg>
             </a>
             <a href="https://x.com/Didi_WalsonJack" target="_blank" rel="noopener" aria-label="X (Twitter)"
-              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(196,149,74,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(122,75,168,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
               onmouseover="this.style.background='var(--gold-primary)'; this.style.color='#fff';"
-              onmouseout="this.style.background='rgba(196,149,74,0.15)'; this.style.color='var(--gold-light)';">
+              onmouseout="this.style.background='rgba(122,75,168,0.15)'; this.style.color='var(--gold-light)';">
               <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor;">
                 <path
                   d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
             <a href="https://www.instagram.com/didi.walsonjack/" target="_blank" rel="noopener" aria-label="Instagram"
-              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(196,149,74,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(122,75,168,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
               onmouseover="this.style.background='var(--gold-primary)'; this.style.color='#fff';"
-              onmouseout="this.style.background='rgba(196,149,74,0.15)'; this.style.color='var(--gold-light)';">
+              onmouseout="this.style.background='rgba(122,75,168,0.15)'; this.style.color='var(--gold-light)';">
               <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
                 <path
                   d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
               </svg>
             </a>
             <a href="https://www.facebook.com/didi.walsonjack/" target="_blank" rel="noopener" aria-label="Facebook"
-              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(196,149,74,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(122,75,168,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
               onmouseover="this.style.background='var(--gold-primary)'; this.style.color='#fff';"
-              onmouseout="this.style.background='rgba(196,149,74,0.15)'; this.style.color='var(--gold-light)';">
+              onmouseout="this.style.background='rgba(122,75,168,0.15)'; this.style.color='var(--gold-light)';">
               <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
                 <path
                   d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -2506,14 +2523,14 @@
       </div>
 
       <div class="footer-bottom"
-        style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: rgba(245,240,232,0.75);">
+        style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: rgba(251,248,244,0.75);">
         <div>
           &copy; 2026 Mrs. Didi Esther Walson-Jack, OON, mni. All Rights Reserved.
         </div>
         <div>
           <a href="https://www.vicint.org.ng" target="_blank" rel="noopener noreferrer"
-            style="color: #D2A760; font-size: 16px; text-decoration: none;" onmouseover="this.style.color='#ffffff'"
-            onmouseout="this.style.color='#D2A760'">
+            style="color: #C9B6E4; font-size: 16px; text-decoration: none;" onmouseover="this.style.color='#ffffff'"
+            onmouseout="this.style.color='#C9B6E4'">
             Professionally designed by Vicint hub
           </a>
         </div>
