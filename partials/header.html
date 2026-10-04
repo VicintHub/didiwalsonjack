@@ -1,0 +1,260 @@
+<!-- ============================================================
+     OHCSF — HEADER (paste into an Elementor HTML widget,
+     inside your Header template)
+     Self-contained: fonts + styles + markup + script.
+     ============================================================ -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  /* --- Theme variables used by the header --- */
+  .ohcsf-header,
+  .ohcsf-header .mobile-drawer {
+    --navy-primary: #2b653f;
+    --navy-deep: #1c442a;
+    --gold-primary: #C4954A;
+    --gold-light: #DFB775;
+    --gold-dark: #9E7432;
+    --font-heading: 'Fredoka', sans-serif;
+    --font-body: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* --- Scoped resets so the WP theme doesn't interfere --- */
+  .ohcsf-header *,
+  .ohcsf-header *::before,
+  .ohcsf-header *::after,
+  .ohcsf-header .mobile-drawer * { box-sizing: border-box; }
+  .ohcsf-header ul, .ohcsf-header li,
+  .ohcsf-header .mobile-drawer { margin: 0; padding: 0; list-style: none; }
+  .ohcsf-header a, .ohcsf-header .mobile-drawer a { text-decoration: none; }
+  .ohcsf-header img { max-width: 100%; height: auto; display: block; }
+
+  /* --- Header --- */
+  .ohcsf-header .header {
+    position: fixed;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 92%;
+    max-width: 1200px;
+    z-index: 1000;
+    background: rgba(28, 68, 42, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(196, 149, 74, 0.4);
+    border-radius: 50px;
+    padding: 0.6rem 1.75rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(196, 149, 74, 0.2);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, background 0.3s ease;
+    font-family: var(--font-body);
+  }
+  .ohcsf-header .header.nav-hidden {
+    transform: translate(-50%, -160%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .ohcsf-header .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 52px;
+    padding: 0;
+  }
+  .ohcsf-header .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+  }
+  .ohcsf-header .brand-logo-img {
+    width: 185px;
+    height: auto;
+    max-height: 60px;
+    object-fit: contain;
+  }
+  .ohcsf-header .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    list-style: none;
+  }
+  .ohcsf-header .nav-link {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: rgba(245, 240, 232, 0.85);
+    position: relative;
+    padding: 0.3rem 0;
+    transition: var(--transition-smooth);
+  }
+  .ohcsf-header .nav-link:hover,
+  .ohcsf-header .nav-link.active { color: var(--gold-light); }
+  .ohcsf-header .nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.35rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(196, 149, 74, 0.3);
+    transition: var(--transition-smooth);
+    border: none;
+  }
+  .ohcsf-header .nav-cta-btn:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(196, 149, 74, 0.45);
+  }
+  .ohcsf-header .nav-cta-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: var(--navy-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+  .ohcsf-header .mobile-toggle {
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* --- Mobile drawer (rendered outside .header so fixed positioning is clean) --- */
+  .ohcsf-header .mobile-drawer {
+    position: fixed;
+    top: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 480px;
+    background: var(--navy-deep);
+    border: 1.5px solid var(--gold-primary);
+    border-radius: 20px;
+    padding: 1.75rem;
+    display: none;
+    flex-direction: column;
+    gap: 1.25rem;
+    z-index: 999;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    font-family: var(--font-body);
+  }
+  .ohcsf-header .mobile-drawer.open { display: flex; }
+  .ohcsf-header .mobile-drawer .nav-link {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: rgba(245, 240, 232, 0.85);
+    transition: var(--transition-smooth);
+  }
+  .ohcsf-header .mobile-drawer .nav-link:hover,
+  .ohcsf-header .mobile-drawer .nav-link.active { color: var(--gold-light); }
+  .ohcsf-header .mobile-drawer .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.95rem 2rem;
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+    box-shadow: 0 10px 25px -5px rgba(196, 149, 74, 0.25);
+    transition: var(--transition-smooth);
+    border: 2px solid transparent;
+  }
+  .ohcsf-header .mobile-drawer .btn-gold:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 992px) {
+    .ohcsf-header .nav-menu { display: none; }
+    .ohcsf-header .mobile-toggle { display: flex; }
+  }
+</style>
+
+<div class="ohcsf-header">
+  <header class="header" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand-logo">
+        <img
+          src="https://res.cloudinary.com/pwkdspnn/image/upload/f_auto,q_auto:good,w_1000/v1787820954/HCSF_Logo_1_1_wwhomr.png"
+          alt="OHCSF Official Logo" class="brand-logo-img" />
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="nav-menu">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/career" class="nav-link">Career &amp; Achievements</a></li>
+        <li><a href="/books" class="nav-link">Books</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: 0.8rem;">
+        <a href="/contact" class="nav-cta-btn">
+          Contact
+          <span class="nav-cta-icon">↗</span>
+        </a>
+        <button class="mobile-toggle" id="mobileToggleBtn" aria-label="Toggle Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about" class="nav-link">About</a>
+    <a href="/career" class="nav-link">Career &amp; Achievements</a>
+    <a href="/books" class="nav-link">Books</a>
+    <a href="/contact" class="btn-gold" style="text-align: center; margin-top: 1rem;">Contact ↗</a>
+  </div>
+</div>
+
+<script>
+  (function () {
+    // Mobile drawer toggle
+    var toggleBtn = document.getElementById('mobileToggleBtn');
+    var drawer = document.getElementById('mobileDrawer');
+    if (toggleBtn && drawer) {
+      toggleBtn.addEventListener('click', function () {
+        drawer.classList.toggle('open');
+        this.textContent = drawer.classList.contains('open') ? '✕' : '☰';
+      });
+    }
+
+    // Smart auto-hide / reveal navbar on scroll
+    var header = document.getElementById('navbar');
+    var lastScrollY = window.scrollY;
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      if (y < 100) header.classList.remove('nav-hidden');
+      else if (y > lastScrollY + 8) header.classList.add('nav-hidden');
+      else if (y < lastScrollY - 8) header.classList.remove('nav-hidden');
+      lastScrollY = y;
+    });
+
+    // Auto-highlight the current page's nav link
+    var path = window.location.pathname.replace(/\/+$/, '') || '/';
+    document.querySelectorAll('.ohcsf-header .nav-link').forEach(function (link) {
+      var lp = (link.getAttribute('href') || '').replace(/\/+$/, '') || '/';
+      if (lp === path) link.classList.add('active');
+    });
+  })();
+</script>

@@ -1,0 +1,199 @@
+<!-- ============================================================
+     OHCSF — FOOTER (paste into an Elementor HTML widget,
+     inside your Footer template)
+     Self-contained: fonts + styles + markup.
+     ============================================================ -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  .ohcsf-footer {
+    --gold-primary: #C4954A;
+    --gold-light: #DFB775;
+    --gold-dark: #9E7432;
+    --font-heading: 'Fredoka', sans-serif;
+    --font-body: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* --- Scoped resets --- */
+  .ohcsf-footer *,
+  .ohcsf-footer *::before,
+  .ohcsf-footer *::after { box-sizing: border-box; }
+  .ohcsf-footer ul, .ohcsf-footer li,
+  .ohcsf-footer p { margin: 0; }
+  .ohcsf-footer ul { padding: 0; list-style: none; }
+  .ohcsf-footer img { max-width: 100%; height: auto; display: block; }
+
+  .ohcsf-footer .footer {
+    background: #0e2617;
+    color: rgba(245, 240, 232, 0.7);
+    padding: 5rem 0 2rem;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    border-top: 1px solid rgba(196, 149, 74, 0.3);
+  }
+  .ohcsf-footer .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .ohcsf-footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  .ohcsf-footer .footer-brand-desc {
+    font-size: 0.88rem;
+    color: rgba(245, 240, 232, 0.65);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .ohcsf-footer .footer-heading {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gold-primary);
+    margin-bottom: 1.25rem;
+  }
+  .ohcsf-footer .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .ohcsf-footer .footer-link {
+    color: rgba(245, 240, 232, 0.75);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+  }
+  .ohcsf-footer .footer-link:hover {
+    color: var(--gold-light);
+    padding-left: 4px;
+  }
+
+  @media (max-width: 992px) {
+    .ohcsf-footer .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  }
+  @media (max-width: 576px) {
+    .ohcsf-footer .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="ohcsf-footer">
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" style="display: inline-block; margin-bottom: 1.25rem;">
+            <img
+              src="https://res.cloudinary.com/pwkdspnn/image/upload/f_auto,q_auto:good,w_1000/v1787820954/HCSF_Logo_1_1_wwhomr.png"
+              alt="OHCSF Official Logo" style="width: 185px; height: auto; object-fit: contain;" />
+          </a>
+          <p class="footer-brand-desc">
+            20th Head of the Civil Service of the Federation of Nigeria (OON, mni). Lawyer, public administrator,
+            reformer, and author committed to institutional excellence and compassionate governance.
+          </p>
+          <div style="color: var(--gold-primary); font-size: 0.85rem; font-style: italic;">
+            “Quiet authority that changes everything it touches.”
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="/" class="footer-link">Home</a></li>
+            <li><a href="/about" class="footer-link">Biography</a></li>
+            <li><a href="/career" class="footer-link">Career &amp; Reforms</a></li>
+            <li><a href="/books" class="footer-link">Books &amp; Shop</a></li>
+            <li><a href="/contact" class="footer-link">Contact &amp; Advisory</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Core Pillars</div>
+          <ul class="footer-links">
+            <li><a href="/career" class="footer-link">FCSSIP25 Reform</a></li>
+            <li><a href="/career" class="footer-link">ECMS Digitalization</a></li>
+            <li><a href="/career" class="footer-link">ServiceWise GPT</a></li>
+            <li><a href="/books" class="footer-link">Roses in the Thorns</a></li>
+            <li><a href="/about" class="footer-link">HIDE &amp; EPIC Frameworks</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Official Contact</div>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem; color: rgba(245,240,232,0.8);">
+            <strong>Email:</strong> <a href="mailto:Hello@didiwalsonjack.com"
+              style="color: var(--gold-light); text-decoration: underline;">Hello@didiwalsonjack.com</a>
+          </p>
+          <p style="font-size: 0.88rem; margin-bottom: 0.5rem; color: rgba(245,240,232,0.8);">
+            <strong>Phone:</strong> <a href="tel:+2349073549586"
+              style="color: var(--gold-light); text-decoration: underline;">+234 907 354 9586</a>
+          </p>
+          <p style="font-size: 0.88rem; margin-bottom: 1.25rem; color: rgba(245,240,232,0.8);">
+            <strong>Location:</strong> <a href="https://maps.google.com/?q=Abuja,+Nigeria" target="_blank"
+              rel="noopener" style="color: var(--gold-light); text-decoration: underline;">Abuja, FCT, Nigeria</a>
+          </p>
+
+          <div class="footer-heading" style="margin-bottom: 0.75rem;">Connect &amp; Follow</div>
+          <div style="display: flex; gap: 0.8rem; align-items: center;">
+            <a href="https://www.linkedin.com/in/didi-esther-walson-jack-mcipm-oon-mni-7285a22a6/" target="_blank"
+              rel="noopener" aria-label="LinkedIn"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(196,149,74,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
+              onmouseover="this.style.background='var(--gold-primary)'; this.style.color='#fff';"
+              onmouseout="this.style.background='rgba(196,149,74,0.15)'; this.style.color='var(--gold-light)';">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+              </svg>
+            </a>
+            <a href="https://x.com/Didi_WalsonJack" target="_blank" rel="noopener" aria-label="X (Twitter)"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(196,149,74,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
+              onmouseover="this.style.background='var(--gold-primary)'; this.style.color='#fff';"
+              onmouseout="this.style.background='rgba(196,149,74,0.15)'; this.style.color='var(--gold-light)';">
+              <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor;">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/didi.walsonjack/" target="_blank" rel="noopener" aria-label="Instagram"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(196,149,74,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
+              onmouseover="this.style.background='var(--gold-primary)'; this.style.color='#fff';"
+              onmouseout="this.style.background='rgba(196,149,74,0.15)'; this.style.color='var(--gold-light)';">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/didi.walsonjack/" target="_blank" rel="noopener" aria-label="Facebook"
+              style="width: 36px; height: 36px; border-radius: 50%; background: rgba(196,149,74,0.15); border: 1px solid var(--gold-primary); display: flex; align-items: center; justify-content: center; color: var(--gold-light); transition: var(--transition-smooth);"
+              onmouseover="this.style.background='var(--gold-primary)'; this.style.color='#fff';"
+              onmouseout="this.style.background='rgba(196,149,74,0.15)'; this.style.color='var(--gold-light)';">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom"
+        style="padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: rgba(245,240,232,0.75);">
+        <div>
+          &copy; 2026 Mrs. Didi Esther Walson-Jack, OON, mni. All Rights Reserved.
+        </div>
+        <div>
+          <a href="https://www.vicint.org.ng" target="_blank" rel="noopener noreferrer"
+            style="color: #D2A760; font-size: 16px; text-decoration: none;" onmouseover="this.style.color='#ffffff'"
+            onmouseout="this.style.color='#D2A760'">
+            Professionally designed by Vicint hub
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
