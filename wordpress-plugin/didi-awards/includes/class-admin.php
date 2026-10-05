@@ -200,6 +200,19 @@ class Didi_Awards_Admin {
 							<?php endif; ?>
 						</section>
 
+
+						<section class="da-panel da-assist" id="daAssist">
+							<div class="da-panel-head"><h2><span class="dashicons dashicons-search"></span> Smart import</h2><button type="button" class="da-btn da-btn-small" id="daAssistToggle" aria-expanded="false">Open</button></div>
+							<p class="da-hint">Paste links and notes you have gathered. The plugin reads the pages, picks out the facts about the award and arranges them into the fields. You review every field before anything is filled in. It works from your sources only and needs no account or key.</p>
+							<div class="da-assist-body" id="daAssistBody" hidden>
+								<label class="da-label" for="daLinks">Links (one per line)</label>
+								<textarea id="daLinks" class="da-input" rows="3" placeholder="https://"></textarea>
+								<label class="da-label" for="daNotes">Notes and text pasted from sources</label>
+								<textarea id="daNotes" class="da-input" rows="5" placeholder="Paste paragraphs, a programme, a citation, anything you have."></textarea>
+								<div class="da-btn-row"><button type="button" class="da-btn da-btn-primary" id="daGather"><span class="dashicons dashicons-admin-generic"></span> Gather &amp; arrange</button><span class="da-hint" id="daGatherMsg" role="status"></span></div>
+							</div>
+						</section>
+
 						<section class="da-panel">
 							<div class="da-panel-head"><h2>Card summary</h2><span class="da-counter" id="daSummaryCount">0 / 200</span></div>
 							<p class="da-hint">One or two sentences. Shown on the award cards and the home-page slider.</p>
@@ -302,6 +315,27 @@ class Didi_Awards_Admin {
 					</aside>
 				</div>
 			</form>
+
+				<!-- Review (Smart import) -->
+				<div class="da-modal" id="daReview" hidden role="dialog" aria-modal="true" aria-labelledby="daReviewTitle">
+					<div class="da-modal-card">
+						<header class="da-modal-head"><div><h2 id="daReviewTitle">Review before filling in</h2><p>Tick the fields to use. Edit anything in the “Proposed” column. Nothing is saved until you press Save changes on the award.</p></div><button type="button" class="da-modal-x" data-close aria-label="Close">&times;</button></header>
+						<div class="da-modal-body" id="daReviewBody"></div>
+						<footer class="da-modal-foot"><span class="da-hint" id="daReviewRead"></span><div class="da-btn-row"><button type="button" class="da-btn" data-close>Cancel</button><button type="button" class="da-btn da-btn-primary" id="daApply">Apply selected to form</button></div></footer>
+					</div>
+				</div>
+				<!-- Crop -->
+				<div class="da-modal" id="daCrop" hidden role="dialog" aria-modal="true" aria-labelledby="daCropTitle">
+					<div class="da-modal-card da-crop-card">
+						<header class="da-modal-head"><div><h2 id="daCropTitle">Crop the image</h2><p>Drag to choose what stays in the frame. Use the slider to zoom. The frame is the exact shape used on the site (4:3).</p></div><button type="button" class="da-modal-x" data-close aria-label="Close">&times;</button></header>
+						<div class="da-modal-body">
+							<div class="da-crop-stage" id="daCropStage"><canvas id="daCropCanvas" width="640" height="480"></canvas><span class="da-crop-grid"></span></div>
+							<div class="da-crop-controls"><span>Zoom</span><input type="range" id="daCropZoom" min="100" max="400" value="100" aria-label="Zoom"><span id="daCropInfo" class="da-hint"></span></div>
+							<p class="da-warn da-hint" id="daCropWarn" hidden></p>
+						</div>
+						<footer class="da-modal-foot"><button type="button" class="da-btn da-btn-small" id="daCropSkip">Use without cropping</button><div class="da-btn-row"><button type="button" class="da-btn" data-close>Cancel</button><button type="button" class="da-btn da-btn-primary" id="daCropApply">Crop and use</button></div></footer>
+					</div>
+				</div>
 		</div>
 		<?php
 	}

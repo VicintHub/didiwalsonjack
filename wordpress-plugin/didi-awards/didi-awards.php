@@ -22,10 +22,12 @@ define( 'DIDI_AWARDS_MAX_FEATURED', 10 );
 require_once DIDI_AWARDS_DIR . 'includes/class-cpt.php';
 require_once DIDI_AWARDS_DIR . 'includes/class-seed.php';
 require_once DIDI_AWARDS_DIR . 'includes/class-admin.php';
+require_once DIDI_AWARDS_DIR . 'includes/class-assist.php';
 require_once DIDI_AWARDS_DIR . 'includes/class-frontend.php';
 
 Didi_Awards_CPT::init();
 Didi_Awards_Admin::init();
+Didi_Awards_Assist::init();
 Didi_Awards_Frontend::init();
 
 register_activation_hook( __FILE__, function () {

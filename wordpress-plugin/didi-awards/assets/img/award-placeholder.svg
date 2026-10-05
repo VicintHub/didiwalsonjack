@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Award image to be added">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Award image to be added">
   <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B1F4A"/><stop offset="1" stop-color="#2A1636"/></linearGradient></defs>
-  <rect width="800" height="500" fill="url(#g)"/>
-  <circle cx="400" cy="210" r="86" fill="none" stroke="#C9B6E4" stroke-width="6"/>
-  <circle cx="400" cy="210" r="62" fill="#7A4BA8"/>
-  <path d="M400 168l13 27 30 4-22 21 6 30-27-15-27 15 6-30-22-21 30-4z" fill="#FBF8F4"/>
-  <path d="M356 284l-26 74 42-20 28 38 18-86z M444 284l26 74-42-20-28 38-18-86z" fill="#C9B6E4" opacity=".9"/>
-  <text x="400" y="440" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#E9DFF5" letter-spacing="3">AWARD IMAGE TO BE ADDED</text>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <circle cx="400" cy="250" r="86" fill="none" stroke="#C9B6E4" stroke-width="6"/>
+  <circle cx="400" cy="250" r="62" fill="#7A4BA8"/>
+  <path d="M400 208l13 27 30 4-22 21 6 30-27-15-27 15 6-30-22-21 30-4z" fill="#FBF8F4"/>
+  <path d="M356 324l-26 74 42-20 28 38 18-86z M444 324l26 74-42-20-28 38-18-86z" fill="#C9B6E4" opacity=".9"/>
+  <text x="400" y="520" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#E9DFF5" letter-spacing="3">AWARD IMAGE TO BE ADDED</text>
 </svg>
