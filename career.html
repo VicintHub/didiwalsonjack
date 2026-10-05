@@ -436,6 +436,75 @@
     .mni { text-transform: none !important; letter-spacing: inherit; }
     :focus-visible { outline: 2px solid var(--amethyst); outline-offset: 2px; }
   </style>
+  <style id="career-ui">
+    /* Clickable timeline cards */
+    .timeline-card.is-clickable { cursor: pointer; position: relative; }
+    .timeline-card.is-clickable:focus-visible { outline: 2px solid var(--amethyst); outline-offset: 3px; }
+    .tl-more { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.4rem; padding-top: 1.1rem; border-top: 1px solid rgba(122,75,168,0.18); flex-wrap: wrap; }
+    .tl-more-hint { font-size: 0.78rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-muted); }
+    .tl-more-btn, .kfa-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--amethyst); border: 2px solid var(--amethyst); border-radius: 50px; padding: 0.55rem 1.3rem; font: 700 0.9rem var(--font-body); cursor: pointer; transition: var(--transition-smooth); }
+    .timeline-card.is-clickable:hover .tl-more-btn, .tl-more-btn:hover, .kfa-slide:hover .kfa-btn, .kfa-btn:hover { background: var(--amethyst); color: #FFFFFF; }
+    /* Slider */
+    .kfa { position: relative; margin-bottom: 5rem; }
+    .kfa-controls { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; margin-bottom: 1rem; }
+    .kfa-arrow { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--amethyst); background: #FFFFFF; color: var(--aubergine); font-size: 1.4rem; line-height: 1; cursor: pointer; transition: var(--transition-smooth); }
+    .kfa-arrow:hover:not(:disabled) { background: var(--amethyst); color: #FFFFFF; }
+    .kfa-arrow:disabled { opacity: 0.35; cursor: default; }
+    .kfa-dots { display: flex; gap: 0.5rem; }
+    .kfa-dot { width: 10px; height: 10px; border-radius: 50%; border: 0; background: var(--lilac); cursor: pointer; padding: 0; transition: var(--transition-smooth); }
+    .kfa-dot.on { background: var(--amethyst); width: 28px; border-radius: 6px; }
+    .kfa-track { display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 0.5rem 0.25rem 1.5rem; margin: 0 -0.25rem; }
+    .kfa-track::-webkit-scrollbar { display: none; }
+    .kfa-slide { position: relative; flex: 0 0 calc((100% - 2.5rem) / 3); scroll-snap-align: start; background: #FFFFFF; border: 1px solid rgba(122,75,168,0.25); border-radius: 20px; padding: 2rem 1.75rem 1.75rem; box-shadow: var(--shadow-card); cursor: pointer; display: flex; flex-direction: column; gap: 0.6rem; transition: var(--transition-smooth); }
+    .kfa-slide:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--amethyst); }
+    .kfa-slide:focus-visible { outline: 2px solid var(--amethyst); outline-offset: 3px; }
+    .kfa-num { position: absolute; top: 1.1rem; right: 1.4rem; font: 700 2.6rem var(--font-heading); color: var(--mist); line-height: 1; }
+    .kfa-period { align-self: flex-start; background: var(--mist); color: var(--aubergine); font-size: 0.78rem; font-weight: 700; padding: 0.28rem 0.85rem; border-radius: 50px; }
+    .kfa-title { font-size: 1.5rem; color: var(--aubergine); margin: 0.2rem 0 0.2rem; padding-right: 3rem; }
+    .kfa-list { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 0.55rem; flex: 1; }
+    .kfa-list li { position: relative; padding-left: 1.4rem; font-size: 0.95rem; color: var(--ink); }
+    .kfa-list li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px; border-radius: 50%; background: var(--amethyst); }
+    .kfa-btn { align-self: flex-start; }
+    @media (max-width: 992px) { .kfa-slide { flex-basis: calc((100% - 1.25rem) / 2); } }
+    @media (max-width: 640px) { .kfa-slide { flex-basis: 86%; } .kfa-controls { justify-content: space-between; } }
+    /* Pop-up */
+    body.role-open { overflow: hidden; }
+    .role-overlay { position: fixed; inset: 0; z-index: 3000; background: rgba(42,22,54,0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 1.25rem; opacity: 0; transition: opacity 0.18s ease; }
+    .role-overlay[hidden] { display: none; }
+    .role-overlay.is-in { opacity: 1; }
+    .role-modal { background: var(--ivory); width: 100%; max-width: 900px; max-height: 92vh; border-radius: 24px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.45); transform: translateY(16px) scale(0.985); transition: transform 0.22s ease; outline: none; }
+    .role-overlay.is-in .role-modal { transform: none; }
+    .role-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; background: var(--aubergine); color: #FFFFFF; padding: 1.6rem 1.9rem 1.5rem; }
+    .role-period { display: inline-block; background: var(--lilac); color: var(--aubergine); font-size: 0.78rem; font-weight: 700; padding: 0.28rem 0.9rem; border-radius: 50px; margin-bottom: 0.7rem; }
+    .role-title { color: #FFFFFF; font-size: 1.9rem; line-height: 1.2; margin: 0 0 0.35rem; }
+    .role-org { color: var(--mist); font-size: 0.95rem; }
+    .role-close { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--lilac); background: transparent; color: #FFFFFF; font-size: 1.05rem; cursor: pointer; transition: var(--transition-smooth); }
+    .role-close:hover { background: #FFFFFF; color: var(--aubergine); }
+    .role-body { overflow-y: auto; padding: 1.6rem 1.9rem 1.2rem; }
+    .role-summary { font-size: 1.05rem; color: var(--ink); margin: 0 0 1.4rem; }
+    .role-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.9rem; margin-bottom: 1.5rem; }
+    .role-stat { background: var(--mist); border-radius: 16px; padding: 1rem 1.1rem; }
+    .role-stat-num { font: 700 1.7rem/1.1 var(--font-body); color: var(--aubergine); overflow-wrap: anywhere; }
+    .role-stat-lbl { margin-top: 0.35rem; font-size: 0.8rem; color: var(--ink-muted); }
+    .role-acc { display: grid; gap: 0.75rem; }
+    .role-group { background: #FFFFFF; border: 1px solid rgba(122,75,168,0.25); border-radius: 14px; overflow: hidden; }
+    .role-group summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.2rem; font: 700 1rem var(--font-body); color: var(--aubergine); }
+    .role-group summary::-webkit-details-marker { display: none; }
+    .role-group summary::after { content: '+'; flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; background: var(--mist); color: var(--aubergine); display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-left: auto; transition: var(--transition-smooth); }
+    .role-group[open] summary::after { content: '–'; background: var(--amethyst); color: #FFFFFF; }
+    .role-group summary:focus-visible { outline: 2px solid var(--amethyst); outline-offset: -2px; }
+    .role-count { background: var(--blush); color: var(--aubergine); font-size: 0.75rem; padding: 0.1rem 0.6rem; border-radius: 50px; }
+    .role-group ul { list-style: none; margin: 0; padding: 0 1.2rem 1.1rem; display: grid; gap: 0.65rem; }
+    .role-group li { position: relative; padding-left: 1.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--ink); }
+    .role-group li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; border-radius: 50%; background: var(--amethyst); }
+    .role-foot { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 0.9rem 1.9rem; border-top: 1px solid rgba(122,75,168,0.2); background: #FFFFFF; flex-wrap: wrap; }
+    .role-nav { background: transparent; border: 1.5px solid var(--amethyst); color: var(--amethyst); border-radius: 50px; padding: 0.5rem 1.15rem; font: 700 0.88rem var(--font-body); cursor: pointer; transition: var(--transition-smooth); }
+    .role-nav:hover:not(:disabled) { background: var(--amethyst); color: #FFFFFF; }
+    .role-nav:disabled { opacity: 0.35; cursor: default; }
+    @media (max-width: 640px) { .role-overlay { padding: 0; align-items: flex-end; } .role-modal { max-height: 94vh; border-radius: 22px 22px 0 0; } .role-head, .role-body, .role-foot { padding-left: 1.2rem; padding-right: 1.2rem; } .role-title { font-size: 1.45rem; } }
+    @media (max-width: 768px) { .hcsf-flagship-card div[style*="repeat(3"] { grid-template-columns: 1fr !important; } .hcsf-top-actions { flex-wrap: wrap; } .hcsf-top-actions .btn { white-space: normal; } .role-nav { padding: 0.5rem 0.9rem; } .timeline-card .btn { white-space: normal; max-width: 100%; text-align: center; } }
+    @media (prefers-reduced-motion: reduce) { .role-overlay, .role-modal, .kfa-track { transition: none; scroll-behavior: auto; } }
+  </style>
 </head>
 <body>
 
@@ -541,6 +610,89 @@
           </div>
         </div>
 
+        <!-- KEY FEDERAL ASSIGNMENTS & INITIATIVES SLIDER -->
+        <div class="text-center" style="margin-bottom: 2.5rem;">
+          <span class="section-subtitle">Key Federal Assignments &amp; Initiatives</span>
+          <h2 class="section-title">Where She Led Change</h2>
+          <div class="divider-gold"></div>
+          <p class="section-desc" style="max-width: 720px; margin: 0 auto;">Select any assignment to read the committees, initiatives and results recorded in her CV and legacy report.</p>
+        </div>
+        <div class="kfa" id="kfa" aria-roledescription="carousel" aria-label="Key federal assignments">
+          <div class="kfa-controls">
+            <button type="button" class="kfa-arrow" id="kfaPrev" aria-label="Previous assignments">‹</button>
+            <div class="kfa-dots" id="kfaDots" role="tablist" aria-label="Choose slide"></div>
+            <button type="button" class="kfa-arrow" id="kfaNext" aria-label="Next assignments">›</button>
+          </div>
+          <div class="kfa-track" id="kfaTrack">
+            <article class="kfa-slide" data-role="hcsf" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Head of the Civil Service">
+              <span class="kfa-num">01</span>
+              <span class="kfa-period">Aug 2024 – Aug 2026</span>
+              <h3 class="kfa-title">Head of the Civil Service</h3>
+              <ul class="kfa-list">
+                <li>Seven reform War Rooms</li>
+                <li>3 to 38 MDAs on digital workflows</li>
+                <li>GovMail to 120,000+ accounts</li>
+              </ul>
+              <button type="button" class="kfa-btn" data-role="hcsf">Read more <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="kfa-slide" data-role="water" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Water Resources &amp; Sanitation">
+              <span class="kfa-num">02</span>
+              <span class="kfa-period">Sep 2020 – Jan 2024</span>
+              <h3 class="kfa-title">Water Resources &amp; Sanitation</h3>
+              <ul class="kfa-list">
+                <li>Hosted the 2022 World Toilet Summit</li>
+                <li>Restructured the Ministry</li>
+                <li>250KW solar power system</li>
+              </ul>
+              <button type="button" class="kfa-btn" data-role="water">Read more <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="kfa-slide" data-role="power" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Ministry of Power">
+              <span class="kfa-num">03</span>
+              <span class="kfa-period">Dec 2019 – Aug 2020</span>
+              <h3 class="kfa-title">Ministry of Power</h3>
+              <ul class="kfa-list">
+                <li>Secretary, Mambilla 3,050MW committees</li>
+                <li>Chaired the Kaduna 215MW committee</li>
+                <li>Chaired the Ministry restructuring</li>
+              </ul>
+              <button type="button" class="kfa-btn" data-role="power">Read more <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="kfa-slide" data-role="nda" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Niger Delta Affairs">
+              <span class="kfa-num">04</span>
+              <span class="kfa-period">Aug – Dec 2019</span>
+              <h3 class="kfa-title">Niger Delta Affairs</h3>
+              <ul class="kfa-list">
+                <li>Chaired the Ministerial Tenders Board</li>
+                <li>Empowered non-militant youth, women and men</li>
+                <li>Peace and security sensitisation</li>
+              </ul>
+              <button type="button" class="kfa-btn" data-role="nda">Read more <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="kfa-slide" data-role="swo" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Service Welfare Office">
+              <span class="kfa-num">05</span>
+              <span class="kfa-period">Aug 2017 – Jul 2019</span>
+              <h3 class="kfa-title">Service Welfare Office</h3>
+              <ul class="kfa-list">
+                <li>Chaired the Welfare Policy committee</li>
+                <li>Chaired the Joint National Negotiating Council</li>
+                <li>Minimum wage tripartite committee</li>
+              </ul>
+              <button type="button" class="kfa-btn" data-role="swo">Read more <span aria-hidden="true">→</span></button>
+            </article>
+            <article class="kfa-slide" data-role="directors" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Directorships">
+              <span class="kfa-num">06</span>
+              <span class="kfa-period">Feb 2015 – Aug 2017</span>
+              <h3 class="kfa-title">Directorships</h3>
+              <ul class="kfa-list">
+                <li>UNDP-backed ICT monitoring system</li>
+                <li>Revived the Multi-Stakeholder Trust Fund</li>
+                <li>Designed SMAT-P and LEAD-P</li>
+              </ul>
+              <button type="button" class="kfa-btn" data-role="directors">Read more <span aria-hidden="true">→</span></button>
+            </article>
+          </div>
+        </div>
+
         <!-- COMPLETE CHRONOLOGICAL CAREER TIMELINE -->
         <div class="text-center" id="career-timeline" style="margin-bottom: 3rem; scroll-margin-top: 100px;">
           <span class="section-subtitle">Career Timeline</span>
@@ -553,7 +705,7 @@
 
           <!-- 1. HCSF -->
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="hcsf" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Head of the Civil Service of the Federation, 14 Aug 2024 – Aug 2026">
               <div class="timeline-header">
                 <span class="timeline-period">AUG 2024 – AUG 2026</span>
                 <span class="timeline-type">Full-time · On-site</span>
@@ -571,11 +723,12 @@
                 <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
                 Download Legacy Report (.docx)
               </a>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="hcsf">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
                     <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="sdo" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, Special Duties Office, 18 Jul – 12 Aug 2024">
               <div class="timeline-header">
                 <span class="timeline-period">JUL 2024 – AUG 2024</span>
                 <span class="timeline-type">Full-time</span>
@@ -586,11 +739,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Permanent Secretary, Special Duties Office, from 18 July 2024 until her appointment as Head of the Civil Service.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="sdo">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="edu" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 15 Jan – 18 Jul 2024">
               <div class="timeline-header">
                 <span class="timeline-period">JAN 2024 – JUL 2024</span>
                 <span class="timeline-type">Full-time · On-site</span>
@@ -601,11 +755,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Permanent Secretary of the Federal Ministry of Education from 15 January 2024. Nigerian representative at the Global Gateway High-Level Education Event, Brussels, on 11 April 2024.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="edu">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="water" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 30 Sep 2020 – Jan 2024">
               <div class="timeline-header">
                 <span class="timeline-period">SEP 2020 – JAN 2024</span>
                 <span class="timeline-type">Full-time · 3 yrs 3 mos</span>
@@ -616,11 +771,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Chaired the National Technical Committee on Water Resources and the Local Organising Committee of the 2022 World Toilet Summit, and sat on the steering committee of the Presidential committee on flood-disaster prevention. Restructured the ministry (a new Hydrology Department and the redesignation to Water Resources and Sanitation) and completed a 250KW solar power system, staff clinic, canteen and gymnasium.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="water">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="power" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 23 Dec 2019 – 27 Aug 2020">
               <div class="timeline-header">
                 <span class="timeline-period">DEC 2019 – AUG 2020</span>
                 <span class="timeline-type">Full-time · 8 mos</span>
@@ -631,11 +787,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Chaired the committees on procurement planning, electricity supply to the Presidential Villa, the Kaduna power plants and the restructuring of the Ministry and oversight of its agencies. Secretary of the inter-ministerial committees on the Mambilla Hydroelectric Power Project and a board member of the Nigeria Bulk Electricity Company Limited.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="power">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="nda" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 1 Aug – 20 Dec 2019">
               <div class="timeline-header">
                 <span class="timeline-period">AUG 2019 – DEC 2019</span>
                 <span class="timeline-type">Full-time · 4 mos</span>
@@ -646,11 +803,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Chaired the Ministerial Tenders Board, sat on the Inter-Governmental Affairs Committee, trained and empowered non-militant youth, women and men, and led peace and security sensitisation programmes.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="nda">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="swo" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 16 Aug 2017 – 31 Jul 2019">
               <div class="timeline-header">
                 <span class="timeline-period">AUG 2017 – JUL 2019</span>
                 <span class="timeline-type">Full-time · 2 yrs</span>
@@ -661,11 +819,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Chaired the technical committee that developed the Federal Civil Service Welfare Policy, the Joint National Public Service Negotiating Council (2017 to 2019) and the committee on the policy framework for public service emergency management. Represented the Head of the Civil Service on the Tripartite Committee on the National Minimum Wage and edited the Service Welfare Newsletter.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="swo">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="directors" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Director, Feb 2015 – Aug 2017">
               <div class="timeline-header">
                 <span class="timeline-period">FEB 2015 – AUG 2017</span>
                 <span class="timeline-type">Full-time</span>
@@ -676,11 +835,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 As Director in the Office of the Permanent Secretary, OHCSF, developed the curricula for the Structured Mandatory Assessment-Based Training Programme (SMAT-P) and the Leadership Enhancement and Development Programme (LEAD-P). As Director of Planning, Research and Statistics, Niger Delta Affairs, secured UNDP support for an ICT-based monitoring and evaluation system and revived the Multi-Stakeholder Trust Fund.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="directors">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="exec" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Chief of Staff, Commissioner and Deputy Chief of Staff, Feb 2012 – Dec 2014">
               <div class="timeline-header">
                 <span class="timeline-period">FEB 2012 – DEC 2014</span>
                 <span class="timeline-type">On secondment</span>
@@ -691,11 +851,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Deputy Chief of Staff to the Governor (February to August 2012), Commissioner for Science, Technology and Manpower Development (August 2012 to June 2013) and Chief of Staff (June 2013 to December 2014). Chaired the committee that set out the structure and sector strategy of the new Ministry of Science, Technology and Manpower Development.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="exec">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="mnda" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Assistant Director and Deputy Director, Jun 2009 – Feb 2012">
               <div class="timeline-header">
                 <span class="timeline-period">JUN 2009 – FEB 2012</span>
                 <span class="timeline-type">Full-time</span>
@@ -706,11 +867,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Joined the Federal Civil Service in 2009. Set up and coordinated the ministry’s Rivers State Office as its pioneer State Coordinator, then served in the Department of Human Resource Management in Abuja.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="mnda">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="justice" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Solicitor-General &amp; Permanent Secretary, 1998 – Jun 2009">
               <div class="timeline-header">
                 <span class="timeline-period">1998 – JUN 2009</span>
                 <span class="timeline-type">Executive State Service</span>
@@ -721,11 +883,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Head of Legal Drafting at the Ministry of Justice from October 1998 and, from May 1999, at the State House of Assembly. Solicitor-General and Permanent Secretary from July 2002 to January 2009, and Secretary of the Bayelsa State Law Revision Committee (2004 to 2008). Permanent Secretary, Office of the Head of Service, in early 2009.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="justice">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="rivers" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about State Counsel, 1992 – 1996">
               <div class="timeline-header">
                 <span class="timeline-period">1992 – 1996</span>
                 <span class="timeline-type">State Legal Service</span>
@@ -736,11 +899,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 State Counsel from 1992 to September 1996. Member of the Rivers and Bayelsa States Assets and Liabilities Sharing and Implementation Committee (1996 to 1997).
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="rivers">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card">
+            <div class="timeline-card is-clickable" data-role="early" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Law Clerk, State Counsel, Legal Practitioner and Editor, 1985 – 1990">
               <div class="timeline-header">
                 <span class="timeline-period">1985 – 1990</span>
                 <span class="timeline-type">Early career</span>
@@ -751,6 +915,7 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Vacation clerk at Elf (Nigeria) Limited in 1985, State Counsel in Uyo during National Youth Service (1987 to 1988), legal practitioner in Port Harcourt (1988 to 1990) and Managing Editor of LAWFAIR News Magazine in 1990.
               </p>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="early">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
@@ -954,6 +1119,124 @@
           setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
         });
       });
+    })();
+  </script>
+  <!-- ROLE DETAIL POP-UP -->
+  <div class="role-overlay" id="roleOverlay" hidden>
+    <div class="role-modal" role="dialog" aria-modal="true" aria-labelledby="roleTitle" tabindex="-1">
+      <header class="role-head">
+        <div class="role-head-text">
+          <span class="role-period" id="rolePeriod"></span>
+          <h2 id="roleTitle" class="role-title"></h2>
+          <div class="role-org" id="roleOrg"></div>
+        </div>
+        <button type="button" class="role-close" id="roleClose" aria-label="Close">✕</button>
+      </header>
+      <div class="role-body" id="roleBody"></div>
+      <footer class="role-foot">
+        <button type="button" class="role-nav" id="rolePrev">← Prev</button>
+        <button type="button" class="role-nav" id="roleExpand">Expand all</button>
+        <button type="button" class="role-nav" id="roleNext">Next →</button>
+      </footer>
+    </div>
+  </div>
+  <script>
+    /* Career role pop-ups: cards, slider and accordions. Data is inline so the page works inside an HTML embed. */
+    (function () {
+      var DATA = {"hcsf": {"period": "14 Aug 2024 – Aug 2026", "title": "Head of the Civil Service of the Federation", "org": "Office of the Head of the Civil Service of the Federation, The Presidency", "loc": "Abuja, Nigeria", "summary": "Appointed by President Bola Ahmed Tinubu, GCFR (approved 17 July 2024), Mrs. Walson-Jack led the Federal Civil Service of over 100,000 public servants through the final stretch of FCSSIP25 and the start of its successor, FCSSIP30. She handed over in August 2026 and has retired from active public service.", "stats": [["7", "Reform War Rooms"], ["38", "MDAs on digital work processes"], ["120,000+", "Active GovMail accounts"], ["59,364", "Officers verified in PASGA"]], "groups": [{"t": "Reform delivery", "open": true, "items": ["Established seven FCSSIP25 War Rooms on 19 September 2024, one for each of the six reform pillars and one for the enablers.", "Declared 2025 the Year of Accomplishment and drove the \"Final Sprint\" to the end of FCSSIP25 on 31 December 2025.", "Closed the FCSSIP25 End-Term Review on 17 June 2026 and began co-creating FCSSIP30 (2026–2030), with an 8,000-response survey.", "Designated every Thursday as Performance Management System Day across the Federal Civil Service."]}, {"t": "Digital work and workforce data", "open": false, "items": ["Expanded paperless operations from 3 to 38 Ministries, Departments and Agencies on the 1Gov Enterprise Content Management platform.", "Moved the OHCSF onto the integrated 1Gov Cloud (GovMail, InMail, GovDrive, GovConference) on 11 November 2025.", "Introduced Service-Wise GPT, with more than 75,000 conversations recorded.", "Completed the Personnel Audit and Skills Gap Analysis (Project Phoenix) and launched the IPPIS Human Resource Modules on 27 July 2026.", "Trained 15,800 officers in digital skills through NITDA's Digital Literacy for All programme."]}, {"t": "Leadership and culture", "open": false, "items": ["Embedded the EPIC ethos (Efficient, Productive, Incorruptible, Citizen-Centred) and reintroduced the Federal Civil Service Anthem on 7 September 2024.", "Led Permanent Secretaries' retreats and the signing of Performance Management Contracts on 4 September 2024.", "Led 32 senior leaders through the UN-facilitated Nigeria–UAE Senior Executive Leadership Programme in May 2025.", "Held the International Civil Service Conference in 2025 (3,000+ delegates) and 2026 (5,000+ delegates, 16 countries).", "Launched INSPIRE, a network for women's leadership in the Civil Service, in May 2026 with UN Women."]}, {"t": "Staff welfare", "open": false, "items": ["Secured an exit benefit equal to 100% of annual emoluments, effective 1 January 2026.", "Secured a 40% increase in Peculiar Allowance and full Duty Tour Allowance for approved capacity-development programmes.", "Unlocked an annual N10 billion housing-loan intervention and broke ground for 250 housing units in August 2026.", "Operationalised the Employee Compensation Scheme under the Employee Compensation Act 2010 and introduced 50 mass-transit buses for civil servants."]}, {"t": "Service-wide appointments (CV)", "open": false, "items": ["Member, Examination Committee for the Selection of New Permanent Secretaries in the Federal Civil Service (2024).", "Member, Federal Service Management Committee (2022 to date).", "Member, OHCSF-Aig-Imoukhuede Foundation Steering Committee (2022 to date)."]}, {"t": "Global engagements, 2024 to 2026 (CV)", "open": false, "items": ["70th Session of the UN Commission on the Status of Women, New York (March 2026).", "World Governments Summit, Dubai (February 2026) and Global Government Summit, Singapore (January 2026).", "Digital Government Africa Summit, Lusaka (October 2025).", "ICC Arbitration Court, Paris (June 2025) and RIMS Riskworld, Chicago (May 2025).", "Panel on Women in Leadership, UN Headquarters, New York (March 2025).", "Singapore Civil Service study tour with State Heads of Service (January 2025)."]}]}, "sdo": {"period": "18 Jul – 12 Aug 2024", "title": "Permanent Secretary, Special Duties Office", "org": "Office of the Head of the Civil Service of the Federation (OHCSF)", "loc": "Abuja, Nigeria", "summary": "Permanent Secretary, Special Duties Office, OHCSF, in the weeks between her posting from the Federal Ministry of Education and her appointment as Head of the Civil Service of the Federation.", "stats": [], "groups": [{"t": "Service-wide appointments (CV)", "open": true, "items": ["Member, Examination Committee for the Selection of New Permanent Secretaries in the Federal Civil Service (2024).", "Member, Federal Service Management Committee (2022 to date)."]}]}, "edu": {"period": "15 Jan – 18 Jul 2024", "title": "Permanent Secretary", "org": "Federal Ministry of Education", "loc": "Abuja, Nigeria", "summary": "Permanent Secretary of the Federal Ministry of Education from 15 January to 18 July 2024.", "stats": [], "groups": [{"t": "Assignments", "open": true, "items": ["Nigerian representative at the Global Gateway High-Level Education Event, Brussels, Belgium (11 April 2024).", "Member, Federal Service Management Committee (2022 to date)."]}, {"t": "Honours", "open": false, "items": ["Award of Honour, Federal Ministry of Education (2024)."]}]}, "water": {"period": "30 Sep 2020 – Jan 2024", "title": "Permanent Secretary", "org": "Federal Ministry of Water Resources and Sanitation", "loc": "Abuja, Nigeria", "summary": "Permanent Secretary from 30 September 2020. She chaired the national technical committee on water resources, hosted the 2022 World Toilet Summit, restructured the ministry with OHCSF approval, and improved the working environment and welfare of its staff.", "stats": [["2022", "World Toilet Summit hosted in Abuja"], ["250KW", "Solar power system installed"], ["6", "Zonal offices commenced"], ["4", "Staff welfare facilities completed"]], "groups": [{"t": "Committees and boards", "open": true, "items": ["Member, Steering Committee of the Presidential Committee for the Development of a Comprehensive Plan of Action to Prevent Flood Disaster in Nigeria (2022).", "Chairman, Local Organizing Committee for the 2022 World Toilet Summit, hosted at the Transcorp Hilton Hotel, Abuja.", "Member, Board of the National Directorate of Employment (2022 to June 2023).", "Member, Board of the Committee of Establishment of the Hydro-Electric Power Producing Areas Development Commission, HYPPADEC (2021 to June 2023).", "Chairman, National Technical Committee on Water Resources (2020 to 2022)."]}, {"t": "Workplace environment", "open": false, "items": ["Established the Ministry's Contact Centre.", "Installed a 250KW solar power system to complement power supply from AEDC."]}, {"t": "Staff welfare", "open": false, "items": ["Completed and operationalised the staff clinic, staff canteen, staff gymnasium and aerobic centre."]}, {"t": "Restructuring of the Ministry", "open": false, "items": ["Obtained and implemented the OHCSF-approved restructuring of the Ministry.", "Established a new Hydrology Department and commenced the establishment of six Zonal Offices.", "Repositioned the Freedom of Information Unit, the Private-Public Partnership Unit and the Internal Audit Unit.", "Implemented the re-designation from Federal Ministry of Water Resources to Federal Ministry of Water Resources and Sanitation.", "Established the Office of the Honourable Minister of State."]}, {"t": "Study tours (CV)", "open": false, "items": ["Technical study tour to Spain for the TRIMING project steering committee (December 2022).", "Technical study tour to Morocco for the TRIMING project steering committee (March 2022).", "Technical study tour to the Songhai Model Farm Centre, Porto-Novo, Benin (May 2021)."]}, {"t": "Honours during this tenure", "open": false, "items": ["Letter of Commendation from the Minister of Water Resources (2023).", "Pioneer Ambassador Award, Network of Female Professionals in Water Supply, Sanitation and Hygiene in Nigeria (2022).", "Distinguished Water Ambassador, Association of Professional Women Engineers of Nigeria, Abuja Chapter (2022).", "Award of Honour, Nigerian Institution of Water Engineers (2021)."]}]}, "power": {"period": "23 Dec 2019 – 27 Aug 2020", "title": "Permanent Secretary", "org": "Federal Ministry of Power", "loc": "Abuja, Nigeria", "summary": "Permanent Secretary for eight months, during which she chaired or served on the committees that shaped procurement, major generation projects and the restructuring of the Ministry and its agencies.", "stats": [["9", "Committee and board roles"], ["3,050MW", "Mambilla Hydroelectric Power Project"], ["215MW", "Kaduna power plants"]], "groups": [{"t": "Committees chaired", "open": true, "items": ["Chairman, Procurement Planning Committee.", "Chairman, Committee on the Defunct PHCN Ground Rents and Tenement Rates inherited by the Nigeria Electricity Liability Management Company (NELMCO) Ltd/GTE.", "Chairman, Committee on Supply of Electricity to Aso Rock Villa.", "Chairman, Committee on Implementation of the 215MW Kaduna Power Plants.", "Chairman, Committee on Bayelsa State Power4All Project Implementation.", "Chairman, Committee on Restructuring of the Federal Ministry of Power and Oversight of its Agencies."]}, {"t": "Mambilla Hydroelectric Power Project", "open": false, "items": ["Secretary, Inter-Ministerial Steering Committee on Implementation of the 3,050MW Mambilla Hydroelectric Power Project.", "Secretary, Inter-Ministerial Project Delivery Committee on Implementation of the 3,050MW Mambilla Hydroelectric Power Project."]}, {"t": "Board membership", "open": false, "items": ["Member, Board of Directors, Nigeria Bulk Electricity Company Limited."]}, {"t": "Conferences (CV)", "open": false, "items": ["The 13th World Future Energy Summit, Abu Dhabi (January 2020).", "ECOWAS Centre for Renewable Energy and Energy Efficiency, Abuja (21 January 2020).", "Middle East Energy Exhibition and Conference, Dubai (March 2020)."]}]}, "nda": {"period": "1 Aug – 20 Dec 2019", "title": "Permanent Secretary", "org": "Ministry of Niger Delta Affairs", "loc": "Abuja, Nigeria", "summary": "Permanent Secretary of the ministry responsible for development of the Niger Delta, where she had earlier served as Assistant Director, Deputy Director and Director.", "stats": [], "groups": [{"t": "Key assignments and initiatives", "open": true, "items": ["Member, Inter-Governmental Affairs Committee.", "Chairman, Ministerial Tenders Board.", "Trained, empowered and improved the capacity of non-militant youth, women and men.", "Embarked on Peace and Security Enlightenment Sensitization Programmes."]}]}, "swo": {"period": "16 Aug 2017 – 31 Jul 2019", "title": "Permanent Secretary", "org": "Service Welfare Office, Office of the Head of the Civil Service of the Federation", "loc": "Abuja, Nigeria", "summary": "Permanent Secretary of the Service Welfare Office for two years. She chaired the committee that developed the Federal Civil Service Welfare Policy, chaired the Joint National Public Service Negotiating Council, and represented the Head of the Civil Service in the national minimum wage negotiations.", "stats": [["13", "Committee roles"], ["3", "OHCSF offices overseen"], ["2017–19", "Chairman, Joint National Public Service Negotiating Council"]], "groups": [{"t": "Committees and councils", "open": true, "items": ["Representative of the HCSF, Tripartite Committee on National Minimum Wage.", "Member, Technical Committee on the Implementation of the National Minimum Wage.", "Member, Committee on Consequential Adjustments to the National Minimum Wage, and Committee to Negotiate the Consequential Adjustment in Salaries.", "Member, Committee on the Implementation of Performance Management System in the Federal Civil Service.", "Chairman, Technical Committee for the Development of the Policy Framework on Public Service Emergency Management.", "Chairman, Technical Committee on the Development of the Federal Civil Service Welfare Policy.", "Chairman, Service-Wide Committee to develop a Concept Note for a Centralized Counselling Centre in the Federal Civil Service.", "Chairman, Inter-Ministerial Committee on the Allocation of Office Space in the Federal Secretariat, and Member, Committee on Office Accommodation and Maintenance of Federal Secretariat Complexes.", "Chairman, Joint National Public Service Negotiating Council (2017 to 2019).", "Secretary, Serving Permanent Secretaries Welfare Committee (2017 to 2019).", "Editor-in-Chief, Service Welfare Newsletter (2017 to 2019)."]}, {"t": "Offices overseen during the tenure", "open": false, "items": ["Office of the Head of the Civil Service of the Federation, on several dates between 2018 and 2019.", "Common Services Office, in 2017, 2018 and 2019.", "Service Policies and Strategies Office, in March to June 2019."]}, {"t": "Study visits (CV)", "open": false, "items": ["Study visit and partnership with investors and housing estate developers, Abu Dhabi (March 2018).", "Study visit on housing finance and construction, Mexico (April 2019).", "108th Session of the International Labour Conference, Geneva (June 2019).", "Study tour on networking, United Kingdom (July 2019)."]}]}, "directors": {"period": "Feb 2015 – Aug 2017", "title": "Director", "org": "OHCSF, Federal Ministry of Health and Ministry of Niger Delta Affairs", "loc": "Abuja, Nigeria", "summary": "Four directorships in two years: Office of the Permanent Secretary at OHCSF, Special Duties and Human Resource Management at the Federal Ministry of Health, Planning, Research and Statistics at the Ministry of Niger Delta Affairs, and Special Duties at the Office of the Secretary to the Government of the Federation.", "stats": [["UNDP", "Supported an ICT-based M&E system"], ["21", "Staff trained to run it"], ["2", "Training programmes designed: SMAT-P and LEAD-P"]], "groups": [{"t": "Director, Planning, Research and Statistics, Ministry of Niger Delta Affairs (July 2016 to April 2017)", "open": true, "items": ["Prepared fully for the 2nd National Council on Niger Delta (December 2016), which was postponed a few days before the event for reasons beyond the Ministry's control.", "Conceptualised and implemented a two-day Top Management and Stakeholders Policy Retreat in Calabar, Cross River State.", "Secured the support and funding of the United Nations Development Programme for programmes and activities of the Ministry.", "Established an ICT-based Monitoring and Evaluation System to monitor development activities across the Niger Delta, sponsored by UNDP, and trained 21 staff as administrators and users.", "Revived the Multi-Stakeholder Trust Fund proposed in the Niger Delta Action Plan: obtained concurrences for the FEC Memo, initiated a Bill and updated the Council Memorandum.", "Organised a Validation Workshop on the Report of the Baseline Survey of the Infrastructural Resource Base of the 9 Niger Delta States.", "Popularised the Niger Delta Action Plan and solicited the buy-in of development partners.", "Monitored and evaluated Sections I to IV of the East-West Road, the flagship project of the Niger Delta.", "Organised an Inter-Ministerial and Stakeholders meeting of the West African Coastal Areas Programme (WACA).", "Prepared speeches and documentation for the Honourable Minister, including for WACA, the European Union and the House of Representatives Committee on the Niger Delta."]}, {"t": "Director, Special Duties and Human Resource Management, Federal Ministry of Health (November 2015 to July 2016)", "open": false, "items": ["Developed a proposal for the purchase of public service reference books for the Ministry's offices, departments and units (June 2016).", "Conceptualised and developed a proposal for a Rewards and Recognition System in the Ministry (May 2016)."]}, {"t": "Director, Office of the Permanent Secretary, OHCSF (February to November 2015)", "open": false, "items": ["Developed the Public Service Emergency Action Plan Guide, on planning for workplace emergencies and evacuations.", "As Programme Manager, developed the curricula and coordinated the launch of the Structured Mandatory Assessment-Based Training Programme (SMAT-P) and the Leadership Enhancement and Development Programme (LEAD-P), and implemented the pilot phase of SMAT-P."]}, {"t": "Director, Special Duties Office, Office of the Secretary to the Government of the Federation (April to August 2017)", "open": false, "items": ["Served as Director in the Special Duties Office before her appointment as Permanent Secretary, Service Welfare Office."]}, {"t": "Forums and conferences (CV)", "open": false, "items": ["Partners Sustainable Development Forum, NDDC, Port Harcourt: presented a paper on the Ministry's intervention strategy (July 2016).", "US-Nigeria Bi-National Commission meeting, Abuja: presented a paper on the Ministry's strategy for the Niger Delta (2016).", "Stakeholders' Forum on Leadership Management and Succession Policy for the Federal Civil Service (October 2016).", "WHO 65th African Regional Committee, N'Djamena, Chad (2015)."]}]}, "exec": {"period": "Feb 2012 – Dec 2014", "title": "Chief of Staff, Commissioner and Deputy Chief of Staff", "org": "Government House, Bayelsa State (on secondment in the public interest)", "loc": "Yenagoa, Bayelsa State", "summary": "Three senior offices in the Bayelsa State Government on secondment from the Civil Service: Deputy Chief of Staff, Honourable Commissioner for Science, Technology and Manpower Development, and Chief of Staff to the Governor.", "stats": [["3", "Offices held in under three years"], ["2013–14", "Chair, Practical Nigerian Content Forum planning committee"]], "groups": [{"t": "Offices held", "open": true, "items": ["Deputy Chief of Staff to the Governor of Bayelsa State (14 February to 6 August 2012).", "Honourable Commissioner, Ministry of Science and Technology and Manpower Development (6 August 2012 to June 2013).", "Chief of Staff, Government House, Yenagoa (June 2013 to 31 December 2014)."]}, {"t": "State assignments", "open": false, "items": ["Chairman, Central Planning Committee, Practical Nigerian Content Forum Annual International Conference on Oil and Gas (2013 and 2014).", "Chairman, Bayelsa State Executive Council Committee on BYSG Indebtedness to Hotels (2013).", "Chairman, Bayelsa State Committee on Entrepreneurial Capacity Development (2012).", "Chairman, Committee on Modalities, Administrative Structures and Medium-Term Sector Strategies for the new Ministry of Science and Technology and Manpower Development (2012).", "Member, Bayelsa State Annual Thanksgiving Committee (2012 to 2014)."]}, {"t": "Recognition", "open": false, "items": ["Written commendation from the Governor of Bayelsa State (2014)."]}]}, "mnda": {"period": "Jun 2009 – Feb 2012", "title": "Assistant Director and Deputy Director", "org": "Ministry of Niger Delta Affairs", "loc": "Abuja and Port Harcourt, Nigeria", "summary": "Joined the Federal Civil Service in 2009. She set up and coordinated the Ministry's Rivers State Office as its pioneer State Coordinator, then served in the Department of Human Resource Management in Abuja.", "stats": [["2009", "Joined the Federal Civil Service"], ["Pioneer", "State Coordinator, Rivers State Office"]], "groups": [{"t": "Positions held", "open": true, "items": ["Assistant Director, Appointment and Discipline, Human Resource Management Department, Abuja (June to December 2009).", "Assistant Director, Administration, and State Coordinator, Rivers State Office, Port Harcourt (16 November to 31 December 2009).", "Deputy Director, Administration, and State Coordinator, Rivers State Office, Port Harcourt (January 2010 to January 2011).", "Deputy Director, Appointment, Promotion and Discipline, Human Resource Management Department, Abuja (January 2011 to 14 February 2012)."]}, {"t": "Key assignment", "open": false, "items": ["Set up and coordinated the Rivers State Office of the Ministry of Niger Delta Affairs as the pioneer State Coordinator (July 2009 to 2010)."]}, {"t": "Conference (CV)", "open": false, "items": ["Regional Conference of the Commonwealth Association for Public Administration and Management, Abuja (2010)."]}]}, "justice": {"period": "1998 – Jun 2009", "title": "Solicitor-General & Permanent Secretary", "org": "Bayelsa State Ministry of Justice", "loc": "Yenagoa, Bayelsa State", "summary": "Head of Legal Drafting from October 1998 and Solicitor-General and Permanent Secretary of the Ministry of Justice from July 2002 to January 2009. She chaired or served on more than a dozen state committees on law, justice, pensions and public finance.", "stats": [["2002–09", "Solicitor-General and Permanent Secretary"], ["5", "Committees chaired in 2006"], ["2001", "Founded the Legislative Drafters Network of Nigeria"]], "groups": [{"t": "Positions held", "open": true, "items": ["Head, Legal Drafting Department, Ministry of Justice, Yenagoa (October 1998 to December 1999).", "Head, Legal Drafting Department, Bayelsa State House of Assembly (May 1999 to July 2002), held concurrently for a period with the Ministry of Justice post.", "Solicitor-General of Bayelsa State and Permanent Secretary, Ministry of Justice (July 2002 to January 2009).", "Permanent Secretary, Office of the Head of Service, Bayelsa State Government (January to 22 June 2009)."]}, {"t": "Committees chaired (2006)", "open": false, "items": ["Chairperson, Committee to Trace, Identify and Assess all Bayelsa State Government Assets and Perfect all Titles.", "Chairperson, Committee to Prepare a Bill on HIV/AIDS.", "Chairperson, Committee for the Quick Dispensation of Justice.", "Chairperson, Editorial Law Reporting Committee.", "Chairperson, Committee on Reform of the Coroner's Law."]}, {"t": "Committees and boards, as secretary or member", "open": false, "items": ["Secretary, Bayelsa State Law Revision Committee (2004 to 2008).", "Statutory Member, Bayelsa State Pensions Governing Board (2003 to 2008), and Member, Contributory Pensions Committee (2003).", "Secretary, Committee on Amendments to the 1999 Constitution; Committee to Investigate Allegations of Financial Impropriety against the Acting Accountant-General; and Committee to advise Government on the Sale of WG Nigeria Holding Limited (2006).", "Secretary, Committee on the Management of Izon Wari, the new Bayelsa State Liaison Office, Abuja (2005).", "Chairperson, Committee to Recommend Salaries to be paid to Permanent Secretaries in Bayelsa State (2002).", "Member, Bayelsa State Economic Empowerment and Development Strategy Committee, Women Affairs Committee and others (2004 to 2005).", "Member, Nursing and Midwifery Committee (1998 to 2009); Collating Officer, 1998 Local Government Elections."]}, {"t": "Founding and professional roles", "open": false, "items": ["Founder, Legislative Drafters Network of Nigeria (LEGISNET), 2001, to address the drafting of legislation in State Houses of Assembly.", "Founder, Gifted Women Mentoring Class (2004)."]}, {"t": "Honours during this period", "open": false, "items": ["Public Administrator of the Year, Bayelsa State (2008).", "Professional Service Award, Rotary Club of Yenagoa (2007).", "Award for Commitment, Nigerian Bar Association, Yenagoa Branch (2006)."]}]}, "rivers": {"period": "1992 – 1996", "title": "State Counsel", "org": "Rivers State Ministry of Justice", "loc": "Port Harcourt, Rivers State", "summary": "State Counsel in the Rivers State Ministry of Justice from 1992 to September 1996, including a period on secondment in the Office of the Deputy Governor.", "stats": [], "groups": [{"t": "Positions and committees", "open": true, "items": ["State Counsel, Ministry of Justice, Port Harcourt (1992 to September 1996).", "Special Assistant to the wife of the Deputy Governor, Government House, Port Harcourt, on secondment (1992 to 1993).", "Member, Rivers State Silver Jubilee Anniversary Committee (1992).", "Member, Rivers and Bayelsa States Assets and Liabilities Sharing and Implementation Committee (1996 to 1997)."]}, {"t": "Professional activity", "open": false, "items": ["Joined the International Federation of Women Lawyers (FIDA) in 1992 and later served as Publicity Secretary, Rivers State, and Chairperson, Bayelsa State."]}]}, "early": {"period": "1985 – 1990", "title": "Law Clerk, State Counsel, Legal Practitioner and Editor", "org": "Elf (Nigeria) Limited, Akwa Ibom State Ministry of Justice and T. J. R. Okara & Co.", "loc": "Port Harcourt and Uyo, Nigeria", "summary": "The first years of her legal career, from a vacation clerkship while at university to private practice in Port Harcourt.", "stats": [], "groups": [{"t": "Positions held", "open": true, "items": ["Clerk (vacation employment), Legal Department, Elf (Nigeria) Limited, Port Harcourt (1985).", "State Counsel, Administrator General's Office, Ministry of Justice, Uyo, Akwa Ibom State, during National Youth Service (1987 to 1988).", "Legal Practitioner, T. J. R. Okara & Co. (Barristers & Solicitors), Port Harcourt (1988 to 1990).", "Managing Editor, LAWFAIR News Magazine, Newsfair Communications Nigeria Limited (May to December 1990)."]}]}};
+      var ORDER = Array.prototype.map.call(document.querySelectorAll('.timeline-card[data-role]'), function (c) { return c.getAttribute('data-role'); });
+      var overlay = document.getElementById('roleOverlay');
+      var modal = overlay.querySelector('.role-modal');
+      var body = document.getElementById('roleBody');
+      var opener = null, current = null;
+      function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+      function render(id) {
+        var d = DATA[id]; if (!d) return; current = id;
+        document.getElementById('rolePeriod').textContent = d.period;
+        document.getElementById('roleTitle').textContent = d.title;
+        document.getElementById('roleOrg').textContent = d.org + (d.loc ? ' · ' + d.loc : '');
+        var html = '<p class="role-summary">' + esc(d.summary) + '</p>';
+        if (d.stats && d.stats.length) {
+          html += '<div class="role-stats">' + d.stats.map(function (s) { return '<div class="role-stat"><div class="role-stat-num">' + esc(s[0]) + '</div><div class="role-stat-lbl">' + esc(s[1]) + '</div></div>'; }).join('') + '</div>';
+        }
+        html += '<div class="role-acc">' + d.groups.map(function (g) {
+          return '<details class="role-group"' + (g.open ? ' open' : '') + '><summary><span>' + esc(g.t) + '</span><span class="role-count">' + g.items.length + '</span></summary><ul>' + g.items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul></details>';
+        }).join('') + '</div>';
+        body.innerHTML = html; body.scrollTop = 0;
+        var i = ORDER.indexOf(id);
+        document.getElementById('rolePrev').disabled = i <= 0;
+        document.getElementById('roleNext').disabled = i < 0 || i >= ORDER.length - 1;
+        syncExpand();
+      }
+      function syncExpand() {
+        var all = body.querySelectorAll('details'), open = body.querySelectorAll('details[open]');
+        document.getElementById('roleExpand').textContent = open.length === all.length ? 'Collapse all' : 'Expand all';
+      }
+      function openRole(id, from) {
+        opener = from || document.activeElement; render(id);
+        overlay.hidden = false; document.body.classList.add('role-open');
+        requestAnimationFrame(function () { overlay.classList.add('is-in'); document.getElementById('roleClose').focus(); });
+      }
+      function closeRole() {
+        overlay.classList.remove('is-in'); document.body.classList.remove('role-open');
+        setTimeout(function () { overlay.hidden = true; }, 180);
+        if (opener && opener.focus) opener.focus();
+      }
+      function step(n) { var i = ORDER.indexOf(current) + n; if (ORDER[i]) render(ORDER[i]); }
+      document.addEventListener('click', function (e) {
+        var t = e.target.closest('[data-role]');
+        if (t && !overlay.contains(t)) {
+          if (e.target.closest('a')) return;
+          e.preventDefault(); openRole(t.getAttribute('data-role'), t);
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        var t = e.target;
+        if ((e.key === 'Enter' || e.key === ' ') && t.matches && t.matches('[data-role][role="button"]') && !overlay.contains(t)) { e.preventDefault(); openRole(t.getAttribute('data-role'), t); return; }
+        if (overlay.hidden) return;
+        if (e.key === 'Escape') { closeRole(); }
+        else if (e.key === 'ArrowLeft' && !/input|textarea/i.test(t.tagName)) { step(-1); }
+        else if (e.key === 'ArrowRight' && !/input|textarea/i.test(t.tagName)) { step(1); }
+        else if (e.key === 'Tab') {
+          var f = modal.querySelectorAll('button:not([disabled]), summary, a[href]'); if (!f.length) return;
+          var first = f[0], last = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeRole(); });
+      document.getElementById('roleClose').addEventListener('click', closeRole);
+      document.getElementById('rolePrev').addEventListener('click', function () { step(-1); });
+      document.getElementById('roleNext').addEventListener('click', function () { step(1); });
+      document.getElementById('roleExpand').addEventListener('click', function () {
+        var all = body.querySelectorAll('details'), open = body.querySelectorAll('details[open]'), expand = open.length !== all.length;
+        all.forEach(function (d) { d.open = expand; }); syncExpand();
+      });
+      body.addEventListener('toggle', syncExpand, true);
+
+      /* slider */
+      var track = document.getElementById('kfaTrack'), dots = document.getElementById('kfaDots');
+      if (track) {
+        var slides = track.querySelectorAll('.kfa-slide');
+        slides.forEach(function (s, i) {
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'kfa-dot'; b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          b.addEventListener('click', function () { track.scrollTo({ left: s.offsetLeft - track.offsetLeft, behavior: 'smooth' }); });
+          dots.appendChild(b);
+        });
+        function active() {
+          var x = track.scrollLeft + track.clientWidth / 2, idx = 0;
+          slides.forEach(function (s, i) { if (s.offsetLeft - track.offsetLeft <= x) idx = i; });
+          if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) idx = slides.length - 1;
+          dots.querySelectorAll('.kfa-dot').forEach(function (d, i) { d.classList.toggle('on', i === idx); });
+          document.getElementById('kfaPrev').disabled = track.scrollLeft <= 4;
+          document.getElementById('kfaNext').disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+        }
+        function by(n) { track.scrollBy({ left: n * (slides[0].offsetWidth + 20), behavior: 'smooth' }); }
+        document.getElementById('kfaPrev').addEventListener('click', function () { by(-1); });
+        document.getElementById('kfaNext').addEventListener('click', function () { by(1); });
+        track.addEventListener('scroll', function () { window.requestAnimationFrame(active); });
+        window.addEventListener('resize', active); active();
+      }
     })();
   </script>
 </body>
