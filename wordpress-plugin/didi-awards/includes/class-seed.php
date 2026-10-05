@@ -31,6 +31,7 @@ class Didi_Awards_Seed {
 			) );
 			if ( $exists ) {
 				$skipped++;
+				self::maybe_image( (int) $exists[0], $r );
 				continue;
 			}
 			$id = wp_insert_post( array(
@@ -54,9 +55,33 @@ class Didi_Awards_Seed {
 			update_post_meta( $id, '_da_image_suggest', $r['image_suggest'] );
 			update_post_meta( $id, '_da_sort', (int) $r['sort'] );
 			update_post_meta( $id, '_da_featured', ! empty( $r['featured'] ) ? 1 : 0 );
+			self::maybe_image( $id, $r );
 			$added++;
 		}
 		update_option( 'didi_awards_seeded', time() );
 		return array( 'added' => $added, 'skipped' => $skipped );
+	}
+
+	/**
+	 * Import the approved image for an award (auto_image) when it has none yet.
+	 * Failures are silent: the placeholder stays and the dashboard can retry.
+	 */
+	private static function maybe_image( $id, $r ) {
+		if ( empty( $r['auto_image'] ) || empty( $r['image_suggest'] ) || has_post_thumbnail( $id ) ) {
+			return;
+		}
+		if ( get_post_meta( $id, '_da_image_tried', true ) ) {
+			return;
+		}
+		update_post_meta( $id, '_da_image_tried', 1 );
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		$att = media_sideload_image( $r['image_suggest'], $id, $r['title'], 'id' );
+		if ( ! is_wp_error( $att ) ) {
+			set_post_thumbnail( $id, $att );
+		} else {
+			delete_post_meta( $id, '_da_image_tried' );
+		}
 	}
 }

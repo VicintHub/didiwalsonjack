@@ -26,6 +26,6 @@ Awards & Commendations for didiwalsonjack.com.
 
 ## Notes
 * The award pages are complete branded pages (header, footer, fonts) and do not depend on the theme or Elementor.
-* Images: award photos found online belong to their publishers. The suggested image address is stored on each award that has one, but nothing is imported until you press the button. Use only images you have permission to use.
+* Images: two awards (African Public Service Award, UNILAG Distinguished Alumnus Award) import an approved press photo from the web into the Media Library when the plugin is activated; if the download fails the placeholder stays and the award can be retried from its edit screen. Other awards use placeholders until you upload photos. Use only images you have permission to use.
 * Logos are bundled in `assets/logos`.
 * Requires WordPress 6.0+ and PHP 7.4+. Tested on WordPress 6.8 with PHP 8.3.

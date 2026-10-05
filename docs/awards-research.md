@@ -5,8 +5,8 @@ The CV lists 32 awards. Each one has its own page. Where the web gave facts, the
 ## Researched (facts and sources on the award page)
 | Award | Found |
 |---|---|
-| African Public Service Award | African Heritage Awards (4th edition), Accra, Ghana. Premium Times dates the ceremony 11 April 2026, the date on the CV. Daily Trust gives 12 and 13 April 2025. The site uses 11 April 2026. Image suggestion: Premium Times event photo. |
-| University of Lagos Distinguished Alumnus Award | UNILAG Alumni Association 55th Anniversary Honours Dinner, Eko Hotel and Suites, Lagos, 17 October 2025 (Social Development News). Image suggestion: the article's photo. |
+| African Public Service Award | African Heritage Awards (4th edition), Accra, Ghana. Premium Times dates the ceremony 11 April 2026, the date on the CV. Daily Trust gives 12 and 13 April 2025. Approved: the site uses 11 April 2026. Image: Premium Times event photo (approved; imported on activation). |
+| University of Lagos Distinguished Alumnus Award | UNILAG Alumni Association 55th Anniversary Honours Dinner, Eko Hotel and Suites, Lagos, 17 October 2025 (Social Development News). Image: the article's photo (approved; imported on activation). |
 | Govern for Impact Award | Environmental Health Council of Nigeria, National Environmental Health Excellence Award, Abuja (allAfrica, Tribune). Issuer page: ehcon.gov.ng/nehea2025. |
 | Officer of the Order of the Niger (OON) | 2023 national honours list (ThisDay, BellaNaija). |
 | African Iconic Female Administrator of the Year, 2024 | Vanguard profile. |

@@ -13,7 +13,8 @@
   "image_suggest": "",
   "featured": true,
   "sort": 20260523,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "african-public-service-award",
@@ -34,7 +35,8 @@
   "image_suggest": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2026/04/WhatsApp-Image-2026-04-12-at-16.39.50.jpeg?resize=1080%2C720&ssl=1",
   "featured": true,
   "sort": 20260411,
-  "verified": true
+  "verified": true,
+  "auto_image": true
  },
  {
   "slug": "university-of-lagos-distinguished-alumnus-award",
@@ -52,7 +54,8 @@
   "image_suggest": "https://socialdevelopmentnews.com/wp-content/uploads/2025/10/unilag-alumni.jpg",
   "featured": true,
   "sort": 20251017,
-  "verified": true
+  "verified": true,
+  "auto_image": true
  },
  {
   "slug": "award-of-honour-house-committee-on-disability-matters",
@@ -70,7 +73,8 @@
   "image_suggest": "",
   "featured": true,
   "sort": 20250712,
-  "verified": true
+  "verified": true,
+  "auto_image": false
  },
  {
   "slug": "award-of-appreciation-permanent-secretaries-2025",
@@ -88,7 +92,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20250628,
-  "verified": true
+  "verified": true,
+  "auto_image": false
  },
  {
   "slug": "award-of-appreciation-haggai-alumni-summit",
@@ -104,7 +109,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20250516,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "award-of-recognition-federal-ministry-of-women-affairs",
@@ -120,7 +126,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20250318,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "govern-for-impact-award",
@@ -140,7 +147,8 @@
   "image_suggest": "",
   "featured": true,
   "sort": 20250220,
-  "verified": true
+  "verified": true,
+  "auto_image": false
  },
  {
   "slug": "mandate-award-miv",
@@ -156,7 +164,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20250117,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "award-of-excellence-idoma-development-association",
@@ -172,7 +181,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20251220,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "appreciation-award-university-of-ibadan",
@@ -190,7 +200,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20251023,
-  "verified": true
+  "verified": true,
+  "auto_image": false
  },
  {
   "slug": "usosa-lifetime-achievement-award",
@@ -206,7 +217,8 @@
   "image_suggest": "",
   "featured": true,
   "sort": 20251001,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "appreciation-award-aapam",
@@ -222,7 +234,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20250101,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "award-of-excellence-priscilla-otti",
@@ -238,7 +251,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20240901,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "distinguished-humanitarian-service-award-rotary-abuja",
@@ -254,7 +268,8 @@
   "image_suggest": "",
   "featured": true,
   "sort": 20240925,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "african-iconic-women-recognition-award",
@@ -270,7 +285,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20240201,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "special-award-unilag-alumni-fct",
@@ -286,7 +302,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20240101,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "award-of-honour-federal-ministry-of-education",
@@ -302,7 +319,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20240301,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "african-iconic-female-administrator-of-the-year",
@@ -320,7 +338,8 @@
   "image_suggest": "",
   "featured": true,
   "sort": 20240401,
-  "verified": true
+  "verified": true,
+  "auto_image": false
  },
  {
   "slug": "officer-of-the-order-of-the-niger",
@@ -339,7 +358,8 @@
   "image_suggest": "",
   "featured": true,
   "sort": 20230529,
-  "verified": true
+  "verified": true,
+  "auto_image": false
  },
  {
   "slug": "letter-of-commendation-minister-of-water-resources",
@@ -355,7 +375,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20230301,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "lead-p-batch-2-interns-motivator-award",
@@ -371,7 +392,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20230501,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "award-of-excellence-in-good-leadership",
@@ -387,7 +409,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20220630,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "pioneer-ambassador-award-feminwash",
@@ -403,7 +426,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20220301,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "water-access-award-distinguished-water-ambassador",
@@ -419,7 +443,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20220201,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "award-of-honour-niwe",
@@ -435,7 +460,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20210101,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "award-of-excellence-bayelsa-women-and-children-affairs",
@@ -453,7 +479,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20190101,
-  "verified": true
+  "verified": true,
+  "auto_image": false
  },
  {
   "slug": "written-commendation-governor-of-bayelsa-state",
@@ -469,7 +496,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20140101,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "award-for-commitment-men-of-issachar-vision-ministry",
@@ -485,7 +513,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20100101,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "public-administrator-of-the-year-bayelsa-state",
@@ -503,7 +532,8 @@
   "image_suggest": "",
   "featured": true,
   "sort": 20080101,
-  "verified": true
+  "verified": true,
+  "auto_image": false
  },
  {
   "slug": "professional-service-award-rotary-yenagoa",
@@ -519,7 +549,8 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20070101,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  },
  {
   "slug": "award-for-commitment-nba-yenagoa",
@@ -535,6 +566,7 @@
   "image_suggest": "",
   "featured": false,
   "sort": 20060101,
-  "verified": false
+  "verified": false,
+  "auto_image": false
  }
 ]
