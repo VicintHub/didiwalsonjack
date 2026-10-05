@@ -17,9 +17,8 @@ The CV lists 32 awards. Each one has its own page. Where the web gave facts, the
 | Award of Appreciation, Permanent Secretaries (28 June 2025) | Context only: the 2025 Rewards and Recognition ceremony. |
 
 ## Not found online (CV facts only, placeholder story)
-African Iconic Public Service Award and Hall of Fame Induction; USOSA Lifetime Achievement Award; Haggai Alumni Summit; Federal Ministry of Women Affairs; MIV Mandate (issuer unknown); Idoma Development Association; AAPAM; First Lady of Abia State; Rotary Club of Abuja; African Iconic Women Recognition Award 2024; UNILAG Alumni FCT Branch; Federal Ministry of Education; Letter of Commendation (Minister of Water Resources); LEAD-P Interns; Nigerian Youth Movement for Good Governance; FEMinWASH; APWEN; NIWE; Governor of Bayelsa; Men of Issachar; Rotary Yenagoa; NBA Yenagoa.
+African Iconic Public Service Award and Hall of Fame Induction; USOSA Lifetime Achievement Award; Haggai Alumni Summit; Federal Ministry of Women Affairs; Idoma Development Association; AAPAM; First Lady of Abia State; Rotary Club of Abuja; African Iconic Women Recognition Award 2024; UNILAG Alumni FCT Branch; Federal Ministry of Education; Letter of Commendation (Minister of Water Resources); LEAD-P Interns; Nigerian Youth Movement for Good Governance; FEMinWASH; APWEN; NIWE; Governor of Bayelsa; Men of Issachar; Rotary Yenagoa; NBA Yenagoa.
 
 ## To confirm
-* The MIV Mandate: issuer and full title.
-* USOSA: full name of the organisation.
+* Confirmed by you: USOSA is the Unity Schools Old Students Association; the MIV Mandate was conferred by the Men of Issachar Vision Inc. (menofissacharvision.com).
 * Exact dates for awards listed only by year.

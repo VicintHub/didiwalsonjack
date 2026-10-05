@@ -1826,28 +1826,30 @@
     :focus-visible { outline: 2px solid var(--amethyst); outline-offset: 2px; }
   </style>
   <style id="awards-ui">
-    /* Featured awards showcase (home). Solid brand colours, no background image. */
-    .awards-showcase { position: relative; overflow: hidden; background: radial-gradient(900px 520px at 12% 20%, rgba(122,75,168,0.28), transparent 70%), linear-gradient(135deg, #3B1F4A 0%, #2A1636 100%); color: #FBF8F4; padding: 5.5rem 0 4.5rem; --gold-primary:#C9B6E4; --gold-light:#E9DFF5; }
-    .aw-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-    .aw-eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #C9B6E4; }
-    .aw-all { color: #FBF8F4; font-weight: 700; font-size: 0.95rem; border-bottom: 1.5px solid #C9B6E4; padding-bottom: 2px; }
-    .aw-all:hover { color: #C9B6E4; }
-    .aw-layout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr); gap: 3rem; align-items: center; }
-    .aw-stage { min-height: 380px; display: flex; flex-direction: column; justify-content: center; }
-    .aw-bar { display: block; width: 36px; height: 3px; background: #C9B6E4; margin-bottom: 1.4rem; }
-    .aw-kicker { margin: 0 0 0.9rem; font-size: 1.1rem; color: #E9DFF5; }
-    .aw-title { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #FFFFFF; font-size: clamp(2.1rem, 4.2vw, 3.6rem); line-height: 1.08; margin: 0 0 1.3rem; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
-    .aw-desc { margin: 0 0 1.8rem; color: rgba(251,248,244,0.82); font-size: 1rem; line-height: 1.8; max-width: 480px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+    /* Featured awards showcase (home). White background, brand colours, no background image. */
+    .awards-showcase { position: relative; background: #FFFFFF; color: #231F26; padding: 5.5rem 0 4.5rem; border-top: 1px solid rgba(122,75,168,0.18); }
+    .aw-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .aw-eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #7A4BA8; }
+    .aw-all { color: #3B1F4A; font-weight: 700; font-size: 0.95rem; border-bottom: 1.5px solid #7A4BA8; padding-bottom: 2px; }
+    .aw-all:hover { color: #7A4BA8; }
+    .aw-layout { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.3fr); gap: 3rem; align-items: center; }
+    .aw-stage { min-height: 400px; display: flex; flex-direction: column; justify-content: center; }
+    .aw-bar { display: block; width: 36px; height: 3px; background: #B03A63; margin-bottom: 1.4rem; }
+    .aw-kicker { margin: 0 0 0.9rem; font-size: 1.05rem; color: #5E5566; }
+    .aw-title { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #3B1F4A; font-size: clamp(2.1rem, 4.2vw, 3.6rem); line-height: 1.08; margin: 0 0 1.3rem; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+    .aw-desc { margin: 0 0 1.8rem; color: #231F26; font-size: 1rem; line-height: 1.8; max-width: 480px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
     .aw-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
-    .aw-bookmark { width: 46px; height: 46px; border-radius: 50%; background: #7A4BA8; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
-    .aw-bookmark:hover { background: #C9B6E4; color: #3B1F4A; }
-    .aw-btn { display: inline-flex; align-items: center; gap: 0.5rem; border: 1.5px solid rgba(251,248,244,0.7); color: #FBF8F4; border-radius: 50px; padding: 0.7rem 1.6rem; font-size: 0.82rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
-    .aw-btn:hover { background: #FBF8F4; color: #3B1F4A; }
+    .aw-bookmark { width: 46px; height: 46px; border-radius: 50%; background: #7A4BA8; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(122,75,168,0.35); }
+    .aw-bookmark:hover { background: #5E3585; color: #FFFFFF; }
+    .aw-btn { display: inline-flex; align-items: center; gap: 0.5rem; border: 1.5px solid #7A4BA8; color: #7A4BA8; border-radius: 50px; padding: 0.7rem 1.6rem; font-size: 0.82rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+    .aw-btn:hover { background: #7A4BA8; color: #FFFFFF; }
     .aw-fade { animation: awFade 0.45s ease both; }
     @keyframes awFade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-    .aw-rail { display: flex; gap: 1.1rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 1rem 2rem 1.5rem 0.5rem; margin-right: calc((100vw - min(100vw, 1280px)) / -2 - 1.5rem); }
+
+    /* Card rail: generous padding so scaled cards and shadows are never clipped by the scroller */
+    .aw-rail { display: flex; align-items: center; gap: 1.25rem; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4rem 2rem 5.5rem 3.5rem; margin: -3rem calc((100vw - min(100vw, 1280px)) / -2 - 1.5rem) -3.5rem -3rem; min-height: 560px; scroll-padding-left: 3.5rem; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 56px); mask-image: linear-gradient(to right, transparent 0, #000 56px); }
     .aw-rail::-webkit-scrollbar { display: none; }
-    .aw-card { position: relative; flex: 0 0 200px; height: 290px; border: 0; padding: 0; border-radius: 20px; overflow: hidden; background: #2A1636; color: #FFFFFF; cursor: pointer; text-align: left; scroll-snap-align: start; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 14px 30px rgba(0,0,0,0.35); outline-offset: 3px; }
+    .aw-card { position: relative; flex: 0 0 200px; height: 290px; border: 0; padding: 0; border-radius: 22px; overflow: hidden; background: #2A1636; color: #FFFFFF; cursor: pointer; text-align: left; scroll-snap-align: start; transition: flex-basis 0.45s cubic-bezier(.4,0,.2,1), height 0.45s cubic-bezier(.4,0,.2,1), box-shadow 0.35s, transform 0.3s; box-shadow: 0 16px 32px -8px rgba(59,31,74,0.38); outline-offset: 4px; }
     .aw-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .aw-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(42,22,54,0.92) 0%, rgba(42,22,54,0.35) 48%, rgba(42,22,54,0) 100%); }
     .aw-card-txt { position: absolute; z-index: 2; left: 1rem; right: 1rem; bottom: 1rem; }
@@ -1855,15 +1857,19 @@
     .aw-card-txt small { display: block; font-size: 0.72rem; color: #E9DFF5; margin-bottom: 0.3rem; line-height: 1.3; }
     .aw-card-txt b { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-family: var(--font-heading); font-size: 1.02rem; line-height: 1.18; text-transform: uppercase; letter-spacing: 0.4px; }
     .aw-card:hover { transform: translateY(-6px); }
-    .aw-card.is-active { transform: translateY(-10px) scale(1.03); box-shadow: 0 0 0 2px #C9B6E4, 0 22px 40px rgba(0,0,0,0.45); }
+    .aw-card.is-active { flex-basis: 290px; height: 430px; box-shadow: 0 0 0 3px #7A4BA8, 0 28px 48px -10px rgba(59,31,74,0.5); }
+    .aw-card.is-active:hover { transform: none; }
+    .aw-card.is-active .aw-card-txt { left: 1.4rem; right: 1.4rem; bottom: 1.4rem; }
+    .aw-card.is-active .aw-card-txt small { font-size: 0.82rem; }
+    .aw-card.is-active .aw-card-txt b { font-size: 1.4rem; -webkit-line-clamp: 4; }
     .aw-controls { grid-column: 1 / -1; display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; }
-    .aw-arrow { width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid rgba(251,248,244,0.55); background: transparent; color: #FBF8F4; font-size: 1.3rem; cursor: pointer; transition: 0.25s; }
-    .aw-arrow:hover { background: #FBF8F4; color: #3B1F4A; }
-    .aw-progress { flex: 1; height: 2px; background: rgba(251,248,244,0.22); position: relative; margin-left: 1rem; }
-    .aw-progress i { position: absolute; left: 0; top: -1px; height: 4px; background: #C9B6E4; border-radius: 3px; transition: width 0.4s; }
-    .aw-count { font-family: var(--font-heading); font-size: 2.6rem; font-weight: 700; color: #FFFFFF; line-height: 1; min-width: 3.4rem; text-align: right; }
-    @media (max-width: 992px) { .aw-layout { grid-template-columns: 1fr; gap: 2rem; } .aw-stage { min-height: 0; } .aw-rail { margin-right: -1.5rem; } .aw-controls { margin-top: 0; } }
-    @media (max-width: 520px) { .aw-card { flex-basis: 170px; height: 250px; } .aw-arrow { width: 46px; height: 46px; } .aw-count { font-size: 2rem; } }
+    .aw-arrow { width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid #7A4BA8; background: #FFFFFF; color: #7A4BA8; font-size: 1.3rem; cursor: pointer; transition: 0.25s; }
+    .aw-arrow:hover { background: #7A4BA8; color: #FFFFFF; }
+    .aw-progress { flex: 1; height: 2px; background: #E9DFF5; position: relative; margin-left: 1rem; }
+    .aw-progress i { position: absolute; left: 0; top: -1px; height: 4px; background: #7A4BA8; border-radius: 3px; transition: width 0.4s; }
+    .aw-count { font-family: var(--font-heading); font-size: 2.6rem; font-weight: 700; color: #3B1F4A; line-height: 1; min-width: 3.4rem; text-align: right; }
+    @media (max-width: 992px) { .aw-layout { grid-template-columns: 1fr; gap: 1.5rem; } .aw-stage { min-height: 0; } .aw-rail { margin-left: -1.5rem; margin-right: -1.5rem; min-height: 520px; padding-left: 1.75rem; scroll-padding-left: 1.75rem; } .aw-controls { margin-top: 0; } }
+    @media (max-width: 520px) { .aw-card { flex-basis: 150px; height: 240px; } .aw-card.is-active { flex-basis: 220px; height: 360px; } .aw-card.is-active .aw-card-txt b { font-size: 1.15rem; } .aw-rail { min-height: 440px; } .aw-arrow { width: 46px; height: 46px; } .aw-count { font-size: 2rem; } }
     @media (prefers-reduced-motion: reduce) { .aw-fade { animation: none; } .aw-card, .aw-progress i { transition: none; } }
   </style>
 </head>
@@ -2345,6 +2351,51 @@
     </section>
 
     <!-- ==========================================================================
+       FEATURED BOOK SPOTLIGHT SECTION
+       ========================================================================== -->
+    <section class="section bg-parchment">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-subtitle">Featured Book</span>
+          <h2 class="section-title">Official Autobiography</h2>
+          <div class="divider-gold"></div>
+        </div>
+
+        <div class="featured-book-card">
+          <div class="featured-book-img-box">
+            <span class="featured-book-badge">★ Available Now</span>
+            <img decoding="async"
+              src="https://res.cloudinary.com/pwkdspnn/image/upload/f_auto,q_auto:good,w_1000/v1787777797/Screenshot_2026-08-26_at_21.55.18_kmdljy.png"
+              alt="Roses in the Thorns Cover" class="featured-book-img" />
+          </div>
+
+          <div class="featured-book-content">
+            <span class="featured-book-tag">Autobiography & Memoir</span>
+            <h3 class="featured-book-title">Roses in the Thorns</h3>
+            <div class="featured-book-subtitle">A Personal Story of Faith, Resilience, and Public Service</div>
+            <p class="featured-book-desc">
+              Published in 2017 by Kraft Books Ltd, Ibadan, Roses in the Thorns is the true-life story of Mrs. Didi
+              Esther Walson-Jack: a testament to resilience and the triumph of faith over adversity. It encourages
+              women who shy away from sharing their problems to speak openly, and it comforts others who face the same
+              thorns.
+            </p>
+
+            <div class="featured-book-actions">
+              <a href="https://www.amazon.com/dp/B0DNY67X1C" target="_blank" rel="noopener" class="btn btn-gold">
+                <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
+                  <path
+                    d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                </svg>
+                Buy Now on Amazon →
+              </a>
+              <a href="/books" class="btn btn-outline-gold">Explore Other Books →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          FEATURED AWARDS SHOWCASE (loads from WordPress: /wp-json/didi/v1/awards?featured=1)
          ========================================================================== -->
     <section class="awards-showcase" id="awards" aria-roledescription="carousel" aria-label="Featured awards and commendations">
@@ -2440,50 +2491,7 @@
 
 
 
-    <!-- ==========================================================================
-       FEATURED BOOK SPOTLIGHT SECTION
-       ========================================================================== -->
-    <section class="section bg-parchment">
-      <div class="container">
-        <div class="text-center">
-          <span class="section-subtitle">Featured Book</span>
-          <h2 class="section-title">Official Autobiography</h2>
-          <div class="divider-gold"></div>
-        </div>
-
-        <div class="featured-book-card">
-          <div class="featured-book-img-box">
-            <span class="featured-book-badge">★ Available Now</span>
-            <img decoding="async"
-              src="https://res.cloudinary.com/pwkdspnn/image/upload/f_auto,q_auto:good,w_1000/v1787777797/Screenshot_2026-08-26_at_21.55.18_kmdljy.png"
-              alt="Roses in the Thorns Cover" class="featured-book-img" />
-          </div>
-
-          <div class="featured-book-content">
-            <span class="featured-book-tag">Autobiography & Memoir</span>
-            <h3 class="featured-book-title">Roses in the Thorns</h3>
-            <div class="featured-book-subtitle">A Personal Story of Faith, Resilience, and Public Service</div>
-            <p class="featured-book-desc">
-              Published in 2017 by Kraft Books Ltd, Ibadan, Roses in the Thorns is the true-life story of Mrs. Didi
-              Esther Walson-Jack: a testament to resilience and the triumph of faith over adversity. It encourages
-              women who shy away from sharing their problems to speak openly, and it comforts others who face the same
-              thorns.
-            </p>
-
-            <div class="featured-book-actions">
-              <a href="https://www.amazon.com/dp/B0DNY67X1C" target="_blank" rel="noopener" class="btn btn-gold">
-                <svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;">
-                  <path
-                    d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
-                </svg>
-                Buy Now on Amazon →
-              </a>
-              <a href="/books" class="btn btn-outline-gold">Explore Other Books →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
 
 
@@ -2750,7 +2758,7 @@
   <script>
     /* Featured awards: reads the WordPress feed, falls back to the built-in list if it is unavailable. */
     (function () {
-      var FALLBACK = [{"title": "African Iconic Public Service Award and Hall of Fame Induction", "issuer": "African Iconic Women Recognition Awards", "year": 2026, "date_text": "23 May 2026", "summary": "Inducted into the Hall of Fame of the African Iconic Women Recognition Awards and honoured with the African Iconic Public Service Award, 2026.", "image": "", "link": "/award/african-iconic-public-service-award-hall-of-fame/"}, {"title": "African Public Service Award", "issuer": "African Heritage Awards", "year": 2026, "date_text": "11 April 2026", "summary": "Honoured with the African Public Service Award at the 4th African Heritage Awards in Accra, Ghana.", "image": "", "link": "/award/african-public-service-award/"}, {"title": "University of Lagos Distinguished Alumnus Award", "issuer": "University of Lagos Alumni Association", "year": 2025, "date_text": "17 October 2025", "summary": "Honoured as a distinguished alumna at the UNILAG Alumni Association’s 55th Anniversary Honours Dinner in Lagos.", "image": "", "link": "/award/university-of-lagos-distinguished-alumnus-award/"}, {"title": "USOSA Lifetime Achievement Award", "issuer": "USOSA", "year": 2025, "date_text": "October 2025", "summary": "Lifetime Achievement Award from USOSA, October 2025.", "image": "", "link": "/award/usosa-lifetime-achievement-award/"}, {"title": "Award of Honour", "issuer": "House of Representatives Committee on Disability Matters", "year": 2025, "date_text": "12 July 2025", "summary": "Honoured by the House Committee on Disability Matters for the Office of the Head of the Civil Service’s drive for an inclusive public service.", "image": "", "link": "/award/award-of-honour-house-committee-on-disability-matters/"}, {"title": "Govern for Impact Award", "issuer": "Environmental Health Council of Nigeria (EHCON)", "year": 2025, "date_text": "February 2025", "summary": "Honoured with the Govern for Impact Award at the National Environmental Health Excellence Award.", "image": "", "link": "/award/govern-for-impact-award/"}, {"title": "Distinguished Humanitarian Service Award", "issuer": "Rotary Club of Abuja", "year": 2024, "date_text": "25 September 2024", "summary": "Honoured by the Rotary Club of Abuja for distinguished humanitarian service.", "image": "", "link": "/award/distinguished-humanitarian-service-award-rotary-abuja/"}, {"title": "African Iconic Female Administrator of the Year", "issuer": "African Iconic Women Recognition Awards", "year": 2024, "date_text": "2024", "summary": "Named African Iconic Female Administrator of the Year, 2024.", "image": "", "link": "/award/african-iconic-female-administrator-of-the-year/"}, {"title": "Officer of the Order of the Niger (OON)", "issuer": "Federal Republic of Nigeria", "year": 2023, "date_text": "2023", "summary": "Conferred with the national honour of Officer of the Order of the Niger in 2023.", "image": "", "link": "/award/officer-of-the-order-of-the-niger/"}, {"title": "Public Administrator of the Year, Bayelsa State", "issuer": "Nigerian Institute for Policy Development and Political Activities", "year": 2008, "date_text": "2008", "summary": "Named Public Administrator of the Year for Bayelsa State in 2008.", "image": "", "link": "/award/public-administrator-of-the-year-bayelsa-state/"}];
+      var FALLBACK = [{"title": "African Iconic Public Service Award and Hall of Fame Induction", "issuer": "African Iconic Women Recognition Awards", "year": 2026, "date_text": "23 May 2026", "summary": "Inducted into the Hall of Fame of the African Iconic Women Recognition Awards and honoured with the African Iconic Public Service Award, 2026.", "image": "", "link": "/award/african-iconic-public-service-award-hall-of-fame/"}, {"title": "African Public Service Award", "issuer": "African Heritage Awards", "year": 2026, "date_text": "11 April 2026", "summary": "Honoured with the African Public Service Award at the 4th African Heritage Awards in Accra, Ghana.", "image": "", "link": "/award/african-public-service-award/"}, {"title": "University of Lagos Distinguished Alumnus Award", "issuer": "University of Lagos Alumni Association", "year": 2025, "date_text": "17 October 2025", "summary": "Honoured as a distinguished alumna at the UNILAG Alumni Association’s 55th Anniversary Honours Dinner in Lagos.", "image": "", "link": "/award/university-of-lagos-distinguished-alumnus-award/"}, {"title": "USOSA Lifetime Achievement Award", "issuer": "Unity Schools Old Students Association (USOSA)", "year": 2025, "date_text": "October 2025", "summary": "Lifetime Achievement Award from the Unity Schools Old Students Association (USOSA), October 2025.", "image": "", "link": "/award/usosa-lifetime-achievement-award/"}, {"title": "Award of Honour", "issuer": "House of Representatives Committee on Disability Matters", "year": 2025, "date_text": "12 July 2025", "summary": "Honoured by the House Committee on Disability Matters for the Office of the Head of the Civil Service’s drive for an inclusive public service.", "image": "", "link": "/award/award-of-honour-house-committee-on-disability-matters/"}, {"title": "Govern for Impact Award", "issuer": "Environmental Health Council of Nigeria (EHCON)", "year": 2025, "date_text": "February 2025", "summary": "Honoured with the Govern for Impact Award at the National Environmental Health Excellence Award.", "image": "", "link": "/award/govern-for-impact-award/"}, {"title": "Distinguished Humanitarian Service Award", "issuer": "Rotary Club of Abuja", "year": 2024, "date_text": "25 September 2024", "summary": "Honoured by the Rotary Club of Abuja for distinguished humanitarian service.", "image": "", "link": "/award/distinguished-humanitarian-service-award-rotary-abuja/"}, {"title": "African Iconic Female Administrator of the Year", "issuer": "African Iconic Women Recognition Awards", "year": 2024, "date_text": "2024", "summary": "Named African Iconic Female Administrator of the Year, 2024.", "image": "", "link": "/award/african-iconic-female-administrator-of-the-year/"}, {"title": "Officer of the Order of the Niger (OON)", "issuer": "Federal Republic of Nigeria", "year": 2023, "date_text": "2023", "summary": "Conferred with the national honour of Officer of the Order of the Niger in 2023.", "image": "", "link": "/award/officer-of-the-order-of-the-niger/"}, {"title": "Public Administrator of the Year, Bayelsa State", "issuer": "Nigerian Institute for Policy Development and Political Activities", "year": 2008, "date_text": "2008", "summary": "Named Public Administrator of the Year for Bayelsa State in 2008.", "image": "", "link": "/award/public-administrator-of-the-year-bayelsa-state/"}];
       var rail = document.getElementById('awRail'); if (!rail) return;
       var items = FALLBACK, idx = 0, timer = null;
       var tints = ['#7A4BA8', '#B03A63', '#5E3585', '#3B1F4A', '#8B5FBF'];
@@ -2778,7 +2786,7 @@
         document.getElementById('awCount').textContent = (idx + 1 < 10 ? '0' : '') + (idx + 1);
         if (scroll !== false) {
           var c = rail.children[idx];
-          if (c) rail.scrollTo({ left: c.offsetLeft - rail.offsetLeft - 8, behavior: 'smooth' });
+          if (c) rail.scrollTo({ left: c.offsetLeft - rail.offsetLeft - 56, behavior: 'smooth' });
         }
       }
       function start() {
