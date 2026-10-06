@@ -601,6 +601,7 @@
     .mni { text-transform: none !important; letter-spacing: inherit; }
     :focus-visible { outline: 2px solid var(--amethyst); outline-offset: 2px; }
   </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -687,13 +688,21 @@
               <input class="contact-input-field" type="text" id="subject" required placeholder="Subject" />
               <textarea class="contact-textarea-field" id="message" required placeholder="Message"></textarea>
 
-              <button type="submit" class="contact-submit-btn">
+              <!-- spam trap: real visitors never see or fill this -->
+              <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+                <label>Website <input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></label>
+              </div>
+
+              <!-- Cloudflare Turnstile spam check (site key is public) -->
+              <div class="cf-turnstile" id="turnstileBox" data-sitekey="0x4AAAAAAFO_ipLVQNB0o1y2" data-theme="light" data-language="en" style="margin: 0.25rem 0 1.25rem;"></div>
+
+              <button type="submit" class="contact-submit-btn" id="contactSubmit">
                 <span>SEND MESSAGE</span>
                 <span>→</span>
               </button>
 
               <div class="form-success-toast" id="successToast" style="margin-top: 1.25rem;">
-                ✓ Thank you. Your email application has opened with your message ready to send to didi@didiwalsonjack.com.
+                ✓ Thank you. Your message has been received and the office will respond shortly.
               </div>
             </form>
           </div>
@@ -998,24 +1007,37 @@
       });
     });
 
+    /* Where the WordPress site lives. Leave empty when this page is on the same domain as WordPress. */
+    var DIDI_WP_BASE = '';
+    var formShownAt = Date.now();
+    function showStatus(ok, text) {
+      var toast = document.getElementById('successToast'); if (!toast) return;
+      toast.textContent = (ok ? '✓ ' : '! ') + text;
+      toast.style.display = 'block';
+      toast.style.background = ok ? '' : '#F8E4EC';
+      toast.style.color = ok ? '' : '#7a1a3c';
+      toast.style.borderColor = ok ? '' : '#B03A63';
+      toast.setAttribute('role', 'status');
+      clearTimeout(showStatus.t); showStatus.t = setTimeout(function () { toast.style.display = 'none'; }, 12000);
+    }
     function handleContactSubmit(e) {
       e.preventDefault();
-      const v = function (id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
-      const sel = document.getElementById('category');
-      const reason = sel && sel.selectedIndex > -1 ? sel.options[sel.selectedIndex].text : '';
-      const body = 'Name: ' + v('fullName') + '\n' +
-        'Organisation: ' + v('organization') + '\n' +
-        'Email: ' + v('email') + '\n' +
-        'Phone: ' + v('phone') + '\n' +
-        'Reason: ' + reason + '\n\n' + v('message');
-      window.location.href = 'mailto:didi@didiwalsonjack.com?subject=' + encodeURIComponent(v('subject')) + '&body=' + encodeURIComponent(body);
-      const toast = document.getElementById('successToast');
-      if (toast) {
-        toast.style.display = 'block';
-        setTimeout(function() {
-          toast.style.display = 'none';
-        }, 8000);
-      }
+      var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+      var tokenEl = document.querySelector('#turnstileBox [name="cf-turnstile-response"]');
+      var token = tokenEl ? tokenEl.value : '';
+      if (!token) { showStatus(false, 'Please complete the security check above the Send button.'); return; }
+      var btn = document.getElementById('contactSubmit'), lbl = btn.querySelector('span');
+      var old = lbl ? lbl.textContent : ''; btn.disabled = true; if (lbl) lbl.textContent = 'SENDING…';
+      fetch(DIDI_WP_BASE + '/wp-json/didi/v1/contact', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: v('fullName'), organization: v('organization'), email: v('email'), phone: v('phone'), reason: v('category'), subject: v('subject'), message: v('message'), website: v('website'), token: token, elapsed: Date.now() - formShownAt })
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok && j.ok, j: j }; }); })
+        .then(function (res) {
+          if (res.ok) { document.getElementById('contactForm').reset(); showStatus(true, res.j.message || 'Thank you. Your message has been received.'); }
+          else { showStatus(false, res.j.message || 'Your message could not be sent. Please email office@didiwalsonjack.com.'); }
+        })
+        .catch(function () { showStatus(false, 'Your message could not be sent. Please email office@didiwalsonjack.com.'); })
+        .then(function () { btn.disabled = false; if (lbl) lbl.textContent = old; if (window.turnstile) { try { window.turnstile.reset('#turnstileBox'); } catch (x) {} } });
     }
   </script>
 </body>
