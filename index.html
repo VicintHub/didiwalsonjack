@@ -1832,8 +1832,9 @@
     .aw-eyebrow { font-size: 0.8rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #7A4BA8; }
     .aw-all { color: #3B1F4A; font-weight: 700; font-size: 0.95rem; border-bottom: 1.5px solid #7A4BA8; padding-bottom: 2px; }
     .aw-all:hover { color: #7A4BA8; }
-    .aw-layout { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.3fr); gap: 3rem; align-items: center; }
-    .aw-stage { min-height: 400px; display: flex; flex-direction: column; justify-content: center; }
+    .awards-showcase { --c: clamp(150px, 11.5vw, 190px); --a: calc(var(--c) * 1.45); --g: 16px; }
+    .aw-layout { display: grid; grid-template-columns: minmax(0, 1fr) calc(var(--a) + 2 * var(--c) + 3 * var(--g) + var(--c) * 0.5); gap: 3rem; align-items: center; }
+    .aw-stage { min-height: 420px; display: flex; flex-direction: column; justify-content: center; }
     .aw-bar { display: block; width: 36px; height: 3px; background: #B03A63; margin-bottom: 1.4rem; }
     .aw-kicker { margin: 0 0 0.9rem; font-size: 1.05rem; color: #5E5566; }
     .aw-title { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #3B1F4A; font-size: clamp(2.1rem, 4.2vw, 3.6rem); line-height: 1.08; margin: 0 0 1.3rem; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
@@ -1846,10 +1847,11 @@
     .aw-fade { animation: awFade 0.45s ease both; }
     @keyframes awFade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
-    /* Card rail: generous padding so scaled cards and shadows are never clipped by the scroller */
-    .aw-rail { display: flex; align-items: center; gap: 1.25rem; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4rem 2rem 5.5rem 3.5rem; margin: -3rem calc((100vw - min(100vw, 1280px)) / -2 - 1.5rem) -3.5rem -3rem; min-height: 560px; scroll-padding-left: 3.5rem; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 56px); mask-image: linear-gradient(to right, transparent 0, #000 56px); }
-    .aw-rail::-webkit-scrollbar { display: none; }
-    .aw-card { position: relative; flex: 0 0 200px; height: 290px; border: 0; padding: 0; border-radius: 22px; overflow: hidden; background: #2A1636; color: #FFFFFF; cursor: pointer; text-align: left; scroll-snap-align: start; transition: flex-basis 0.45s cubic-bezier(.4,0,.2,1), height 0.45s cubic-bezier(.4,0,.2,1), box-shadow 0.35s, transform 0.3s; box-shadow: 0 16px 32px -8px rgba(59,31,74,0.38); outline-offset: 4px; }
+    /* Card rail: the current award (large), two equal cards in full view, and part of the fourth.
+       Padding keeps card shadows inside the box so they are never clipped. */
+    .aw-rail { display: flex; align-items: center; gap: var(--g); overflow: hidden; overflow: clip; padding: 3.5rem 0 5rem 2rem; margin: -3rem 0 -3.5rem -2rem; min-height: calc(var(--a) * 1.5 + 8.5rem); -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 70px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 70px), transparent); animation: awSlide 0.5s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes awSlide { from { opacity: 0.2; transform: translateX(36px); } to { opacity: 1; transform: none; } }
+    .aw-card { position: relative; flex: 0 0 var(--c); height: calc(var(--c) * 1.45); border: 0; padding: 0; border-radius: 22px; overflow: hidden; background: #2A1636; color: #FFFFFF; cursor: pointer; text-align: left; transition: box-shadow 0.35s, transform 0.3s; box-shadow: 0 16px 32px -8px rgba(59,31,74,0.38); outline-offset: 4px; }
     .aw-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .aw-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(42,22,54,0.92) 0%, rgba(42,22,54,0.35) 48%, rgba(42,22,54,0) 100%); }
     .aw-card-txt { position: absolute; z-index: 2; left: 1rem; right: 1rem; bottom: 1rem; }
@@ -1857,19 +1859,19 @@
     .aw-card-txt small { display: block; font-size: 0.72rem; color: #E9DFF5; margin-bottom: 0.3rem; line-height: 1.3; }
     .aw-card-txt b { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-family: var(--font-heading); font-size: 1.02rem; line-height: 1.18; text-transform: uppercase; letter-spacing: 0.4px; }
     .aw-card:hover { transform: translateY(-6px); }
-    .aw-card.is-active { flex-basis: 290px; height: 430px; box-shadow: 0 0 0 3px #7A4BA8, 0 28px 48px -10px rgba(59,31,74,0.5); }
+    .aw-card.is-active { flex-basis: var(--a); height: calc(var(--a) * 1.5); box-shadow: 0 0 0 3px #7A4BA8, 0 28px 48px -10px rgba(59,31,74,0.5); cursor: default; }
     .aw-card.is-active:hover { transform: none; }
-    .aw-card.is-active .aw-card-txt { left: 1.4rem; right: 1.4rem; bottom: 1.4rem; }
+    .aw-card.is-active .aw-card-txt { left: 1.3rem; right: 1.3rem; bottom: 1.3rem; }
     .aw-card.is-active .aw-card-txt small { font-size: 0.82rem; }
-    .aw-card.is-active .aw-card-txt b { font-size: 1.4rem; -webkit-line-clamp: 4; }
+    .aw-card.is-active .aw-card-txt b { font-size: 1.3rem; -webkit-line-clamp: 4; }
     .aw-controls { grid-column: 1 / -1; display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; }
     .aw-arrow { width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid #7A4BA8; background: #FFFFFF; color: #7A4BA8; font-size: 1.3rem; cursor: pointer; transition: 0.25s; }
     .aw-arrow:hover { background: #7A4BA8; color: #FFFFFF; }
     .aw-progress { flex: 1; height: 2px; background: #E9DFF5; position: relative; margin-left: 1rem; }
     .aw-progress i { position: absolute; left: 0; top: -1px; height: 4px; background: #7A4BA8; border-radius: 3px; transition: width 0.4s; }
     .aw-count { font-family: var(--font-heading); font-size: 2.6rem; font-weight: 700; color: #3B1F4A; line-height: 1; min-width: 3.4rem; text-align: right; }
-    @media (max-width: 992px) { .aw-layout { grid-template-columns: 1fr; gap: 1.5rem; } .aw-stage { min-height: 0; } .aw-rail { margin-left: -1.5rem; margin-right: -1.5rem; min-height: 520px; padding-left: 1.75rem; scroll-padding-left: 1.75rem; } .aw-controls { margin-top: 0; } }
-    @media (max-width: 520px) { .aw-card { flex-basis: 150px; height: 240px; } .aw-card.is-active { flex-basis: 220px; height: 360px; } .aw-card.is-active .aw-card-txt b { font-size: 1.15rem; } .aw-rail { min-height: 440px; } .aw-arrow { width: 46px; height: 46px; } .aw-count { font-size: 2rem; } }
+    @media (max-width: 992px) { .aw-layout { grid-template-columns: 1fr; gap: 1.5rem; } .aw-stage { min-height: 0; } .awards-showcase { --c: 150px; } .aw-rail { margin-left: -1.5rem; margin-right: -1.5rem; padding-left: 1.5rem; } .aw-controls { margin-top: 0; } }
+    @media (max-width: 520px) { .awards-showcase { --c: 128px; } .aw-card.is-active .aw-card-txt b { font-size: 1.1rem; } .aw-arrow { width: 46px; height: 46px; } .aw-count { font-size: 2rem; } }
     @media (prefers-reduced-motion: reduce) { .aw-fade { animation: none; } .aw-card, .aw-progress i { transition: none; } }
   </style>
 </head>
@@ -1890,6 +1892,7 @@
         <li><a href="/career" class="nav-link">Career & Achievements</a></li>
         <li><a href="/awards/" class="nav-link">Awards</a></li>
         <li><a href="/books" class="nav-link">Books</a></li>
+        <li><a href="https://www.walsonjackconsulting.org" class="nav-link nav-ext" target="_blank" rel="noopener noreferrer">Consulting <span aria-hidden="true">↗</span></a></li>
       </ul>
 
       <div style="display: flex; align-items: center; gap: 0.8rem;">
@@ -1908,7 +1911,7 @@
       <a href="/career" class="nav-link">Career & Achievements</a>
       <a href="/awards/" class="nav-link">Awards</a>
       <a href="/books" class="nav-link">Books</a>
-      <a href="/contact" class="btn btn-gold" style="text-align: center; margin-top: 1rem;">Contact ↗</a>
+      <a href="https://www.walsonjackconsulting.org" class="nav-link nav-ext" target="_blank" rel="noopener noreferrer">Consulting ↗</a>      <a href="/contact" class="btn btn-gold" style="text-align: center; margin-top: 1rem;">Contact ↗</a>
     </div>
   </header>
 
@@ -2536,6 +2539,7 @@
             <li><a href="/career" class="footer-link">Career & Reforms</a></li>
             <li><a href="/awards/" class="footer-link">Awards</a></li>
             <li><a href="/books" class="footer-link">Books</a></li>
+            <li><a href="https://www.walsonjackconsulting.org" class="footer-link" target="_blank" rel="noopener noreferrer">Consulting ↗</a></li>
             <li><a href="/contact" class="footer-link">Contact & Advisory</a></li>
           </ul>
         </div>
@@ -2768,26 +2772,29 @@
         return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
       }
       function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+      function windowIdx() {
+        var n = Math.min(4, items.length), out = [];
+        for (var k = 0; k < n; k++) out.push((idx + k) % items.length);
+        return out;
+      }
       function build() {
-        rail.innerHTML = items.map(function (a, i) {
-          var img = a.image && a.has_image !== false ? a.image : ph(i, a.year);
-          return '<button type="button" class="aw-card" role="listitem" data-i="' + i + '" aria-label="' + esc(a.title) + ', ' + esc(a.issuer) + ', ' + esc(a.year) + '"><img src="' + esc(img) + '" alt="" loading="lazy" onerror="this.onerror=null;this.src=\'' + ph(i, a.year) + '\'"><span class="aw-card-txt"><i></i><small>' + esc(a.issuer) + (a.year ? ' · ' + esc(a.year) : '') + '</small><b>' + esc(a.title) + '</b></span></button>';
+        rail.scrollLeft = 0;
+        rail.innerHTML = windowIdx().map(function (i, k) {
+          var a = items[i], img = a.image && a.has_image !== false ? a.image : ph(i, a.year);
+          return '<button type="button" class="aw-card' + (k === 0 ? ' is-active' : '') + '" role="listitem" data-i="' + i + '" aria-label="' + esc(a.title) + ', ' + esc(a.issuer) + ', ' + esc(a.year) + '"' + (k === 0 ? ' aria-current="true"' : '') + '><img src="' + esc(img) + '" alt="" loading="lazy" onerror="this.onerror=null;this.src=\'' + ph(i, a.year) + '\'"><span class="aw-card-txt"><i></i><small>' + esc(a.issuer) + (a.year ? ' · ' + esc(a.year) : '') + '</small><b>' + esc(a.title) + '</b></span></button>';
         }).join('');
       }
-      function show(i, scroll) {
+      function show(i, animate) {
         if (!items.length) return;
         idx = (i + items.length) % items.length;
         var a = items[idx];
         var k = document.getElementById('awKicker'), t = document.getElementById('awTitle'), d = document.getElementById('awDesc'), l = document.getElementById('awLink');
         k.textContent = a.issuer + (a.year ? ' · ' + a.year : ''); t.textContent = a.title; d.textContent = a.summary || ''; l.href = a.link || '/awards/';
         [k, t, d].forEach(function (n) { n.classList.remove('aw-fade'); void n.offsetWidth; n.classList.add('aw-fade'); });
-        [].forEach.call(rail.children, function (c, n) { c.classList.toggle('is-active', n === idx); });
+        build();
+        if (animate !== false) { rail.style.animation = 'none'; void rail.offsetWidth; rail.style.animation = ''; }
         document.getElementById('awBar').style.width = ((idx + 1) / items.length * 100) + '%';
         document.getElementById('awCount').textContent = (idx + 1 < 10 ? '0' : '') + (idx + 1);
-        if (scroll !== false) {
-          var c = rail.children[idx];
-          if (c) rail.scrollTo({ left: c.offsetLeft - rail.offsetLeft - 56, behavior: 'smooth' });
-        }
       }
       function start() {
         stop(); if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -2795,8 +2802,8 @@
       }
       function stop() { if (timer) clearInterval(timer); timer = null; }
       function init() {
-        build(); show(0, false);
-        rail.addEventListener('click', function (e) { var c = e.target.closest('.aw-card'); if (c) { show(+c.getAttribute('data-i')); start(); } });
+        show(0, false);
+        rail.addEventListener('click', function (e) { var c = e.target.closest('.aw-card'); if (c && !c.classList.contains('is-active')) { show(+c.getAttribute('data-i')); start(); } });
         document.getElementById('awPrev').addEventListener('click', function () { show(idx - 1); start(); });
         document.getElementById('awNext').addEventListener('click', function () { show(idx + 1); start(); });
         var sec = document.getElementById('awards');
@@ -2811,7 +2818,7 @@
         var to = setTimeout(function () { if (ctl) ctl.abort(); }, 6000);
         fetch('/wp-json/didi/v1/awards?featured=1&limit=10', { credentials: 'same-origin', signal: ctl ? ctl.signal : undefined })
           .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-          .then(function (j) { clearTimeout(to); if (j && j.items && j.items.length) { items = j.items; build(); show(0, false); } })
+          .then(function (j) { clearTimeout(to); if (j && j.items && j.items.length) { items = j.items; show(0, false); } })
           .catch(function () { clearTimeout(to); });
       }
     })();

@@ -68,19 +68,20 @@ class Didi_Awards_Frontend {
 			'career'  => array( home_url( '/career' ), 'Career & Achievements' ),
 			'awards'  => array( get_post_type_archive_link( Didi_Awards_CPT::TYPE ), 'Awards' ),
 			'books'   => array( home_url( '/books' ), 'Books' ),
+			'consulting' => array( 'https://www.walsonjackconsulting.org', 'Consulting ↗' ),
 		);
 		?>
 <header class="site-header" id="siteHeader">
 	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="brand"><img src="<?php echo esc_url( self::asset( 'logos/walson-jack-lockup-horizontal.png' ) ); ?>" alt="Mrs. Didi Esther Walson-Jack, OON, mni, 20th Head of the Civil Service of the Federation (2024-2026)" width="200" height="83"></a>
 	<nav class="nav" aria-label="Main">
 		<?php foreach ( $links as $k => $l ) : ?>
-			<a href="<?php echo esc_url( $l[0] ); ?>"<?php echo $k === $active ? ' class="is-active" aria-current="page"' : ''; ?>><?php echo esc_html( $l[1] ); ?></a>
+			<a href="<?php echo esc_url( $l[0] ); ?>"<?php echo $k === $active ? ' class="is-active" aria-current="page"' : ''; ?><?php echo 'consulting' === $k ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>><?php echo esc_html( $l[1] ); ?></a>
 		<?php endforeach; ?>
 	</nav>
 	<a class="nav-cta" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact <span aria-hidden="true">↗</span></a>
 	<button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
 	<div class="drawer" id="navDrawer">
-		<?php foreach ( $links as $k => $l ) : ?><a href="<?php echo esc_url( $l[0] ); ?>"><?php echo esc_html( $l[1] ); ?></a><?php endforeach; ?>
+		<?php foreach ( $links as $k => $l ) : ?><a href="<?php echo esc_url( $l[0] ); ?>"<?php echo 'consulting' === $k ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>><?php echo esc_html( $l[1] ); ?></a><?php endforeach; ?>
 		<a class="btn" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact ↗</a>
 	</div>
 </header>
@@ -103,6 +104,7 @@ class Didi_Awards_Frontend {
 				<li><a href="<?php echo esc_url( home_url( '/career' ) ); ?>">Career &amp; Reforms</a></li>
 				<li><a href="<?php echo esc_url( get_post_type_archive_link( Didi_Awards_CPT::TYPE ) ); ?>">Awards</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/books' ) ); ?>">Books</a></li>
+				<li><a href="https://www.walsonjackconsulting.org" target="_blank" rel="noopener noreferrer">Consulting ↗</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact &amp; Advisory</a></li>
 			</ul>
 		</div>
