@@ -63,7 +63,7 @@ Nothing in the HTML has been changed yet. Approve by ID (for example "approve al
 | D2 | End date. The sources show the handover to Mr. Abel Olumuyiwa Enitan effective 27 August 2026 (her 60th birthday). Use "August 2026", or the exact day? |
 | D3 | Years of service. The sources do not agree: Profile says 34 years; the old site says 34+, 35+ and 37; the CV shows work from 1987 (and a clerkship in 1985). Suggest "over three decades" until she confirms a number. |
 | D4 | Books "I Planted" and "Beyond the Mandate" (marked "Coming soon"). They are in none of the documents. Keep, remove, or confirm titles and release dates? |
-| D5 | Contact details. The site uses Hello@didiwalsonjack.com and +234 907 354 9586, which are not in the CV; the CV lists official OHCSF addresses that should not be used after her tenure. The brand book says details are to be confirmed. The Consulting site uses didi@walsonjackconsulting.org and +234 909 511 9999. Which should the personal site show? |
+| D5 | Contact details. The site uses Hello@didiwalsonjack.com and +234 907 354 9586, which are not in the CV; the CV lists official OHCSF addresses that should not be used after her tenure. The brand book says details are to be confirmed. The Consulting site uses didi@walsonjackconsulting.org and +234 911 000 1234. Which should the personal site show? |
 | D6 | Quote and tagline. The pull-quote "If we work in ways that are outdated..." is not in the sources. Replace it with a documented one (for example "We are not here to defend the past; we are here to design a better future." - 30 July 2026)? |
 | D7 | "Mohammed Ibn Rashid School of Government" appears in the Profile but not in the CV. Include it? It would be "Mohammed Bin Rashid School of Government" in the usual spelling. |
 | D8 | Baseline for the digital figure: Scorecard cover says 3 to 38; its body and some press say 4 to 38; the site says 4. I will use "3 to 38" (Scorecard headline) unless you prefer "38 by 31 December 2025". |
@@ -85,7 +85,7 @@ Nothing in the HTML has been changed yet. Approve by ID (for example "approve al
 | D2 | End date shown as "August 2026". |
 | D3 | Years of service: "34 years of public service" everywhere. |
 | D4 | Books *I Planted* and *Beyond the Mandate* kept. |
-| D5 | Contact details and office address taken from the consulting site (Beautiful Gate Villa, Plot 812 Paul Unongo Crescent, Jabi, Abuja; +234 909 511 9999). Email set to didi@didiwalsonjack.com. |
+| D5 | Contact details and office address taken from the consulting site (Beautiful Gate Villa, Plot 812 Paul Unongo Crescent, Jabi, Abuja; +234 911 000 1234). Email set to didi@didiwalsonjack.com. |
 | D6 | Pull-quote and taglines replaced with documented quotes. |
 | D7 | Mohammed Bin Rashid School of Government added to the education timeline (qualification and year to be confirmed). |
 | A23 | The HIDE values (Hardwork, Integrity, Diligence, Empathy) are her personal core values and stay. EPIC stays alongside. |

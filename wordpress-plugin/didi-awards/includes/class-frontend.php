@@ -127,7 +127,7 @@ class Didi_Awards_Frontend {
 		<div>
 			<h4>Official Contact</h4>
 			<p><strong>Email:</strong> <a href="mailto:didi@didiwalsonjack.com">didi@didiwalsonjack.com</a></p>
-			<p><strong>Phone:</strong> <a href="tel:+2349095119999">+234 909 511 9999</a></p>
+			<p><strong>Phone:</strong> <a href="tel:+2349110001234">+234 911 000 1234</a></p>
 			<p><strong>Location:</strong> Beautiful Gate Villa, Plot 812 Paul Unongo Crescent, Jabi, Abuja, Nigeria</p>
 		</div>
 	</div>

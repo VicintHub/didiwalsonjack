@@ -21,7 +21,7 @@ PERSON = {
   "gender": "Female", "nationality": {"@type": "Country", "name": "Nigeria"},
   "jobTitle": "Immediate Past Head of the Civil Service of the Federation of Nigeria (2024-2026)",
   "description": "Mrs. Didi Esther Walson-Jack, OON, mni, was the 20th Head of the Civil Service of the Federation of Nigeria (14 August 2024 to 27 August 2026). A lawyer and public administrator with 34 years of public service, she is now retired from active public service and works as an author, speaker and global advisor on institutions, leadership and reform.",
-  "url": SITE + "/", "image": PHOTO, "email": "mailto:didi@didiwalsonjack.com", "telephone": "+2349095119999",
+  "url": SITE + "/", "image": PHOTO, "email": "mailto:didi@didiwalsonjack.com", "telephone": "+2349110001234",
   "address": {"@type": "PostalAddress", "streetAddress": "Beautiful Gate Villa, Plot 812 Paul Unongo Crescent, Jabi", "addressLocality": "Abuja", "addressCountry": "NG"},
   "hasOccupation": [
     {"@type": "Occupation", "name": "Head of the Civil Service of the Federation of Nigeria", "occupationLocation": {"@type": "Country", "name": "Nigeria"}},
@@ -106,7 +106,7 @@ PAGES = {
    ogt="Books & Publications | Mrs. Didi Esther Walson-Jack, OON, mni", faq=None),
  "contact": dict(path="/contact", type="ContactPage", img=CONTACT_IMG,
    title="Contact & Advisory Enquiries | Mrs. Didi Esther Walson-Jack, OON, mni",
-   desc="Contact the office of Mrs. Didi Esther Walson-Jack, OON, mni in Abuja for strategic advisory, leadership programmes, mentoring, board appointments and keynote speaking. didi@didiwalsonjack.com, +234 909 511 9999.",
+   desc="Contact the office of Mrs. Didi Esther Walson-Jack, OON, mni in Abuja for strategic advisory, leadership programmes, mentoring, board appointments and keynote speaking. didi@didiwalsonjack.com, +234 911 000 1234.",
    kw="Contact Didi Walson-Jack, public sector advisory Nigeria, keynote speaker Nigeria, leadership programme, institutional transformation advisory, Abuja",
    ogt="Contact & Advisory Enquiries | Mrs. Didi Esther Walson-Jack, OON, mni", faq=None),
 }

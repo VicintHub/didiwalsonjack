@@ -99,7 +99,7 @@ class Didi_Awards_SEO {
 			. "- Career: Legal draftswoman, then Solicitor-General and Permanent Secretary, Ministry of Justice, Bayelsa State; Federal Permanent Secretary from 2017 across five ministries and offices; Head of the Civil Service of the Federation 2024-2026\n"
 			. "- Education: LL.B University of Lagos (1986); Nigerian Law School (1987); Executive MPA, London School of Economics (2025); Harvard Kennedy School, Certificate in Leadership for the 21st Century (September 2026)\n"
 			. "- Books: Roses in the Thorns (2017); I Planted: A memoir of purposeful service (2026, Safari Books); Beyond the Mandate: A Memoir on Leadership, Legacy & Labour of Public Service\n"
-			. "- Contact: didi@didiwalsonjack.com, +234 909 511 9999, Beautiful Gate Villa, Plot 812 Paul Unongo Crescent, Jabi, Abuja, Nigeria\n\n"
+			. "- Contact: didi@didiwalsonjack.com, +234 911 000 1234, Beautiful Gate Villa, Plot 812 Paul Unongo Crescent, Jabi, Abuja, Nigeria\n\n"
 			. "## Pages\n"
 			. "- [Home]({$s}/): overview, services, awards\n"
 			. "- [About]({$s}/about): biography, education, CV and profile downloads\n"
