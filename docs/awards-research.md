@@ -1,6 +1,6 @@
 # Awards: what was found online
 
-The CV lists 32 awards. Each one has its own page. Where the web gave facts, the story is written from those facts and the sources are listed on the award page. Everything else uses the CV facts and a short placeholder paragraph, to be replaced in the dashboard.
+The CV lists 34 awards. Each one has its own page. Where the web gave facts, the story is written from those facts and the sources are listed on the award page. Everything else uses the CV facts and a short placeholder paragraph, to be replaced in the dashboard.
 
 ## Researched (facts and sources on the award page)
 | Award | Found |

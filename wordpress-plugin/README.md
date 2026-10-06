@@ -4,7 +4,7 @@ Awards & Commendations for didiwalsonjack.com.
 
 ## Install
 1. WordPress admin → Plugins → Add New → Upload Plugin → choose `didi-awards.zip` (in the repo root) → Activate.
-2. On activation the plugin imports the 32 awards listed in the CV (published, 10 marked as featured).
+2. On activation the plugin imports the 34 awards listed in the CV (published, 10 marked as featured).
 3. Settings → Permalinks → press **Save** once, so `/awards/` and `/award/{name}/` work.
 
 ## What you get

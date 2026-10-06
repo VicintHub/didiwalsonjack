@@ -34,7 +34,19 @@ class Didi_Awards_Frontend {
 
 	/* ---------- shared view helpers ---------- */
 
+	/** Brand images are served from Cloudinary so they also work when pages are embedded elsewhere. */
+	const CDN = 'https://res.cloudinary.com/pwkdspnn/image/upload/';
+	private static $brand = array(
+		'logos/walson-jack-lockup-horizontal.png' => 'f_auto,q_auto,w_700/v1791282312/walson-jack-lockup-horizontal.png',
+		'logos/walson-jack-emblem-badge.png'      => 'f_auto,q_auto,w_240/v1791282313/walson-jack-emblem-badge.png',
+		'logos/favicon-192.png'                   => 'v1791282315/favicon-192.png',
+	);
+
 	public static function asset( $path ) {
+		$path = ltrim( $path, '/' );
+		if ( isset( self::$brand[ $path ] ) ) {
+			return self::CDN . self::$brand[ $path ];
+		}
 		return DIDI_AWARDS_URL . 'assets/' . ltrim( $path, '/' );
 	}
 
@@ -45,12 +57,16 @@ class Didi_Awards_Frontend {
 <title><?php echo esc_html( $title ); ?></title>
 <meta name="description" content="<?php echo esc_attr( $desc ); ?>">
 <link rel="canonical" href="<?php echo esc_url( $url ); ?>">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:locale" content="en_NG">
+<meta property="og:site_name" content="Mrs. Didi Esther Walson-Jack, OON, mni | Official Website">
 <meta property="og:type" content="article">
 <meta property="og:title" content="<?php echo esc_attr( $title ); ?>">
 <meta property="og:description" content="<?php echo esc_attr( $desc ); ?>">
 <meta property="og:url" content="<?php echo esc_url( $url ); ?>">
 <?php if ( $image ) : ?><meta property="og:image" content="<?php echo esc_url( $image ); ?>"><?php endif; ?>
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Didi_WalsonJack">
 <link rel="icon" href="<?php echo esc_url( self::asset( 'logos/favicon-192.png' ) ); ?>" sizes="192x192">
 <link rel="apple-touch-icon" href="<?php echo esc_url( self::asset( 'logos/favicon-192.png' ) ); ?>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
