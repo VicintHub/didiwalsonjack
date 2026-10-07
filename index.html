@@ -2036,9 +2036,11 @@
     .aw-card { position: relative; flex: 0 0 var(--c); height: calc(var(--c) * 1.45); border: 0; padding: 0; border-radius: 22px; overflow: hidden; background: #2A1636; color: #FFFFFF; cursor: pointer; text-align: left; transition: box-shadow 0.35s, transform 0.3s; box-shadow: 0 16px 32px -8px rgba(59,31,74,0.38); outline-offset: 4px; }
     .aw-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .aw-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(42,22,54,0.92) 0%, rgba(42,22,54,0.35) 48%, rgba(42,22,54,0) 100%); }
-    .aw-card-txt { position: absolute; z-index: 2; left: 1rem; right: 1rem; bottom: 1rem; }
+    .aw-card-txt { position: absolute; z-index: 2; left: 1rem; right: 1rem; bottom: 1rem; white-space: normal; text-align: left; word-break: break-word; }
+    .aw-card-txt em { display: block; font-style: normal; font-size: 0.7rem; letter-spacing: 0.4px; color: #C9B6E4; margin-top: 0.4rem; }
+    .aw-card.is-active .aw-card-txt em { font-size: 0.78rem; }
     .aw-card-txt i { display: block; width: 14px; height: 2px; background: #C9B6E4; margin-bottom: 0.5rem; }
-    .aw-card-txt small { display: block; font-size: 0.72rem; color: #E9DFF5; margin-bottom: 0.3rem; line-height: 1.3; }
+    .aw-card-txt small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 0.72rem; color: #E9DFF5; margin-bottom: 0.3rem; line-height: 1.3; }
     .aw-card-txt b { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-family: var(--font-heading); font-size: 1.02rem; line-height: 1.18; text-transform: uppercase; letter-spacing: 0.4px; }
     .aw-card:hover { transform: translateY(-6px); }
     .aw-card.is-active { flex-basis: var(--a); height: calc(var(--a) * 1.5); box-shadow: 0 0 0 3px #7A4BA8, 0 28px 48px -10px rgba(59,31,74,0.5); cursor: default; }
@@ -2963,7 +2965,7 @@
         rail.scrollLeft = 0;
         rail.innerHTML = windowIdx().map(function (i, k) {
           var a = items[i], img = a.image && a.has_image !== false ? a.image : ph(i, a.year);
-          return '<button type="button" class="aw-card' + (k === 0 ? ' is-active' : '') + '" role="listitem" data-i="' + i + '" aria-label="' + esc(a.title) + ', ' + esc(a.issuer) + ', ' + esc(a.year) + '"' + (k === 0 ? ' aria-current="true"' : '') + '><img src="' + esc(img) + '" alt="" loading="lazy" onerror="this.onerror=null;this.src=\'' + ph(i, a.year) + '\'"><span class="aw-card-txt"><i></i><small>' + esc(a.issuer) + (a.year ? ' · ' + esc(a.year) : '') + '</small><b>' + esc(a.title) + '</b></span></button>';
+          return '<button type="button" class="aw-card' + (k === 0 ? ' is-active' : '') + '" role="listitem" data-i="' + i + '" aria-label="' + esc(a.title) + ', ' + esc(a.issuer) + ', ' + esc(a.year) + '"' + (k === 0 ? ' aria-current="true"' : '') + '><img src="' + esc(img) + '" alt="" loading="lazy" onerror="this.onerror=null;this.src=\'' + ph(i, a.year) + '\'"><span class="aw-card-txt"><i></i><small>' + esc(a.issuer) + '</small><b>' + esc(a.title) + '</b><em>' + esc(a.date_text || a.year || '') + '</em></span></button>';
         }).join('');
       }
       function show(i, animate) {
