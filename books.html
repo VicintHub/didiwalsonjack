@@ -571,8 +571,35 @@
     .mni { text-transform: none !important; letter-spacing: inherit; }
     :focus-visible { outline: 2px solid var(--amethyst); outline-offset: 2px; }
   </style>
+<style id="a11y-resp">
+    /* ===== Accessibility & responsive refinements (additive; desktop look unchanged) ===== */
+    .skip-link { transition: none; position: absolute; left: 12px; top: -120px; z-index: 100000; background: #3B1F4A; color: #FFFFFF; padding: 0.8rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: 0 0 0 2px #FFFFFF; }
+    .skip-link:focus { top: 12px; }
+    main[tabindex="-1"]:focus, main[tabindex="-1"]:focus-visible { outline: none; box-shadow: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 3px solid #7A4BA8; outline-offset: 3px; box-shadow: 0 0 0 2px #FFFFFF; }
+    .mobile-drawer { max-height: calc(100vh - 7rem); max-height: calc(100dvh - 7rem); overflow-y: auto; overscroll-behavior: contain; }
+    @media (max-width: 992px) { .mobile-toggle { width: 44px; height: 44px; } }
+    img, video, iframe, svg { max-width: 100%; }
+    /* contrast fixes (text colour only; backgrounds unchanged) */
+    .product-cover-frame .status-badge.badge-available { color: #2A1636; }
+    /* touch / target-size */
+    .kfa-dot { width: 24px; height: 24px; padding: 7px; margin: 0 -3px; box-sizing: border-box; background-clip: content-box; }
+    .kfa-dot.on { width: 42px; }
+    /* narrow-screen reflow */
+    .contact-split-grid > *, .aw-layout > * { min-width: 0; }
+    @media (max-width: 1240px) { .advisory-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .advisory-bento-grid > * { min-width: 0; } }
+    @media (max-width: 576px) { .advisory-bento-grid { grid-template-columns: minmax(0, 1fr) !important; } }
+    @media (max-width: 992px) { .aw-layout { grid-template-columns: minmax(0, 1fr) !important; } .contact-split-grid { grid-template-columns: minmax(0, 1fr) !important; } }
+    @media (max-width: 359px) { #turnstileBox { transform: scale(0.85); transform-origin: left top; height: 56px; } }
+    .contact-input-field, .contact-textarea-field { border-color: #8B8494; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .marquee-track { animation: none !important; }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- HEADER -->
   <header class="header" id="navbar">
@@ -609,7 +636,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <!-- PAGE BANNER HEADER -->
     <section class="page-banner">
       <div class="container">
@@ -856,6 +883,23 @@
       }
     });
 
+  </script>
+<script id="a11y-resp-js">
+    /* Menu button state, Escape to close, focus return. Works alongside each page's own toggle code. */
+    (function () {
+      function init() {
+        var btn = document.getElementById('mobileToggleBtn'), drawer = document.getElementById('mobileDrawer');
+        if (!btn || !drawer) return;
+        btn.setAttribute('aria-controls', 'mobileDrawer');
+        btn.setAttribute('aria-expanded', 'false');
+        function sync() { btn.setAttribute('aria-expanded', drawer.classList.contains('open') ? 'true' : 'false'); }
+        new MutationObserver(sync).observe(drawer, { attributes: true, attributeFilter: ['class'] });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && drawer.classList.contains('open')) { btn.click(); btn.focus(); }
+        });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+    })();
   </script>
 </body>
 </html>

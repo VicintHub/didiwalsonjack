@@ -95,7 +95,7 @@ class Didi_Awards_Frontend {
 		<?php endforeach; ?>
 	</nav>
 	<a class="nav-cta" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact <span aria-hidden="true">↗</span></a>
-	<button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">☰</button>
+	<button class="nav-toggle" id="navToggle" aria-label="Menu" aria-controls="navDrawer" aria-expanded="false">☰</button>
 	<div class="drawer" id="navDrawer">
 		<?php foreach ( $links as $k => $l ) : ?><a href="<?php echo esc_url( $l[0] ); ?>"<?php echo 'consulting' === $k ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>><?php echo esc_html( $l[1] ); ?></a><?php endforeach; ?>
 		<a class="btn" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact ↗</a>
@@ -134,7 +134,7 @@ class Didi_Awards_Frontend {
 	<div class="wrap foot-bottom"><span>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> Mrs. Didi Esther Walson-Jack, OON, mni. All Rights Reserved.</span><a href="https://www.vicint.org.ng" target="_blank" rel="noopener noreferrer">Professionally designed by Vicint hub</a></div>
 </footer>
 <script>
-(function(){var t=document.getElementById('navToggle'),d=document.getElementById('navDrawer');if(t&&d){t.addEventListener('click',function(){var o=d.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');t.textContent=o?'✕':'☰';});}
+(function(){var t=document.getElementById('navToggle'),d=document.getElementById('navDrawer');if(t&&d){t.addEventListener('click',function(){var o=d.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');t.textContent=o?'✕':'☰';});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.classList.contains('open')){t.click();t.focus();}});}
 var h=document.getElementById('siteHeader'),l=window.scrollY;window.addEventListener('scroll',function(){var c=window.scrollY;if(c<100){h.classList.remove('hide');}else if(c>l+8){h.classList.add('hide');}else if(c<l-8){h.classList.remove('hide');}l=c;},{passive:true});})();
 </script>
 		<?php

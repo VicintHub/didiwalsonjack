@@ -39,9 +39,10 @@ $stext = rawurlencode( $a['title'] . ' | Mrs. Didi Esther Walson-Jack' );
 <?php $F::head( $a['title'] . ' | Awards | Mrs. Didi Esther Walson-Jack, OON, mni', $a['summary'], $a['permalink'], $a['has_image'] ? $a['image'] : '', '<script type="application/ld+json">' . $ld . '</script>' ); ?>
 </head>
 <body class="award-single">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <?php $F::header( 'awards' ); ?>
 
-<main>
+<main id="main-content" tabindex="-1">
 	<header class="a-hero wrap">
 		<nav class="crumbs" aria-label="Breadcrumb"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a> <span>/</span> <a href="<?php echo esc_url( $arch ); ?>">Awards</a></nav>
 		<h1><?php echo esc_html( $a['title'] ); ?></h1>
@@ -55,10 +56,10 @@ $stext = rawurlencode( $a['title'] . ' | Mrs. Didi Esther Walson-Jack' );
 			<p class="side-p">Lawyer, public administrator, reformer and author. 20th Head of the Civil Service of the Federation (2024-2026).</p>
 			<h3 class="side-k">Let’s connect</h3>
 			<ul class="social">
-				<li><a href="https://x.com/Didi_WalsonJack" target="_blank" rel="noopener" aria-label="X">X</a></li>
-				<li><a href="https://www.linkedin.com/in/didi-esther-walson-jack-mcipm-oon-mni-7285a22a6/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a></li>
-				<li><a href="https://www.facebook.com/didi.walsonjack/" target="_blank" rel="noopener" aria-label="Facebook">f</a></li>
-				<li><a href="https://www.instagram.com/didi.walsonjack/" target="_blank" rel="noopener" aria-label="Instagram">ig</a></li>
+				<li><a href="https://x.com/Didi_WalsonJack" target="_blank" rel="noopener" ><span class="sr-only">X</span><span aria-hidden="true">X</span></a></li>
+				<li><a href="https://www.linkedin.com/in/didi-esther-walson-jack-mcipm-oon-mni-7285a22a6/" target="_blank" rel="noopener" ><span class="sr-only">LinkedIn</span><span aria-hidden="true">in</span></a></li>
+				<li><a href="https://www.facebook.com/didi.walsonjack/" target="_blank" rel="noopener" ><span class="sr-only">Facebook</span><span aria-hidden="true">f</span></a></li>
+				<li><a href="https://www.instagram.com/didi.walsonjack/" target="_blank" rel="noopener" ><span class="sr-only">Instagram</span><span aria-hidden="true">ig</span></a></li>
 			</ul>
 		</aside>
 

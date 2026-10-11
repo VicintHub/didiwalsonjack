@@ -17,9 +17,10 @@ $sel   = isset( $_GET['year'] ) ? absint( $_GET['year'] ) : 0; // phpcs:ignore W
 <?php $F::head( 'Awards & Commendations | Mrs. Didi Esther Walson-Jack, OON, mni', 'The awards, honours and commendations of Mrs. Didi Esther Walson-Jack, OON, mni, 20th Head of the Civil Service of the Federation (2024-2026).', $arch ); ?>
 </head>
 <body class="award-archive">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <?php $F::header( 'awards' ); ?>
 
-<main>
+<main id="main-content" tabindex="-1">
 	<section class="ar-hero">
 		<div class="wrap">
 			<span class="eyebrow">Honours &amp; recognition</span>
@@ -38,6 +39,7 @@ $sel   = isset( $_GET['year'] ) ? absint( $_GET['year'] ) : 0; // phpcs:ignore W
 			<span class="ar-count" id="arCount" aria-live="polite"></span>
 		</div>
 
+		<h2 class="sr-only">All awards</h2>
 		<div class="ar-grid" id="arGrid">
 			<?php foreach ( $items as $a ) { $F::card( $a ); } ?>
 		</div>

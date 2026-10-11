@@ -697,8 +697,35 @@
     @media (max-width: 768px) { .hcsf-flagship-card div[style*="repeat(3"] { grid-template-columns: 1fr !important; } .hcsf-top-actions { flex-wrap: wrap; } .hcsf-top-actions .btn { white-space: normal; } .role-nav { padding: 0.5rem 0.9rem; } .timeline-card .btn { white-space: normal; max-width: 100%; text-align: center; } }
     @media (prefers-reduced-motion: reduce) { .role-overlay, .role-modal, .kfa-track { transition: none; scroll-behavior: auto; } }
   </style>
+<style id="a11y-resp">
+    /* ===== Accessibility & responsive refinements (additive; desktop look unchanged) ===== */
+    .skip-link { transition: none; position: absolute; left: 12px; top: -120px; z-index: 100000; background: #3B1F4A; color: #FFFFFF; padding: 0.8rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: 0 0 0 2px #FFFFFF; }
+    .skip-link:focus { top: 12px; }
+    main[tabindex="-1"]:focus, main[tabindex="-1"]:focus-visible { outline: none; box-shadow: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 3px solid #7A4BA8; outline-offset: 3px; box-shadow: 0 0 0 2px #FFFFFF; }
+    .mobile-drawer { max-height: calc(100vh - 7rem); max-height: calc(100dvh - 7rem); overflow-y: auto; overscroll-behavior: contain; }
+    @media (max-width: 992px) { .mobile-toggle { width: 44px; height: 44px; } }
+    img, video, iframe, svg { max-width: 100%; }
+    /* contrast fixes (text colour only; backgrounds unchanged) */
+    .status-badge.badge-available, .featured-book-badge { color: #2A1636; }
+    /* touch / target-size */
+    .kfa-dot { width: 24px; height: 24px; padding: 7px; margin: 0 -3px; box-sizing: border-box; background-clip: content-box; }
+    .kfa-dot.on { width: 42px; }
+    /* narrow-screen reflow */
+    .contact-split-grid > *, .aw-layout > * { min-width: 0; }
+    @media (max-width: 1240px) { .advisory-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .advisory-bento-grid > * { min-width: 0; } }
+    @media (max-width: 576px) { .advisory-bento-grid { grid-template-columns: minmax(0, 1fr) !important; } }
+    @media (max-width: 992px) { .aw-layout { grid-template-columns: minmax(0, 1fr) !important; } .contact-split-grid { grid-template-columns: minmax(0, 1fr) !important; } }
+    @media (max-width: 359px) { #turnstileBox { transform: scale(0.85); transform-origin: left top; height: 56px; } }
+    .contact-input-field, .contact-textarea-field { border-color: #8B8494; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .marquee-track { animation: none !important; }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- HEADER -->
   <header class="header" id="navbar">
@@ -735,7 +762,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <!-- PAGE BANNER -->
     <section class="page-banner">
       <div class="container">
@@ -815,12 +842,12 @@
         <div class="kfa" id="kfa" aria-roledescription="carousel" aria-label="Key federal assignments">
           <div class="kfa-controls">
             <button type="button" class="kfa-arrow" id="kfaPrev" aria-label="Previous assignments">‹</button>
-            <div class="kfa-dots" id="kfaDots" role="tablist" aria-label="Choose slide"></div>
+            <div class="kfa-dots" id="kfaDots" role="group" aria-label="Choose slide"></div>
             <button type="button" class="kfa-arrow" id="kfaNext" aria-label="Next assignments">›</button>
           </div>
           <div class="kfa-track" id="kfaTrack">
-            <article class="kfa-slide" data-role="hcsf" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Head of the Civil Service">
-              <span class="kfa-num">01</span>
+            <article class="kfa-slide" data-role="hcsf">
+              <span class="kfa-num" aria-hidden="true">01</span>
               <span class="kfa-period">14 Aug 2024 – 27 Aug 2026</span>
               <h3 class="kfa-title">Head of the Civil Service</h3>
               <ul class="kfa-list">
@@ -828,10 +855,10 @@
                 <li>3 to 38 MDAs on digital workflows</li>
                 <li>GovMail to 120,000+ accounts</li>
               </ul>
-              <button type="button" class="kfa-btn" data-role="hcsf">Read more <span aria-hidden="true">→</span></button>
+              <button type="button" class="kfa-btn" data-role="hcsf" aria-haspopup="dialog" aria-label="Read more about Head of the Civil Service">Read more <span aria-hidden="true">→</span></button>
             </article>
-            <article class="kfa-slide" data-role="water" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Water Resources &amp; Sanitation">
-              <span class="kfa-num">02</span>
+            <article class="kfa-slide" data-role="water">
+              <span class="kfa-num" aria-hidden="true">02</span>
               <span class="kfa-period">Sep 2020 – Jan 2024</span>
               <h3 class="kfa-title">Water Resources &amp; Sanitation</h3>
               <ul class="kfa-list">
@@ -839,10 +866,10 @@
                 <li>Restructured the Ministry</li>
                 <li>250KW solar power system</li>
               </ul>
-              <button type="button" class="kfa-btn" data-role="water">Read more <span aria-hidden="true">→</span></button>
+              <button type="button" class="kfa-btn" data-role="water" aria-haspopup="dialog" aria-label="Read more about Water Resources &amp; Sanitation">Read more <span aria-hidden="true">→</span></button>
             </article>
-            <article class="kfa-slide" data-role="power" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Ministry of Power">
-              <span class="kfa-num">03</span>
+            <article class="kfa-slide" data-role="power">
+              <span class="kfa-num" aria-hidden="true">03</span>
               <span class="kfa-period">Dec 2019 – Aug 2020</span>
               <h3 class="kfa-title">Ministry of Power</h3>
               <ul class="kfa-list">
@@ -850,10 +877,10 @@
                 <li>Chaired the Kaduna 215MW committee</li>
                 <li>Chaired the Ministry restructuring</li>
               </ul>
-              <button type="button" class="kfa-btn" data-role="power">Read more <span aria-hidden="true">→</span></button>
+              <button type="button" class="kfa-btn" data-role="power" aria-haspopup="dialog" aria-label="Read more about Ministry of Power">Read more <span aria-hidden="true">→</span></button>
             </article>
-            <article class="kfa-slide" data-role="nda" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Niger Delta Affairs">
-              <span class="kfa-num">04</span>
+            <article class="kfa-slide" data-role="nda">
+              <span class="kfa-num" aria-hidden="true">04</span>
               <span class="kfa-period">Aug – Dec 2019</span>
               <h3 class="kfa-title">Niger Delta Affairs</h3>
               <ul class="kfa-list">
@@ -861,10 +888,10 @@
                 <li>Empowered non-militant youth, women and men</li>
                 <li>Peace and security sensitisation</li>
               </ul>
-              <button type="button" class="kfa-btn" data-role="nda">Read more <span aria-hidden="true">→</span></button>
+              <button type="button" class="kfa-btn" data-role="nda" aria-haspopup="dialog" aria-label="Read more about Niger Delta Affairs">Read more <span aria-hidden="true">→</span></button>
             </article>
-            <article class="kfa-slide" data-role="swo" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Service Welfare Office">
-              <span class="kfa-num">05</span>
+            <article class="kfa-slide" data-role="swo">
+              <span class="kfa-num" aria-hidden="true">05</span>
               <span class="kfa-period">Aug 2017 – Jul 2019</span>
               <h3 class="kfa-title">Service Welfare Office</h3>
               <ul class="kfa-list">
@@ -872,10 +899,10 @@
                 <li>Chaired the Joint National Negotiating Council</li>
                 <li>Minimum wage tripartite committee</li>
               </ul>
-              <button type="button" class="kfa-btn" data-role="swo">Read more <span aria-hidden="true">→</span></button>
+              <button type="button" class="kfa-btn" data-role="swo" aria-haspopup="dialog" aria-label="Read more about Service Welfare Office">Read more <span aria-hidden="true">→</span></button>
             </article>
-            <article class="kfa-slide" data-role="directors" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Read more about Directorships">
-              <span class="kfa-num">06</span>
+            <article class="kfa-slide" data-role="directors">
+              <span class="kfa-num" aria-hidden="true">06</span>
               <span class="kfa-period">Feb 2015 – Aug 2017</span>
               <h3 class="kfa-title">Directorships</h3>
               <ul class="kfa-list">
@@ -883,7 +910,7 @@
                 <li>Revived the Multi-Stakeholder Trust Fund</li>
                 <li>Designed SMAT-P and LEAD-P</li>
               </ul>
-              <button type="button" class="kfa-btn" data-role="directors">Read more <span aria-hidden="true">→</span></button>
+              <button type="button" class="kfa-btn" data-role="directors" aria-haspopup="dialog" aria-label="Read more about Directorships">Read more <span aria-hidden="true">→</span></button>
             </article>
           </div>
         </div>
@@ -900,7 +927,7 @@
 
           <!-- 1. HCSF -->
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="hcsf" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Head of the Civil Service of the Federation, 14 14 Aug 2024 – 27 Aug 2026">
+            <div class="timeline-card is-clickable" data-role="hcsf">
               <div class="timeline-header">
                 <span class="timeline-period">14 AUG 2024 – 27 AUG 2026</span>
                 <span class="timeline-type">Full-time · On-site</span>
@@ -918,12 +945,12 @@
 <a href="https://didiwalsonjack.com/wp-content/uploads/2026/10/Mrs-DIdi-Walson-Jack-HCSF-Legacy-Report.pdf" target="_blank" rel="noopener" download class="btn btn-gold"><svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download Legacy Report (PDF)</a>
 <a href="https://didiwalsonjack.com/wp-content/uploads/2026/10/Mrs-DIdi-Walson-Jack-HCSF-ScoreCard.pdf" target="_blank" rel="noopener" download class="btn btn-dl-secondary"><svg viewBox="0 0 24 24" style="width: 18px; height: 18px; fill: currentColor;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> Download Scorecard (PDF)</a>
 </div>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="hcsf">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="hcsf" aria-haspopup="dialog" aria-label="Read more about Head of the Civil Service of the Federation, 14 14 Aug 2024 – 27 Aug 2026">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
                     <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="sdo" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, Special Duties Office, 18 Jul – 12 Aug 2024">
+            <div class="timeline-card is-clickable" data-role="sdo">
               <div class="timeline-header">
                 <span class="timeline-period">JUL 2024 – AUG 2024</span>
                 <span class="timeline-type">Full-time</span>
@@ -934,12 +961,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Permanent Secretary, Special Duties Office, from 18 July 2024 until her appointment as Head of the Civil Service.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="sdo">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="sdo" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, Special Duties Office, 18 Jul – 12 Aug 2024">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="edu" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 15 Jan – 18 Jul 2024">
+            <div class="timeline-card is-clickable" data-role="edu">
               <div class="timeline-header">
                 <span class="timeline-period">JAN 2024 – JUL 2024</span>
                 <span class="timeline-type">Full-time · On-site</span>
@@ -950,12 +977,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Permanent Secretary of the Federal Ministry of Education from 15 January 2024. Nigerian representative at the Global Gateway High-Level Education Event, Brussels, on 11 April 2024.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="edu">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="edu" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 15 Jan – 18 Jul 2024">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="water" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 30 Sep 2020 – Jan 2024">
+            <div class="timeline-card is-clickable" data-role="water">
               <div class="timeline-header">
                 <span class="timeline-period">SEP 2020 – JAN 2024</span>
                 <span class="timeline-type">Full-time · 3 yrs 3 mos</span>
@@ -966,12 +993,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Chaired the National Technical Committee on Water Resources and the Local Organising Committee of the 2022 World Toilet Summit, and sat on the steering committee of the Presidential committee on flood-disaster prevention. Restructured the ministry (a new Hydrology Department and the redesignation to Water Resources and Sanitation) and completed a 250KW solar power system, staff clinic, canteen and gymnasium.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="water">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="water" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 30 Sep 2020 – Jan 2024">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="power" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 23 Dec 2019 – 27 Aug 2020">
+            <div class="timeline-card is-clickable" data-role="power">
               <div class="timeline-header">
                 <span class="timeline-period">DEC 2019 – AUG 2020</span>
                 <span class="timeline-type">Full-time · 8 mos</span>
@@ -982,12 +1009,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Chaired the committees on procurement planning, electricity supply to the Presidential Villa, the Kaduna power plants and the restructuring of the Ministry and oversight of its agencies. Secretary of the inter-ministerial committees on the Mambilla Hydroelectric Power Project and a board member of the Nigeria Bulk Electricity Company Limited.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="power">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="power" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 23 Dec 2019 – 27 Aug 2020">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="nda" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 1 Aug – 20 Dec 2019">
+            <div class="timeline-card is-clickable" data-role="nda">
               <div class="timeline-header">
                 <span class="timeline-period">AUG 2019 – DEC 2019</span>
                 <span class="timeline-type">Full-time · 4 mos</span>
@@ -998,12 +1025,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Chaired the Ministerial Tenders Board, sat on the Inter-Governmental Affairs Committee, trained and empowered non-militant youth, women and men, and led peace and security sensitisation programmes.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="nda">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="nda" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 1 Aug – 20 Dec 2019">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="swo" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 16 Aug 2017 – 31 Jul 2019">
+            <div class="timeline-card is-clickable" data-role="swo">
               <div class="timeline-header">
                 <span class="timeline-period">AUG 2017 – JUL 2019</span>
                 <span class="timeline-type">Full-time · 2 yrs</span>
@@ -1014,12 +1041,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Chaired the technical committee that developed the Federal Civil Service Welfare Policy, the Joint National Public Service Negotiating Council (2017 to 2019) and the committee on the policy framework for public service emergency management. Represented the Head of the Civil Service on the Tripartite Committee on the National Minimum Wage and edited the Service Welfare Newsletter.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="swo">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="swo" aria-haspopup="dialog" aria-label="Read more about Permanent Secretary, 16 Aug 2017 – 31 Jul 2019">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="directors" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Director, Feb 2015 – Aug 2017">
+            <div class="timeline-card is-clickable" data-role="directors">
               <div class="timeline-header">
                 <span class="timeline-period">FEB 2015 – AUG 2017</span>
                 <span class="timeline-type">Full-time</span>
@@ -1030,12 +1057,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 As Director in the Office of the Permanent Secretary, OHCSF, developed the curricula for the Structured Mandatory Assessment-Based Training Programme (SMAT-P) and the Leadership Enhancement and Development Programme (LEAD-P). As Director of Planning, Research and Statistics, Niger Delta Affairs, secured UNDP support for an ICT-based monitoring and evaluation system and revived the Multi-Stakeholder Trust Fund.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="directors">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="directors" aria-haspopup="dialog" aria-label="Read more about Director, Feb 2015 – Aug 2017">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="exec" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Chief of Staff, Commissioner and Deputy Chief of Staff, Feb 2012 – Dec 2014">
+            <div class="timeline-card is-clickable" data-role="exec">
               <div class="timeline-header">
                 <span class="timeline-period">FEB 2012 – DEC 2014</span>
                 <span class="timeline-type">On secondment</span>
@@ -1046,12 +1073,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Deputy Chief of Staff to the Governor (February to August 2012), Commissioner for Science, Technology and Manpower Development (August 2012 to June 2013) and Chief of Staff (June 2013 to December 2014). Chaired the committee that set out the structure and sector strategy of the new Ministry of Science, Technology and Manpower Development.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="exec">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="exec" aria-haspopup="dialog" aria-label="Read more about Chief of Staff, Commissioner and Deputy Chief of Staff, Feb 2012 – Dec 2014">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="mnda" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Assistant Director and Deputy Director, Jun 2009 – Feb 2012">
+            <div class="timeline-card is-clickable" data-role="mnda">
               <div class="timeline-header">
                 <span class="timeline-period">JUN 2009 – FEB 2012</span>
                 <span class="timeline-type">Full-time</span>
@@ -1062,12 +1089,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Joined the Federal Civil Service in 2009. Set up and coordinated the ministry’s Rivers State Office as its pioneer State Coordinator, then served in the Department of Human Resource Management in Abuja.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="mnda">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="mnda" aria-haspopup="dialog" aria-label="Read more about Assistant Director and Deputy Director, Jun 2009 – Feb 2012">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="justice" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Solicitor-General &amp; Permanent Secretary, 1998 – Jun 2009">
+            <div class="timeline-card is-clickable" data-role="justice">
               <div class="timeline-header">
                 <span class="timeline-period">1998 – JUN 2009</span>
                 <span class="timeline-type">Executive State Service</span>
@@ -1078,12 +1105,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Head of Legal Drafting at the Ministry of Justice from October 1998 and, from May 1999, at the State House of Assembly. Solicitor-General and Permanent Secretary from July 2002 to January 2009, and Secretary of the Bayelsa State Law Revision Committee (2004 to 2008). Permanent Secretary, Office of the Head of Service, in early 2009.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="justice">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="justice" aria-haspopup="dialog" aria-label="Read more about Solicitor-General &amp; Permanent Secretary, 1998 – Jun 2009">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="rivers" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about State Counsel, 1992 – 1996">
+            <div class="timeline-card is-clickable" data-role="rivers">
               <div class="timeline-header">
                 <span class="timeline-period">1992 – 1996</span>
                 <span class="timeline-type">State Legal Service</span>
@@ -1094,12 +1121,12 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 State Counsel from 1992 to September 1996. Member of the Rivers and Bayelsa States Assets and Liabilities Sharing and Implementation Committee (1996 to 1997).
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="rivers">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="rivers" aria-haspopup="dialog" aria-label="Read more about State Counsel, 1992 – 1996">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
           <div class="timeline-item">
-            <div class="timeline-card is-clickable" data-role="early" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Read more about Law Clerk, State Counsel, Legal Practitioner and Editor, 1985 – 1990">
+            <div class="timeline-card is-clickable" data-role="early">
               <div class="timeline-header">
                 <span class="timeline-period">1985 – 1990</span>
                 <span class="timeline-type">Early career</span>
@@ -1110,7 +1137,7 @@
               <p style="font-size: 0.98rem; color: #5E5566;">
                 Vacation clerk at Elf (Nigeria) Limited in 1985, State Counsel in Uyo during National Youth Service (1987 to 1988), legal practitioner in Port Harcourt (1988 to 1990) and Managing Editor of LAWFAIR News Magazine in 1990.
               </p>
-              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="early">Read more <span aria-hidden="true">→</span></button></div>
+              <div class="tl-more"><span class="tl-more-hint">Key assignments &amp; initiatives</span><button type="button" class="tl-more-btn" data-role="early" aria-haspopup="dialog" aria-label="Read more about Law Clerk, State Counsel, Legal Practitioner and Editor, 1985 – 1990">Read more <span aria-hidden="true">→</span></button></div>
             </div>
           </div>
 
@@ -1362,7 +1389,7 @@
         var t = e.target.closest('[data-role]');
         if (t && !overlay.contains(t)) {
           if (e.target.closest('a')) return;
-          e.preventDefault(); openRole(t.getAttribute('data-role'), t);
+          e.preventDefault(); openRole(t.getAttribute('data-role'), t.matches('button') ? t : (t.querySelector('button[data-role]') || t));
         }
       });
       document.addEventListener('keydown', function (e) {
@@ -1412,6 +1439,23 @@
         track.addEventListener('scroll', function () { window.requestAnimationFrame(active); });
         window.addEventListener('resize', active); active();
       }
+    })();
+  </script>
+<script id="a11y-resp-js">
+    /* Menu button state, Escape to close, focus return. Works alongside each page's own toggle code. */
+    (function () {
+      function init() {
+        var btn = document.getElementById('mobileToggleBtn'), drawer = document.getElementById('mobileDrawer');
+        if (!btn || !drawer) return;
+        btn.setAttribute('aria-controls', 'mobileDrawer');
+        btn.setAttribute('aria-expanded', 'false');
+        function sync() { btn.setAttribute('aria-expanded', drawer.classList.contains('open') ? 'true' : 'false'); }
+        new MutationObserver(sync).observe(drawer, { attributes: true, attributeFilter: ['class'] });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && drawer.classList.contains('open')) { btn.click(); btn.focus(); }
+        });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
     })();
   </script>
 </body>

@@ -2058,9 +2058,36 @@
     @media (max-width: 520px) { .awards-showcase { --c: 128px; } .aw-card.is-active .aw-card-txt b { font-size: 1.1rem; } .aw-arrow { width: 46px; height: 46px; } .aw-count { font-size: 2rem; } }
     @media (prefers-reduced-motion: reduce) { .aw-fade { animation: none; } .aw-card, .aw-progress i { transition: none; } }
   </style>
+<style id="a11y-resp">
+    /* ===== Accessibility & responsive refinements (additive; desktop look unchanged) ===== */
+    .skip-link { transition: none; position: absolute; left: 12px; top: -120px; z-index: 100000; background: #3B1F4A; color: #FFFFFF; padding: 0.8rem 1.2rem; border-radius: 8px; font-weight: 700; text-decoration: none; box-shadow: 0 0 0 2px #FFFFFF; }
+    .skip-link:focus { top: 12px; }
+    main[tabindex="-1"]:focus, main[tabindex="-1"]:focus-visible { outline: none; box-shadow: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 3px solid #7A4BA8; outline-offset: 3px; box-shadow: 0 0 0 2px #FFFFFF; }
+    .mobile-drawer { max-height: calc(100vh - 7rem); max-height: calc(100dvh - 7rem); overflow-y: auto; overscroll-behavior: contain; }
+    @media (max-width: 992px) { .mobile-toggle { width: 44px; height: 44px; } }
+    img, video, iframe, svg { max-width: 100%; }
+    /* contrast fixes (text colour only; backgrounds unchanged) */
+    .featured-book-badge { color: #2A1636; }
+    /* touch / target-size */
+    .kfa-dot { width: 24px; height: 24px; padding: 7px; margin: 0 -3px; box-sizing: border-box; background-clip: content-box; }
+    .kfa-dot.on { width: 42px; }
+    /* narrow-screen reflow */
+    .contact-split-grid > *, .aw-layout > * { min-width: 0; }
+    @media (max-width: 1240px) { .advisory-bento-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .advisory-bento-grid > * { min-width: 0; } }
+    @media (max-width: 576px) { .advisory-bento-grid { grid-template-columns: minmax(0, 1fr) !important; } }
+    @media (max-width: 992px) { .aw-layout { grid-template-columns: minmax(0, 1fr) !important; } .contact-split-grid { grid-template-columns: minmax(0, 1fr) !important; } }
+    @media (max-width: 359px) { #turnstileBox { transform: scale(0.85); transform-origin: left top; height: 56px; } }
+    .contact-input-field, .contact-textarea-field { border-color: #8B8494; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .marquee-track { animation: none !important; }
+    }
+  </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- HEADER -->
   <header class="header" id="navbar">
@@ -2099,7 +2126,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <!-- ==========================================================================
          HERO SLIDER SECTION (3-SLIDE CAROUSEL WITH GRADIENT OVERLAY)
          ========================================================================== -->
@@ -2175,7 +2202,7 @@
       <!-- SLIDER CONTROLS & PAGINATION DOTS -->
       <div class="hero-slider-nav">
         <button class="hero-arrow" id="heroPrev" aria-label="Previous Slide">‹</button>
-        <div class="hero-slider-dots" id="heroDots">
+        <div class="hero-slider-dots" id="heroDots" aria-hidden="true">
           <span class="hero-dot active" data-slide="0"></span>
           <span class="hero-dot" data-slide="1"></span>
           <span class="hero-dot" data-slide="2"></span>
@@ -2604,7 +2631,7 @@
               <a class="aw-btn" id="awLink" href="/awards/">Discover award</a>
             </div>
           </div>
-          <div class="aw-rail" id="awRail" role="list"></div>
+          <div class="aw-rail" id="awRail" role="group" aria-label="Award highlights"></div>
           <div class="aw-controls">
             <button type="button" class="aw-arrow" id="awPrev" aria-label="Previous award">‹</button>
             <button type="button" class="aw-arrow" id="awNext" aria-label="Next award">›</button>
@@ -2863,6 +2890,7 @@
           if (index >= slides.length) index = 0;
           currentIndex = index;
           sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+          slides.forEach((sl, i) => { if (i === currentIndex) { sl.removeAttribute('inert'); sl.removeAttribute('aria-hidden'); } else { sl.setAttribute('inert', ''); sl.setAttribute('aria-hidden', 'true'); } });
           dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === currentIndex);
           });
@@ -2870,6 +2898,7 @@
 
         function startAutoSlide() {
           stopAutoSlide();
+          if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
           slideInterval = setInterval(function () {
             goToSlide(currentIndex + 1);
           }, 6000);
@@ -2890,8 +2919,10 @@
         if (sliderSection) {
           sliderSection.addEventListener('mouseenter', stopAutoSlide);
           sliderSection.addEventListener('mouseleave', startAutoSlide);
+          sliderSection.addEventListener('focusin', stopAutoSlide);
         }
 
+        goToSlide(0);
         startAutoSlide();
       }
     });
@@ -2965,7 +2996,7 @@
         rail.scrollLeft = 0;
         rail.innerHTML = windowIdx().map(function (i, k) {
           var a = items[i], img = a.image && a.has_image !== false ? a.image : ph(i, a.year);
-          return '<button type="button" class="aw-card' + (k === 0 ? ' is-active' : '') + '" role="listitem" data-i="' + i + '" aria-label="' + esc(a.title) + ', ' + esc(a.issuer) + ', ' + esc(a.year) + '"' + (k === 0 ? ' aria-current="true"' : '') + '><img src="' + esc(img) + '" alt="" loading="lazy" onerror="this.onerror=null;this.src=\'' + ph(i, a.year) + '\'"><span class="aw-card-txt"><i></i><small>' + esc(a.issuer) + '</small><b>' + esc(a.title) + '</b><em>' + esc(a.date_text || a.year || '') + '</em></span></button>';
+          return '<button type="button" class="aw-card' + (k === 0 ? ' is-active' : '') + '" data-i="' + i + '"' + (k === 0 ? ' aria-current="true"' : '') + '><img src="' + esc(img) + '" alt="" loading="lazy" onerror="this.onerror=null;this.src=\'' + ph(i, a.year) + '\'"><span class="aw-card-txt"><i></i><small>' + esc(a.issuer) + '</small><b>' + esc(a.title) + '</b><em>' + esc(a.date_text || a.year || '') + '</em></span></button>';
         }).join('');
       }
       function show(i, animate) {
@@ -3005,6 +3036,23 @@
           .then(function (j) { clearTimeout(to); if (j && j.items && j.items.length) { items = j.items; show(0, false); } })
           .catch(function () { clearTimeout(to); });
       }
+    })();
+  </script>
+<script id="a11y-resp-js">
+    /* Menu button state, Escape to close, focus return. Works alongside each page's own toggle code. */
+    (function () {
+      function init() {
+        var btn = document.getElementById('mobileToggleBtn'), drawer = document.getElementById('mobileDrawer');
+        if (!btn || !drawer) return;
+        btn.setAttribute('aria-controls', 'mobileDrawer');
+        btn.setAttribute('aria-expanded', 'false');
+        function sync() { btn.setAttribute('aria-expanded', drawer.classList.contains('open') ? 'true' : 'false'); }
+        new MutationObserver(sync).observe(drawer, { attributes: true, attributeFilter: ['class'] });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && drawer.classList.contains('open')) { btn.click(); btn.focus(); }
+        });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
     })();
   </script>
 </body>
