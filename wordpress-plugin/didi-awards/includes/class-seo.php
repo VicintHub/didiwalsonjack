@@ -96,7 +96,7 @@ class Didi_Awards_SEO {
 			. "## Key facts\n"
 			. "- Full name: Mrs. Didi Esther Walson-Jack, OON, mni (also written Diiarau Didi Esther Walson-Jack)\n"
 			. "- OON: Officer of the Order of the Niger (2023). mni: member of the National Institute, NIPSS Kuru (always written in lowercase)\n"
-			. "- Career: Legal draftswoman, then Solicitor-General and Permanent Secretary, Ministry of Justice, Bayelsa State; Federal Permanent Secretary from 2017 across five ministries and offices; Head of the Civil Service of the Federation 2024-2026\n"
+			. "- Career: State Counsel (Rivers State, from 1992) and legal drafting (Bayelsa State, from 1998), then Solicitor-General and Permanent Secretary, Ministry of Justice, Bayelsa State; Federal Permanent Secretary from 2017 across five ministries and offices; Head of the Civil Service of the Federation 2024-2026\n"
 			. "- Education: LL.B University of Lagos (1986); Nigerian Law School (1987); Executive MPA, London School of Economics (2025); Harvard Kennedy School, Certificate in Leadership for the 21st Century (September 2026)\n"
 			. "- Books: Roses in the Thorns (2017); I Planted: A memoir of purposeful service (2026, Safari Books); Beyond the Mandate: A Memoir on Leadership, Legacy & Labour of Public Service\n"
 			. "- Contact: didi@didiwalsonjack.com, +234 911 000 1234, Beautiful Gate Villa, Plot 812 Paul Unongo Crescent, Jabi, Abuja, Nigeria\n\n"

@@ -69,7 +69,7 @@ FAQ_MAIN = [
 ]
 FAQ_ABOUT = [
   ("Where did Mrs. Walson-Jack study?", "She holds an LL.B from the University of Lagos (1986) and a Bar Qualifying Certificate from the Nigerian Law School (1987). Her executive education includes the Executive Master of Public Administration at the London School of Economics (2025), Harvard Business School, the Harvard Kennedy School Certificate in Leadership for the 21st Century (September 2026) and the Nigeria Executive Leadership Programme at the Mohammed Ibn Rashid School of Government, Dubai (2025). She is a member of the National Institute (mni) from NIPSS, Kuru."),
-  ("Where did she begin her public service career?", "She began as a legal draftswoman in Bayelsa State, rose to Solicitor-General and Permanent Secretary of the Ministry of Justice, joined the Federal Civil Service in 2009 and became a Federal Permanent Secretary in 2017."),
+  ("Where did she begin her public service career?", "She began as State Counsel in Rivers State in 1992, headed legal drafting in Bayelsa State from 1998, rose to Solicitor-General and Permanent Secretary of the Ministry of Justice, joined the Federal Civil Service in 2009 and became a Federal Permanent Secretary in 2017."),
   ("What do OON and mni mean?", "OON means Officer of the Order of the Niger, a Nigerian national honour conferred in 2023. mni means member of the National Institute, awarded by the National Institute for Policy and Strategic Studies (NIPSS), Kuru."),
   ("Where can I download her CV and profile?", "Her curriculum vitae and introductory profile are available as PDF downloads on this page."),
 ]

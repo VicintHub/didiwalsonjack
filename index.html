@@ -2019,7 +2019,7 @@
     .aw-stage { min-height: 420px; display: flex; flex-direction: column; justify-content: center; }
     .aw-bar { display: block; width: 36px; height: 3px; background: #B03A63; margin-bottom: 1.4rem; }
     .aw-kicker { margin: 0 0 0.9rem; font-size: 1.05rem; color: #5E5566; }
-    .aw-title { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #3B1F4A; font-size: clamp(2.1rem, 4.2vw, 3.6rem); line-height: 1.08; margin: 0 0 1.3rem; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+    .aw-title { font-family: var(--font-heading); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #3B1F4A; font-size: clamp(2.1rem, 4.2vw, 3.6rem); line-height: 1.08; margin: 0 0 1.3rem; overflow-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
     .aw-desc { margin: 0 0 1.8rem; color: #231F26; font-size: 1rem; line-height: 1.8; max-width: 480px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
     .aw-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
     .aw-bookmark { width: 46px; height: 46px; border-radius: 50%; background: #7A4BA8; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(122,75,168,0.35); }
@@ -2047,7 +2047,7 @@
     .aw-card.is-active:hover { transform: none; }
     .aw-card.is-active .aw-card-txt { left: 1.3rem; right: 1.3rem; bottom: 1.3rem; }
     .aw-card.is-active .aw-card-txt small { font-size: 0.82rem; }
-    .aw-card.is-active .aw-card-txt b { font-size: 1.3rem; -webkit-line-clamp: 4; }
+    .aw-card.is-active .aw-card-txt b { font-size: 1.2rem; -webkit-line-clamp: 7; }
     .aw-controls { grid-column: 1 / -1; display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; }
     .aw-arrow { width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid #7A4BA8; background: #FFFFFF; color: #7A4BA8; font-size: 1.3rem; cursor: pointer; transition: 0.25s; }
     .aw-arrow:hover { background: #7A4BA8; color: #FFFFFF; }
@@ -2144,7 +2144,7 @@
               </h1>
               <p class="hero-slide-desc">
                 Lawyer, public administrator, reformer, author, and 20th Head of the Civil Service of the
-                Federation of Nigeria (2024-2026). She handed over in August 2026 and has retired from active public
+                Federation of Nigeria (2024-2026). She handed over on 27 August 2026 and has retired from active public
                 service after 34 years. She is now a speaker and global advisor on institutions and leadership.
               </p>
               <div class="hero-slide-ctas">
@@ -2391,8 +2391,8 @@
             <p class="intro-paragraph">
               She joined the Federal Civil Service in 2009 and was appointed Federal Permanent Secretary in 2017,
               leading the Service Welfare Office and the Ministries of Niger Delta Affairs, Power, Water Resources and
-              Sanitation, and Education. She served as the 20th Head of the Civil Service of the Federation from
-              14 August 2024 to August 2026, when she handed over and retired from active public service.
+              Sanitation, and Education, and then the Special Duties Office in July and August 2024. She served as the 20th Head of the Civil Service of the Federation from
+              14 August 2024 to 27 August 2026, when she handed over and retired from active public service.
             </p>
             <a href="/about" class="btn btn-outline-gold" style="margin-top: 0.5rem; display: inline-block;">Explore Her
               Story →</a>
@@ -2999,6 +2999,16 @@
           return '<button type="button" class="aw-card' + (k === 0 ? ' is-active' : '') + '" data-i="' + i + '"' + (k === 0 ? ' aria-current="true"' : '') + '><img src="' + esc(img) + '" alt="" loading="lazy" onerror="this.onerror=null;this.src=\'' + ph(i, a.year) + '\'"><span class="aw-card-txt"><i></i><small>' + esc(a.issuer) + '</small><b>' + esc(a.title) + '</b><em>' + esc(a.date_text || a.year || '') + '</em></span></button>';
         }).join('');
       }
+      /* Shrink the heading only as far as needed so no word or line is cut off. */
+      function fitTitle(t) {
+        t.style.fontSize = ''; t.style.overflowWrap = 'normal';
+        var size = parseFloat(getComputedStyle(t).fontSize), min = 22, guard = 60;
+        while (guard-- > 0 && size > min && (t.scrollWidth > t.clientWidth + 1 || t.scrollHeight > t.clientHeight + 1)) {
+          size -= 1; t.style.fontSize = size + 'px';
+        }
+        t.style.overflowWrap = '';
+      }
+      window.addEventListener('resize', function () { var t = document.getElementById('awTitle'); if (t && t.textContent) fitTitle(t); });
       function show(i, animate) {
         if (!items.length) return;
         idx = (i + items.length) % items.length;
@@ -3006,6 +3016,7 @@
         var k = document.getElementById('awKicker'), t = document.getElementById('awTitle'), d = document.getElementById('awDesc'), l = document.getElementById('awLink');
         k.textContent = a.issuer + (a.year ? ' · ' + a.year : ''); t.textContent = a.title; d.textContent = a.summary || ''; l.href = a.link || '/awards/';
         [k, t, d].forEach(function (n) { n.classList.remove('aw-fade'); void n.offsetWidth; n.classList.add('aw-fade'); });
+        fitTitle(t);
         build();
         if (animate !== false) { rail.style.animation = 'none'; void rail.offsetWidth; rail.style.animation = ''; }
         document.getElementById('awBar').style.width = ((idx + 1) / items.length * 100) + '%';
