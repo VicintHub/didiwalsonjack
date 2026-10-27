@@ -55,3 +55,9 @@ Approved items applied after a read-through against the CV, Profile, Legacy Repo
 - Books: removed the "Before the apex titles" sentence.
 - Home awards: the big title now shrinks only as far as needed so no word or line is cut; the active card shows its full title.
 Kept as decided: HCSF start 14 August 2024; "3 to 38" MDAs; award details from web research; education "Skills" lines; "20th" ordinal; family line and MCIPM not added; About hero quote unchanged.
+
+## Under-construction page and automatic rerouting (plugin 1.3.0)
+- `under-construction.html`: stand-alone maintenance page in the brand style (logo, status badge, what is coming, office contact, social links). Marked noindex; passes axe with no violations; no horizontal scroll at 320 to 1280.
+- Plugin "Under construction" screen (Awards menu): Automatic (default), Always on, or Off.
+  - Automatic: while the page with slug `under-construction` is the static front page (Settings > Reading), every other front-end page redirects (302) to the home page, and the home page is served as 503 with Retry-After so search engines treat it as temporary.
+  - Logged-in editors are never rerouted; `?uc_preview=1` shows the visitor view. Admin, login, REST, AJAX, cron, sitemap.xml, llms.txt and robots.txt are not affected.
