@@ -66,14 +66,8 @@
     @keyframes slide { to { background-position: -200% 0; } }
     .build p { margin-top: .7rem; font-size: .9rem; color: var(--ink-muted); }
 
-    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 2.6rem 0 0; text-align: left; }
-    .card { background: #fff; border: 1px solid rgba(122,75,168,.25); border-radius: 18px; padding: 1.3rem 1.3rem 1.4rem; box-shadow: 0 14px 30px -18px rgba(59,31,74,.35); }
-    .card .ic { width: 42px; height: 42px; border-radius: 12px; background: var(--mist); color: var(--aubergine); display: grid; place-items: center; margin-bottom: .8rem; }
-    .card .ic svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .card h2 { font-size: 1.15rem; margin-bottom: .35rem; }
-    .card p { font-size: .92rem; color: var(--ink-muted); line-height: 1.6; }
 
-    .contact { margin: 2.4rem auto 0; max-width: 720px; background: linear-gradient(135deg, var(--aubergine), var(--night)); color: #fff; border-radius: 22px; padding: 1.8rem 1.6rem; box-shadow: 0 24px 50px -24px rgba(42,22,54,.7); }
+    .contact { margin: 2.6rem auto 0; max-width: 720px; background: linear-gradient(135deg, var(--aubergine), var(--night)); color: #fff; border-radius: 22px; padding: 1.8rem 1.6rem; box-shadow: 0 24px 50px -24px rgba(42,22,54,.7); }
     .contact h2 { color: #fff; font-size: 1.35rem; margin-bottom: .4rem; }
     .contact > p { color: #E9DFF5; font-size: .95rem; margin-bottom: 1.1rem; }
     .contact-row { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; }
@@ -93,7 +87,6 @@
     footer { text-align: center; padding: 1.4rem 1.5rem 1.8rem; font-size: .85rem; color: var(--ink-muted); }
     footer a { color: var(--aubergine); font-weight: 700; }
 
-    @media (max-width: 820px) { .cards { grid-template-columns: minmax(0, 1fr); } }
     @media (max-height: 460px) and (orientation: landscape) { .top { padding-top: 1rem; } main { padding-top: 1.2rem; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
   </style>
@@ -118,24 +111,6 @@
         <div class="build" role="img" aria-label="Update in progress">
           <div class="build-bar"><span></span></div>
           <p>Update in progress. Thank you for your patience.</p>
-        </div>
-
-        <div class="cards">
-          <section class="card" aria-labelledby="c1">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M7 11v5c0 1.2 2.2 3 5 3s5-1.8 5-3v-5"/></svg></div>
-            <h2 id="c1">Her story</h2>
-            <p>An updated biography, education and career record from 34 years of public service.</p>
-          </section>
-          <section class="card" aria-labelledby="c2">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="m8.5 13.5-1.5 7 5-2.5 5 2.5-1.5-7"/></svg></div>
-            <h2 id="c2">Awards and books</h2>
-            <p>Honours, commendations, and her three books, including the 2026 memoirs.</p>
-          </section>
-          <section class="card" aria-labelledby="c3">
-            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5Z"/></svg></div>
-            <h2 id="c3">Advisory and speaking</h2>
-            <p>Strategic advisory, leadership programmes, mentoring and keynote enquiries.</p>
-          </section>
         </div>
 
         <section class="contact" aria-labelledby="ct">
